@@ -24,9 +24,7 @@ const SERVICES = [
   },
 ];
 
-const INK = "var(--svg-ink)";
-const GRAY = "var(--svg-gray)";
-const TINT = "var(--svg-tint)";
+
 
 /* GPU Optimization — an oscilloscope latency profiler and memory coalescing schematic
    matching the clean, flat CAD blueprint styling of the wafer illustration. */
@@ -62,7 +60,7 @@ function GaugeVisual() {
         { y: 0, opacity: 0 },
         {
           y: 25,
-          opacity: [0, 0.7, 0.7, 0] as any,
+          keyframes: { opacity: [0, 0.7, 0.7, 0] },
           duration: 2.2,
           repeat: -1,
           stagger: 0.4,
@@ -239,10 +237,10 @@ function ParallelVisual() {
             opacity: 0.95,
             duration: 0.8,
             stagger: {
-              grid: [8, 8],
-              from: "left",
+              grid: [8, 8] as [number, number],
+              from: "start" as const,
               each: 0.05,
-            } as any,
+            },
             ease: "sine.out"
           },
           "-=1.0"

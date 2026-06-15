@@ -35,7 +35,7 @@ export default function FinalCTA() {
         </SplitHeading>
         <Reveal delay={0.1}>
           <p className="mt-6 text-darkink2 max-w-[58ch]">
-            Join hundreds of forward-thinking companies leveraging Jashom's AI expertise to drive innovation and achieve unprecedented business outcomes.
+            Join hundreds of forward-thinking companies leveraging Jashom{"'"}s AI expertise to drive innovation and achieve unprecedented business outcomes.
           </p>
         </Reveal>
         <Reveal delay={0.18}>
