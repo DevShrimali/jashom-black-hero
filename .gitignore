@@ -1,0 +1,82 @@
+# ===========================
+# Next.js
+# ===========================
+.next/
+out/
+build/
+
+# Next.js build info
+tsconfig.tsbuildinfo
+next-env.d.ts
+
+# ===========================
+# Node.js
+# ===========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# ===========================
+# Environment Variables
+# ===========================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env*.local
+
+# ===========================
+# macOS
+# ===========================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ===========================
+# Editors & IDEs
+# ===========================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.cursor/
+
+# ===========================
+# Logs & Debug
+# ===========================
+logs/
+*.log
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# ===========================
+# Coverage & Testing
+# ===========================
+coverage/
+.nyc_output/
+.jest-cache/
+
+# ===========================
+# Misc / Temp
+# ===========================
+tmp_scratch/
+.tmp/
+.cache/
+*.tgz
+.yarn-integrity
+
+# Vercel
+.vercel/
+
+# TypeScript incremental cache
+*.tsbuildinfo
