@@ -38,8 +38,14 @@ export default function RootLayout({
               (function() {
                 try {
                   var theme = localStorage.getItem('theme');
-                  var systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-                  var activeTheme = theme === 'system' || !theme ? systemTheme : theme;
+                  var activeTheme;
+                  if (!theme || theme === 'light') {
+                    activeTheme = 'light';
+                  } else if (theme === 'dark') {
+                    activeTheme = 'dark';
+                  } else {
+                    activeTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                  }
                   if (activeTheme === 'dark') {
                     document.documentElement.classList.add('dark');
                   } else {

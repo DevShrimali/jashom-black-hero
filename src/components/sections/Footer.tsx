@@ -53,7 +53,7 @@ const COLUMNS: FooterColumn[] = [
 ];
 
 export default function Footer() {
-  const [theme, setTheme] = useState<"system" | "light" | "dark">("system");
+  const [theme, setTheme] = useState<"system" | "light" | "dark">("light");
   const [mounted, setMounted] = useState(false);
   const [isDark, setIsDark] = useState(false);
 
