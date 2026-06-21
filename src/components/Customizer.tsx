@@ -132,6 +132,75 @@ export default function Customizer() {
   const [fontSizeScale, setFontSizeScale] = useState(1.0);
   const [selectedFontPreset, setSelectedFontPreset] = useState("current");
 
+  // Update specific color values
+  const applyColors = (colors: {
+    bg: string;
+    card: string;
+    text: string;
+    accent: string;
+    border: string;
+    isDark: boolean;
+  }) => {
+    const root = document.documentElement;
+
+    root.style.setProperty("--bg-primary", colors.bg);
+    root.style.setProperty("--bg-secondary", colors.card);
+    root.style.setProperty("--bg-tertiary", colors.isDark ? "#1f1f23" : "#eceae4");
+    root.style.setProperty("--text-primary", colors.text);
+
+    // Dynamic opacities for text shade variables
+    root.style.setProperty("--text-secondary", `${colors.text}b3`); // ~70% opacity
+    root.style.setProperty("--text-tertiary", `${colors.text}80`);  // ~50% opacity
+
+    root.style.setProperty("--border-default", colors.border);
+    root.style.setProperty("--accent-cta", colors.accent);
+
+    // SVG Illustration components
+    root.style.setProperty("--svg-linen", colors.bg);
+    root.style.setProperty("--svg-paper", colors.card);
+    root.style.setProperty("--svg-ink", colors.text);
+    root.style.setProperty("--svg-line", colors.border);
+    root.style.setProperty("--svg-tint", colors.isDark ? "#1f1f23" : "#eceae4");
+    root.style.setProperty("--svg-gray", `${colors.text}80`);
+
+    if (colors.isDark) {
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
+    }
+  };
+
+  // Font adjustments
+  const applyFontSize = (scale: number) => {
+    setFontSizeScale(scale);
+    document.documentElement.style.fontSize = `${scale * 16}px`;
+    localStorage.setItem("customizer-font-scale", scale.toString());
+  };
+
+  const applyFontPreset = (presetId: string) => {
+    const preset = FONT_PRESETS.find((p) => p.id === presetId);
+    if (!preset) return;
+
+    if (preset.fontUrl) {
+      let linkElement = document.getElementById("customizer-font-link") as HTMLLinkElement;
+      if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "customizer-font-link";
+        linkElement.rel = "stylesheet";
+        document.head.appendChild(linkElement);
+      }
+      linkElement.href = preset.fontUrl;
+    }
+
+    const root = document.documentElement;
+    Object.entries(preset.variables).forEach(([key, val]) => {
+      root.style.setProperty(key, val);
+    });
+
+    setSelectedFontPreset(presetId);
+    localStorage.setItem("customizer-font-preset", presetId);
+  };
+
   // Load configuration from localstorage on mount
   useEffect(() => {
     try {
@@ -172,44 +241,6 @@ export default function Customizer() {
       console.error("Customizer load settings error:", e);
     }
   }, []);
-
-  // Update specific color values
-  const applyColors = (colors: {
-    bg: string;
-    card: string;
-    text: string;
-    accent: string;
-    border: string;
-    isDark: boolean;
-  }) => {
-    const root = document.documentElement;
-
-    root.style.setProperty("--bg-primary", colors.bg);
-    root.style.setProperty("--bg-secondary", colors.card);
-    root.style.setProperty("--bg-tertiary", colors.isDark ? "#1f1f23" : "#eceae4");
-    root.style.setProperty("--text-primary", colors.text);
-
-    // Dynamic opacities for text shade variables
-    root.style.setProperty("--text-secondary", `${colors.text}b3`); // ~70% opacity
-    root.style.setProperty("--text-tertiary", `${colors.text}80`);  // ~50% opacity
-
-    root.style.setProperty("--border-default", colors.border);
-    root.style.setProperty("--accent-cta", colors.accent);
-
-    // SVG Illustration components
-    root.style.setProperty("--svg-linen", colors.bg);
-    root.style.setProperty("--svg-paper", colors.card);
-    root.style.setProperty("--svg-ink", colors.text);
-    root.style.setProperty("--svg-line", colors.border);
-    root.style.setProperty("--svg-tint", colors.isDark ? "#1f1f23" : "#eceae4");
-    root.style.setProperty("--svg-gray", `${colors.text}80`);
-
-    if (colors.isDark) {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-    }
-  };
 
   const handleSelectPreset = (presetId: string) => {
     const preset = COLOR_PRESETS.find((p) => p.id === presetId);
@@ -289,36 +320,6 @@ export default function Customizer() {
     });
   };
 
-  // Font adjustments
-  const applyFontSize = (scale: number) => {
-    setFontSizeScale(scale);
-    document.documentElement.style.fontSize = `${scale * 16}px`;
-    localStorage.setItem("customizer-font-scale", scale.toString());
-  };
-
-  const applyFontPreset = (presetId: string) => {
-    const preset = FONT_PRESETS.find((p) => p.id === presetId);
-    if (!preset) return;
-
-    if (preset.fontUrl) {
-      let linkElement = document.getElementById("customizer-font-link") as HTMLLinkElement;
-      if (!linkElement) {
-        linkElement = document.createElement("link");
-        linkElement.id = "customizer-font-link";
-        linkElement.rel = "stylesheet";
-        document.head.appendChild(linkElement);
-      }
-      linkElement.href = preset.fontUrl;
-    }
-
-    const root = document.documentElement;
-    Object.entries(preset.variables).forEach(([key, val]) => {
-      root.style.setProperty(key, val);
-    });
-
-    setSelectedFontPreset(presetId);
-    localStorage.setItem("customizer-font-preset", presetId);
-  };
 
   const handleReset = () => {
     handleSelectPreset("current");
