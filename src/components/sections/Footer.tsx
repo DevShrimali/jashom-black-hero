@@ -53,7 +53,7 @@ const COLUMNS: FooterColumn[] = [
 ];
 
 export default function Footer() {
-  const [theme, setTheme] = useState<"system" | "light" | "dark">("light");
+  const [theme, setTheme] = useState<"system" | "light" | "dark" | "mono">("light");
   const [mounted, setMounted] = useState(false);
   const [isDark, setIsDark] = useState(false);
 
@@ -70,7 +70,7 @@ export default function Footer() {
 
   useEffect(() => {
     setMounted(true);
-    const saved = localStorage.getItem("theme") as "system" | "light" | "dark" | null;
+    const saved = localStorage.getItem("theme") as "system" | "light" | "dark" | "mono" | null;
     if (saved) {
       setTheme(saved);
     }
@@ -82,6 +82,7 @@ export default function Footer() {
     const media = window.matchMedia("(prefers-color-scheme: dark)");
     const listener = (e: MediaQueryListEvent) => {
       const root = document.documentElement;
+      root.classList.remove("mono");
       if (e.matches) {
         root.classList.add("dark");
       } else {
@@ -93,22 +94,23 @@ export default function Footer() {
     return () => media.removeEventListener("change", listener);
   }, [theme, mounted]);
 
-  const handleThemeChange = (newTheme: "system" | "light" | "dark") => {
+  const handleThemeChange = (newTheme: "system" | "light" | "dark" | "mono") => {
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
 
     const root = document.documentElement;
+    root.classList.remove("dark");
+    root.classList.remove("mono");
+
     if (newTheme === "system") {
       const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
       if (systemTheme === "dark") {
         root.classList.add("dark");
-      } else {
-        root.classList.remove("dark");
       }
     } else if (newTheme === "dark") {
       root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
+    } else if (newTheme === "mono") {
+      root.classList.add("mono");
     }
   };
 
@@ -216,11 +218,10 @@ export default function Footer() {
             <div className="flex items-center border border-line bg-linen p-0.5 rounded-none" aria-label="Theme selection">
               <button
                 onClick={() => handleThemeChange("system")}
-                className={`p-1.5 rounded-none flex items-center justify-center transition-all cursor-pointer ${
-                  theme === "system" && mounted
+                className={`p-1.5 rounded-none flex items-center justify-center transition-all cursor-pointer ${theme === "system" && mounted
                     ? "bg-tint border border-line text-ink"
                     : "text-ink-3 hover:text-ink-2 border border-transparent"
-                }`}
+                  }`}
                 title="System Theme"
               >
                 <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -231,11 +232,10 @@ export default function Footer() {
               </button>
               <button
                 onClick={() => handleThemeChange("light")}
-                className={`p-1.5 rounded-none flex items-center justify-center transition-all cursor-pointer ${
-                  theme === "light" || (!mounted && theme === "system")
+                className={`p-1.5 rounded-none flex items-center justify-center transition-all cursor-pointer ${theme === "light" || (!mounted && theme === "system")
                     ? "bg-tint border border-line text-ink"
                     : "text-ink-3 hover:text-ink-2 border border-transparent"
-                }`}
+                  }`}
                 title="Light Theme"
               >
                 <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -251,12 +251,24 @@ export default function Footer() {
                 </svg>
               </button>
               <button
-                onClick={() => handleThemeChange("dark")}
-                className={`p-1.5 rounded-none flex items-center justify-center transition-all cursor-pointer ${
-                  theme === "dark" && mounted
+                onClick={() => handleThemeChange("mono")}
+                className={`p-1.5 rounded-none flex items-center justify-center transition-all cursor-pointer ${theme === "mono" && mounted
                     ? "bg-tint border border-line text-ink"
                     : "text-ink-3 hover:text-ink-2 border border-transparent"
-                }`}
+                  }`}
+                title="Monochrome Theme"
+              >
+                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 2a10 10 0 0 0 0 20v-20" fill="currentColor" />
+                </svg>
+              </button>
+              <button
+                onClick={() => handleThemeChange("dark")}
+                className={`p-1.5 rounded-none flex items-center justify-center transition-all cursor-pointer ${theme === "dark" && mounted
+                    ? "bg-tint border border-line text-ink"
+                    : "text-ink-3 hover:text-ink-2 border border-transparent"
+                  }`}
                 title="Dark Theme"
               >
                 <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

@@ -61,7 +61,8 @@
 
   /* SVG illustration colors for dark mode to prevent merging with dark bg */
   --svg-ink: #e8e6df;
-  --svg-graphite: #2c2c30; /* Lighter slate gray for GPU plates so they stand out */
+  --svg-graphite: #2c2c30;
+  /* Lighter slate gray for GPU plates so they stand out */
   --svg-paper: #1a1a1e;
   --svg-linen: #111113;
   --svg-tint: #202024;
@@ -88,7 +89,8 @@
 }
 
 html {
-  scroll-behavior: auto; /* Lenis owns scrolling */
+  scroll-behavior: auto;
+  /* Lenis owns scrolling */
 }
 
 body {
@@ -111,6 +113,7 @@ body {
 }
 
 @layer base {
+
   h1,
   h2,
   h3 {
@@ -177,7 +180,7 @@ body {
   background: var(--accent-cta);
   color: var(--bg-secondary);
   border: 1px solid var(--btn-border);
-  box-shadow: 
+  box-shadow:
     inset 0 -3px 0 0 rgba(255, 255, 255, 0.15),
     inset -3px 0 0 0 rgba(255, 255, 255, 0.15),
     0 2px 4px rgba(17, 17, 19, 0.1);
@@ -186,14 +189,14 @@ body {
 .btn-primary:hover {
   background: var(--text-primary);
   border-color: var(--btn-border);
-  box-shadow: 
+  box-shadow:
     inset 0 -3px 0 0 rgba(255, 255, 255, 0.15),
     inset -3px 0 0 0 rgba(255, 255, 255, 0.15),
     0 4px 8px rgba(17, 17, 19, 0.2);
 }
 
 .btn-primary:active {
-  box-shadow: 
+  box-shadow:
     inset 0 -1px 0 0 rgba(255, 255, 255, 0.15),
     inset -1px 0 0 0 rgba(255, 255, 255, 0.15),
     0 1px 2px rgba(17, 17, 19, 0.1);
@@ -203,7 +206,7 @@ body {
   background: var(--bg-secondary);
   color: var(--text-primary);
   border: 1px solid var(--btn-border);
-  box-shadow: 
+  box-shadow:
     inset 0 -3px 0 0 var(--border-default),
     inset -3px 0 0 0 var(--border-default),
     0 2px 4px rgba(17, 17, 19, 0.04);
@@ -212,14 +215,14 @@ body {
 .btn-secondary:hover {
   background: var(--bg-tertiary);
   border-color: var(--btn-border);
-  box-shadow: 
+  box-shadow:
     inset 0 -3px 0 0 var(--border-default),
     inset -3px 0 0 0 var(--border-default),
     0 4px 8px rgba(17, 17, 19, 0.08);
 }
 
 .btn-secondary:active {
-  box-shadow: 
+  box-shadow:
     inset 0 -1px 0 0 var(--border-default),
     inset -1px 0 0 0 var(--border-default),
     0 1px 2px rgba(17, 17, 19, 0.04);
@@ -230,7 +233,7 @@ body {
   background: #ffffff;
   color: #111113;
   border: 1px solid #ffffff;
-  box-shadow: 
+  box-shadow:
     inset 0 -3px 0 0 #e4e3de,
     inset -3px 0 0 0 #e4e3de,
     0 2px 4px rgba(0, 0, 0, 0.15);
@@ -240,14 +243,14 @@ body {
   background: #e8e6df;
   color: #111113;
   border-color: #e8e6df;
-  box-shadow: 
+  box-shadow:
     inset 0 -3px 0 0 #c8c6bf,
     inset -3px 0 0 0 #c8c6bf,
     0 4px 8px rgba(0, 0, 0, 0.25);
 }
 
 :root.dark .btn-primary:active {
-  box-shadow: 
+  box-shadow:
     inset 0 -1px 0 0 #e4e3de,
     inset -1px 0 0 0 #e4e3de,
     0 1px 2px rgba(0, 0, 0, 0.1);
@@ -257,7 +260,7 @@ body {
   background: transparent;
   color: #a3a29c;
   border: 1px solid #28282c;
-  box-shadow: 
+  box-shadow:
     inset 0 -3px 0 0 rgba(255, 255, 255, 0.03),
     inset -3px 0 0 0 rgba(255, 255, 255, 0.03);
 }
@@ -266,13 +269,13 @@ body {
   background: #17171a;
   color: #e8e6df;
   border-color: #71706b;
-  box-shadow: 
+  box-shadow:
     inset 0 -3px 0 0 rgba(255, 255, 255, 0.05),
     inset -3px 0 0 0 rgba(255, 255, 255, 0.05);
 }
 
 :root.dark .btn-secondary:active {
-  box-shadow: 
+  box-shadow:
     inset 0 -1px 0 0 rgba(255, 255, 255, 0.03),
     inset -1px 0 0 0 rgba(255, 255, 255, 0.03);
 }
@@ -282,7 +285,7 @@ body {
   background: var(--warm-white);
   color: var(--carbon);
   border: 1px solid var(--btn-border);
-  box-shadow: 
+  box-shadow:
     inset 0 -3px 0 0 #c8c6bf,
     inset -3px 0 0 0 #c8c6bf,
     0 2px 4px rgba(0, 0, 0, 0.15);
@@ -291,14 +294,14 @@ body {
 .btn-invert-primary:hover {
   background: #f2f0e8;
   border-color: var(--btn-border);
-  box-shadow: 
+  box-shadow:
     inset 0 -3px 0 0 #c8c6bf,
     inset -3px 0 0 0 #c8c6bf,
     0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .btn-invert-primary:active {
-  box-shadow: 
+  box-shadow:
     inset 0 -1px 0 0 #c8c6bf,
     inset -1px 0 0 0 #c8c6bf,
     0 1px 2px rgba(0, 0, 0, 0.1);
@@ -308,7 +311,7 @@ body {
   background: rgba(255, 255, 255, 0.03);
   color: var(--warm-white);
   border: 1px solid var(--btn-border);
-  box-shadow: 
+  box-shadow:
     inset 0 -3px 0 0 rgba(255, 255, 255, 0.1),
     inset -3px 0 0 0 rgba(255, 255, 255, 0.1),
     0 2px 4px rgba(0, 0, 0, 0.15);
@@ -317,14 +320,14 @@ body {
 .btn-invert-secondary:hover {
   border-color: var(--btn-border);
   background: rgba(255, 255, 255, 0.06);
-  box-shadow: 
+  box-shadow:
     inset 0 -3px 0 0 rgba(255, 255, 255, 0.1),
     inset -3px 0 0 0 rgba(255, 255, 255, 0.1),
     0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .btn-invert-secondary:active {
-  box-shadow: 
+  box-shadow:
     inset 0 -1px 0 0 rgba(255, 255, 255, 0.1),
     inset -1px 0 0 0 rgba(255, 255, 255, 0.1),
     0 1px 2px rgba(0, 0, 0, 0.1);
@@ -334,8 +337,8 @@ body {
   background: #76b900;
   color: #ffffff !important;
   border: 1.5px solid #3d5e00;
-  box-shadow: 
-    inset 0 3px 0 0 #a4e016, 
+  box-shadow:
+    inset 0 3px 0 0 #a4e016,
     inset 3px 0 0 0 #a4e016,
     inset 0 -3px 0 0 #3d5e00,
     inset -3px 0 0 0 #3d5e00,
@@ -345,8 +348,8 @@ body {
 .btn-success-3d:hover {
   background: #82c800;
   border-color: #3d5e00;
-  box-shadow: 
-    inset 0 3px 0 0 #b2f026, 
+  box-shadow:
+    inset 0 3px 0 0 #b2f026,
     inset 3px 0 0 0 #b2f026,
     inset 0 -3px 0 0 #3d5e00,
     inset -3px 0 0 0 #3d5e00,
@@ -355,8 +358,8 @@ body {
 
 .btn-success-3d:active {
   transform: translateY(1px);
-  box-shadow: 
-    inset 0 1px 0 0 #a4e016, 
+  box-shadow:
+    inset 0 1px 0 0 #a4e016,
     inset 1px 0 0 0 #a4e016,
     inset 0 -1px 0 0 #3d5e00,
     inset -1px 0 0 0 #3d5e00,
@@ -473,10 +476,12 @@ body {
     stroke-dasharray: 0 150;
     stroke-dashoffset: 150;
   }
+
   50% {
     stroke-dasharray: 45 105;
     stroke-dashoffset: 65;
   }
+
   100% {
     stroke-dasharray: 150 0;
     stroke-dashoffset: 0;
@@ -622,7 +627,7 @@ body {
   background: #ffffff !important;
   color: #111113 !important;
   border: 1px solid #ffffff !important;
-  box-shadow: 
+  box-shadow:
     inset 0 -3px 0 0 #e4e3de,
     inset -3px 0 0 0 #e4e3de,
     0 2px 4px rgba(0, 0, 0, 0.15) !important;
@@ -633,7 +638,7 @@ body {
   background: #e8e6df !important;
   color: #111113 !important;
   border-color: #e8e6df !important;
-  box-shadow: 
+  box-shadow:
     inset 0 -3px 0 0 #c8c6bf,
     inset -3px 0 0 0 #c8c6bf,
     0 4px 8px rgba(0, 0, 0, 0.25) !important;
@@ -644,7 +649,7 @@ body {
   background: transparent !important;
   color: #a3a29c !important;
   border: 1px solid #28282c !important;
-  box-shadow: 
+  box-shadow:
     inset 0 -3px 0 0 rgba(255, 255, 255, 0.03),
     inset -3px 0 0 0 rgba(255, 255, 255, 0.03) !important;
 }
@@ -654,9 +659,21 @@ body {
   background: #17171a !important;
   color: #e8e6df !important;
   border-color: #71706b !important;
-  box-shadow: 
+  box-shadow:
     inset 0 -3px 0 0 rgba(255, 255, 255, 0.05),
     inset -3px 0 0 0 rgba(255, 255, 255, 0.05) !important;
 }
 
+/* Monochrome (Black & White Backgrounds Only) Theme */
+html.mono {
+  --bg-primary: #ffffff;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #ffffff;
+}
 
+html.mono .always-dark,
+html.mono .dark-nav {
+  --bg-primary: #000000;
+  --bg-secondary: #000000;
+  --bg-tertiary: #000000;
+}

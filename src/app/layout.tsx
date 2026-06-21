@@ -3,7 +3,6 @@ import { JetBrains_Mono, DM_Sans } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import CookieConsent from "@/components/CookieConsent";
-import FloatingChat from "@/components/FloatingChat";
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
@@ -38,18 +37,24 @@ export default function RootLayout({
               (function() {
                 try {
                   var theme = localStorage.getItem('theme');
-                  var activeTheme;
-                  if (!theme || theme === 'light') {
-                    activeTheme = 'light';
-                  } else if (theme === 'dark') {
-                    activeTheme = 'dark';
-                  } else {
-                    activeTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-                  }
+                  var activeTheme = theme || 'light';
                   if (activeTheme === 'dark') {
                     document.documentElement.classList.add('dark');
+                    document.documentElement.classList.remove('mono');
+                  } else if (activeTheme === 'mono') {
+                    document.documentElement.classList.add('mono');
+                    document.documentElement.classList.remove('dark');
+                  } else if (activeTheme === 'system') {
+                    var isDarkSystem = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    if (isDarkSystem) {
+                      document.documentElement.classList.add('dark');
+                    } else {
+                      document.documentElement.classList.remove('dark');
+                    }
+                    document.documentElement.classList.remove('mono');
                   } else {
                     document.documentElement.classList.remove('dark');
+                    document.documentElement.classList.remove('mono');
                   }
                 } catch (e) {}
               })();
@@ -60,7 +65,6 @@ export default function RootLayout({
       <body suppressHydrationWarning>
         <SmoothScroll>{children}</SmoothScroll>
         <CookieConsent />
-        <FloatingChat />
       </body>
     </html>
   );
