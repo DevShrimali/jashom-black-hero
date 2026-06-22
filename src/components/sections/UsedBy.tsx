@@ -113,11 +113,11 @@ export default function UsedBy() {
   return (
     <section className="w-full border-b border-line py-8" style={{ backgroundColor: 'var(--color-linen)' }}>
       <div className="container-j">
-        {/* Section Label */}
-        <div className="text-center mb-6">
-          <span className="font-mono text-[0.68rem] tracking-[0.25em] text-ink-3 uppercase font-medium">
-            FRONTIER LABS
-          </span>
+        {/* Section Title */}
+        <div className="text-center mb-10">
+          <h2 className="text-[clamp(1.6rem,2.5vw,2.1rem)] text-ink font-normal tracking-tight">
+            Frontier Labs
+          </h2>
         </div>
 
         {/* Brand Grid Container */}

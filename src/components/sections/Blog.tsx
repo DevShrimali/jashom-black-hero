@@ -34,8 +34,8 @@ export default function Blog() {
       <div className="container-j">
         {/* Header Section */}
         <div className="flex flex-wrap items-center justify-between gap-6 mb-12">
-          <SplitHeading className="text-[clamp(1.6rem,2.5vw,2.1rem)] uppercase tracking-wider font-bold">
-            LATEST INSIGHTS
+          <SplitHeading className="text-[clamp(1.6rem,2.5vw,2.1rem)]">
+            Latest Insights
           </SplitHeading>
           <Reveal>
             <a
@@ -53,14 +53,14 @@ export default function Blog() {
             <a
               key={p.title}
               href="/blogs/"
-              className="bg-paper border border-line group flex flex-col p-6 md:p-7 h-full hover:bg-tint hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_var(--color-line)] transition-all duration-300"
+              className="bg-transparent border border-line hover:bg-paper group flex flex-col p-6 md:p-7 h-full transition-all duration-300"
             >
               {/* Blog Post Image */}
               <div className="relative aspect-[16/10] w-full overflow-hidden bg-tint mb-6">
                 <img
                   src={p.image}
                   alt={p.title}
-                  className="w-full h-full object-cover grayscale contrast-[1.10] brightness-[0.95] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+                  className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
                 />
               </div>
 
@@ -70,7 +70,7 @@ export default function Blog() {
               </p>
 
               {/* Title */}
-              <h3 className="font-sans font-medium text-[1.2rem] leading-snug text-ink mb-3 transition-colors">
+              <h3 className="font-sans font-medium text-[1.2rem] leading-snug text-ink mb-3 group-hover:underline decoration-1 underline-offset-4 transition-colors">
                 {langTitleFormatter(p.title)}
               </h3>
 
@@ -80,9 +80,28 @@ export default function Blog() {
               </p>
 
               {/* Footer Metadata */}
-              <p className="mt-auto font-mono text-[0.75rem] text-ink-3 pt-4 border-t border-line/40">
-                {p.date} • {p.read}
-              </p>
+              <div className="mt-auto pt-4 border-t border-line/40 flex items-center justify-between">
+                <span className="font-mono text-[0.75rem] text-ink-3">
+                  {p.date} • {p.read}
+                </span>
+                <span className="inline-block transition-all duration-300 group-hover:translate-x-1.5 text-ink-3 group-hover:text-ink">
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 15 15"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-3.5 h-3.5"
+                  >
+                    <path
+                      d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                      fill="currentColor"
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </span>
+              </div>
             </a>
           ))}
         </Stagger>

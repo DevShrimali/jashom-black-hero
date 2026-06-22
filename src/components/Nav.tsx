@@ -144,7 +144,7 @@ export default function Nav() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow,border-color] duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow,border-color] duration-100 ${
         isHeaderDark ? "dark-nav" : ""
       } ${
         scrolled
@@ -157,9 +157,9 @@ export default function Nav() {
           <img
             src={isHeaderDark ? "/logo/jashom-dark.svg" : "/logo/jashom-white.svg"}
             alt="Jashom logo"
-            width={24}
-            height={24}
-            className="h-6 w-auto"
+            width={26}
+            height={26}
+            className="h-[26.4px] w-auto"
           />
           <span className="font-mono font-medium text-lg md:text-xl text-ink tracking-tight">
             Jashom

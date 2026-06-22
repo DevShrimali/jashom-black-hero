@@ -102,13 +102,14 @@ const LANGUAGES: LanguageItem[] = [
     icon: (
       <svg
         viewBox="0 0 24 24"
-        className="w-8 h-8 fill-none stroke-current stroke-2 text-ink transition-colors duration-300"
+        className="w-8 h-8 fill-none stroke-current stroke-[1.5] text-ink-3 transition-colors duration-300"
         strokeLinecap="round"
         strokeLinejoin="round"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <line x1="12" y1="5" x2="12" y2="19" />
-        <line x1="5" y1="12" x2="19" y2="12" />
+        <circle cx="12" cy="12" r="10" />
+        <line x1="12" y1="8" x2="12" y2="16" />
+        <line x1="8" y1="12" x2="16" y2="12" />
       </svg>
     ),
   },
@@ -120,7 +121,7 @@ export default function SupportedLanguages() {
       <div className="container-j">
         {/* Section Header */}
         <div className="flex flex-col gap-4 mb-14 md:mb-16">
-          <span className="font-mono text-[0.68rem] tracking-[0.25em] text-ink-3 uppercase font-medium">
+          <span className="font-mono text-[1rem] tracking-[0.25em] text-ink-3 uppercase font-medium">
             Supported Languages
           </span>
           <SplitHeading className="text-[clamp(1.6rem,2.5vw,2.1rem)]">
@@ -134,11 +135,11 @@ export default function SupportedLanguages() {
         </div>
 
         {/* Languages Grid */}
-        <Stagger className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5" itemClassName="h-full" step={0.05}>
+        <Stagger className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 border-t border-l border-line" itemClassName="h-full" step={0.05}>
           {LANGUAGES.map((lang) => (
             <div
               key={lang.name}
-              className="bg-paper border border-line group flex flex-col items-start p-6 md:p-7 h-full hover:bg-tint hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_var(--color-line)] transition-all duration-300"
+              className="bg-paper border-r border-b border-line group flex flex-col items-start p-6 md:p-7 h-full hover:bg-tint/50 transition-all duration-300"
             >
               {/* Icon Container */}
               <div className="mb-6 transition-transform duration-300 group-hover:-translate-y-1">

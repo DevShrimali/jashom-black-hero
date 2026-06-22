@@ -4,25 +4,36 @@ import React from "react";
 
 export default function AskChatGPT() {
   return (
-    <section className="w-full bg-linen border-b border-line py-8 flex items-center justify-center">
-      <a
-        href="https://chatgpt.com/?q=How+can+Jashom+help+my+company+with+GPU+optimization+and+CUDA+development%3F"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 font-mono text-xs md:text-sm text-ink/85 hover:text-ink transition-colors duration-200 border-b border-ink/40 hover:border-ink pb-0.5"
-      >
-        <span>Not sure how this helps you? Ask</span>
-        <span className="inline-flex items-center gap-1.5 font-bold">
-          <svg
-            className="w-4 h-4 fill-current inline-block align-text-bottom"
-            viewBox="0 0 16 16"
-            aria-hidden="true"
+    <section className="w-full bg-linen border-b border-line py-5 flex items-center justify-center">
+      <div className="flex items-center gap-2.5 font-mono text-[0.875rem] md:text-[0.9375rem] text-ink-2">
+        {/* Radix ChatBubbleIcon */}
+        <svg
+          width="15"
+          height="15"
+          viewBox="0 0 15 15"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-4 h-4 text-ink-3 flex-shrink-0"
+        >
+          <path
+            d="M12.5 3H2.5C1.67157 3 1 3.67157 1 4.5V9.5C1 10.3284 1.67157 11 2.5 11H7.5L10.5 13.5V11H12.5C13.3284 11 14 10.3284 14 9.5V4.5C14 3.67157 13.3284 3 12.5 3ZM2 4.5C2 4.22386 2.22386 4 2.5 4H12.5C12.7761 4 13 4.22386 13 4.5V9.5C13 9.77614 12.7761 10 12.5 10H10C9.72386 10 9.5 10.2239 9.5 10.5V11.7803L7.86377 10.4168C7.66986 10.2552 7.42676 10.1667 7.17544 10.1667H2.5C2.22386 10.1667 2 9.9428 2 9.66667V4.5Z"
+            fill="currentColor"
+            fillRule="evenodd"
+            clipRule="evenodd"
+          />
+        </svg>
+        <span>
+          Not sure how this helps you? Ask{" "}
+          <a
+            href="https://chatgpt.com/?q=How+can+Jashom+help+my+company+with+GPU+optimization+and+CUDA+development%3F"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-ink font-semibold border-b border-ink/40 hover:border-ink hover:text-ink transition-colors pb-0.5"
           >
-            <path d="M14.949 6.547a3.94 3.94 0 0 0-.348-3.273 4.11 4.11 0 0 0-4.4-1.934A4.1 4.1 0 0 0 8.423.2 4.15 4.15 0 0 0 6.305.086a4.1 4.1 0 0 0-1.891.948 4.04 4.04 0 0 0-1.158 1.753 4.1 4.1 0 0 0-1.563.679A4 4 0 0 0 .554 4.72a3.99 3.99 0 0 0 .502 4.731 3.94 3.94 0 0 0 .346 3.274 4.11 4.11 0 0 0 4.402 1.933c.382.425.852.764 1.377.995.526.231 1.095.35 1.67.346 1.78.002 3.358-1.132 3.901-2.804a4.1 4.1 0 0 0 1.563-.68 4 4 0 0 0 1.14-1.253 3.99 3.99 0 0 0-.506-4.716m-6.097 8.406a3.05 3.05 0 0 1-1.945-.694l.096-.054 3.23-1.838a.53.53 0 0 0 .265-.455v-4.49l1.366.778q.02.011.025.035v3.722c-.003 1.653-1.361 2.992-3.037 2.996m-6.53-2.75a2.95 2.95 0 0 1-.36-2.01l.095.057L5.29 12.09a.53.53 0 0 0 .527 0l3.949-2.246v1.555a.05.05 0 0 1-.022.041L6.473 13.3c-1.454.826-3.311.335-4.15-1.098m-.85-6.94A3.02 3.02 0 0 1 3.07 3.949v3.785a.51.51 0 0 0 .262.451l3.93 2.237-1.366.779a.05.05 0 0 1-.048 0L2.585 9.342a2.98 2.98 0 0 1-1.113-4.094zm11.216 2.571L8.747 5.576l1.362-.776a.05.05 0 0 1 .048 0l3.265 1.86a3 3 0 0 1 1.173 1.207 2.96 2.96 0 0 1-.27 3.2 3.05 3.05 0 0 1-1.36.997V8.279a.52.52 0 0 0-.276-.445m1.36-2.015-.097-.057-3.226-1.855a.53.53 0 0 0-.53 0L6.249 6.153V4.598a.04.04 0 0 1 .019-.04L9.533 2.7a3.07 3.07 0 0 1 3.257.139c.474.325.843.778 1.066 1.303.223.526.289 1.103.191 1.664zM5.503 8.575 4.139 7.8a.05.05 0 0 1-.026-.037V4.049c0-.57.166-1.127.476-1.607s.752-.864 1.275-1.105a3.08 3.08 0 0 1 .134-.134z" />
-          </svg>
-          ChatGPT
+            ChatGPT
+          </a>
         </span>
-      </a>
+      </div>
     </section>
   );
 }

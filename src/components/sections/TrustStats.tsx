@@ -12,11 +12,11 @@ export default function TrustStats() {
   return (
     <section className="section bg-carbon text-warmwhite overflow-clip" id="trust">
       <div className="container-j">
-        {/* Section Title Label */}
+        {/* Section Title */}
         <div className="mb-12">
-          <span className="font-mono text-[0.68rem] tracking-[0.25em] text-darkink2 uppercase font-medium">
+          <h2 className="text-[clamp(1.6rem,2.5vw,2.1rem)] text-warmwhite uppercase font-bold tracking-tight">
             TRACK RECORD
-          </span>
+          </h2>
         </div>
 
         <Stagger className="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12" step={0.08}>

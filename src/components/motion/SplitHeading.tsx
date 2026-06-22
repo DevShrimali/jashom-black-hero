@@ -46,6 +46,14 @@ export default function SplitHeading({ as: Tag = "h2", children, className }: Pr
               start: "top 85%",
               once: true,
             },
+            onComplete() {
+              self.lines.forEach((line) => {
+                const parent = line.parentElement;
+                if (parent) {
+                  parent.style.overflow = "visible";
+                }
+              });
+            },
           });
           trigger = tween.scrollTrigger ?? null;
           return tween;

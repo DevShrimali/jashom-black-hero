@@ -18,7 +18,6 @@ export default function WhatWeDo() {
   return (
     <section className="section !pt-[calc(var(--section-pad)*0.5)]" id="what-we-do">
       <div className="container-j">
-        <hr className="border-line mb-8" />
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
           <div className="lg:col-span-4">
             <div className="sticky top-28 flex flex-col gap-4">

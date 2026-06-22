@@ -3,6 +3,9 @@
 /* Jashom design system — light theme (homepage)
    Source: Jashom.md design system, 60-40-10 warm neutral palette */
 :root {
+  --font-sans-family: var(--font-jetbrains-mono), monospace;
+  --font-mono-family: var(--font-jetbrains-mono), monospace;
+
   --bg-primary: #F7F7F4;
   --bg-secondary: #ffffff;
   --bg-tertiary: #eceae4;
@@ -84,8 +87,8 @@
   --color-warmwhite: var(--warm-white);
   --color-darkline: var(--dark-border);
   --color-darkink2: var(--dark-text-2);
-  --font-mono: var(--font-jetbrains-mono), monospace;
-  --font-sans: var(--font-jetbrains-mono), monospace;
+  --font-mono: var(--font-mono-family);
+  --font-sans: var(--font-sans-family);
 }
 
 html {
@@ -97,7 +100,7 @@ body {
   background: var(--bg-primary);
   color: var(--text-primary);
   font-family: var(--font-sans);
-  font-size: 0.9rem;
+  font-size: 0.99rem;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: clip;
@@ -573,6 +576,8 @@ body {
 /* Reveal default: content visible without JS; JS adds the motion */
 .gsap-line {
   overflow: clip;
+  padding-bottom: 0.2em;
+  margin-bottom: -0.2em;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -677,3 +682,21 @@ html.mono .dark-nav {
   --bg-secondary: #000000;
   --bg-tertiary: #000000;
 }
+
+/* --- Global Body Font Size scaling (1.1x) except Titles --- */
+/* Tailwind utility size overrides (1.1x) */
+.text-xs { font-size: 0.825rem !important; }
+.text-sm { font-size: 0.9625rem !important; }
+.text-base { font-size: 1.1rem !important; }
+.text-lg { font-size: 1.2375rem !important; }
+.text-xl { font-size: 1.375rem !important; }
+
+/* Arbitrary class utility overrides (1.1x) */
+.text-\[0\.75rem\] { font-size: 0.825rem !important; }
+.text-\[0\.8125rem\] { font-size: 0.89375rem !important; }
+.text-\[0\.875rem\] { font-size: 0.9625rem !important; }
+.text-\[0\.9375rem\] { font-size: 1.03125rem !important; }
+.text-\[1\.0625rem\] { font-size: 1.16875rem !important; }
+.text-\[1\.125rem\] { font-size: 1.2375rem !important; }
+.text-\[18px\] { font-size: 19.8px !important; }
+.text-\[20px\] { font-size: 22px !important; }

@@ -124,9 +124,9 @@ export default function Footer() {
                 <img
                   src={isDark ? "/logo/jashom-dark.svg" : "/logo/jashom-white.svg"}
                   alt="Jashom logo"
-                  width={24}
-                  height={24}
-                  className="h-6 w-auto"
+                  width={30}
+                  height={30}
+                  className="h-[30px] w-auto"
                 />
                 <span className="font-mono font-medium text-lg md:text-xl text-ink tracking-tight">
                   Jashom

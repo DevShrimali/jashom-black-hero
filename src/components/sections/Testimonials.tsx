@@ -27,6 +27,9 @@ export default function Testimonials() {
       <div className="container-j">
         <div className="grid lg:grid-cols-12 gap-6 items-end mb-10 md:mb-12">
           <div className="lg:col-span-8 flex flex-col gap-4">
+            <span className="font-mono text-[1rem] tracking-[0.25em] text-ink-3 uppercase font-medium">
+              Testimonials
+            </span>
             <SplitHeading className="text-[clamp(1.6rem,2.5vw,2.1rem)]">
               What Our Clients Say
             </SplitHeading>
