@@ -41,7 +41,7 @@ export default function Testimonials() {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-6 lg:[&>*:nth-child(2)]:mt-6 lg:[&>*:nth-child(3)]:mt-12">
+        <div className="grid lg:grid-cols-3 gap-6">
           {QUOTES.map((q, i) => (
             <Reveal key={q.name} delay={i * 0.08} className="h-full">
               <figure className="h-full flex flex-col p-6 md:p-8 hover:bg-tint transition-all duration-300">

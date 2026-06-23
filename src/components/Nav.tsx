@@ -330,7 +330,7 @@ export default function Nav() {
           ))}
 
           <Magnetic strength={0.2}>
-            <a href="#contact" className="btn btn-primary text-sm !py-3 !px-5">
+            <a href="#contact" className="btn btn-primary !py-3 !px-5">
               Schedule a Meeting
             </a>
           </Magnetic>
