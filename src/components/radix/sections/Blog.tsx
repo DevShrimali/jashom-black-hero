@@ -4,22 +4,22 @@ import { ArrowRightIcon } from "@radix-ui/react-icons";
 
 const posts = [
   {
-    title: "When to Reach for Custom CUDA Kernels (and When Not To)",
-    category: "GPU Optimization",
-    excerpt: "Framework abstractions cover 90% of workloads. Here's how to recognize the other 10% — and what a kernel rewrite actually buys you.",
-    date: "June 2, 2026", read: "8 min read", img: "https://picsum.photos/seed/cudakernel/640/400",
+    title: "LLM Inference Optimization on Constrained GPU Infrastructure",
+    category: "Enterprise AI · LLM Deployment",
+    tags: ["CUDA", "TensorRT", "LLM"],
+    img: "https://picsum.photos/seed/enterpriseai/640/400",
   },
   {
-    title: "TensorRT vs. Raw CUDA: An Inference Latency Field Guide",
-    category: "Benchmarks",
-    excerpt: "Benchmarks from real production deployments across A100, H100, and L40S — where each approach wins and why.",
-    date: "May 19, 2026", read: "11 min read", img: "https://picsum.photos/seed/tensorrt/640/400",
+    title: "GPU Workload Orchestration Framework on Rocky Linux 9.7",
+    category: "Infrastructure · GPU Operations",
+    tags: ["FastAPI", "Docker", "Rocky Linux"],
+    img: "https://picsum.photos/seed/gpuoperations/640/400",
   },
   {
-    title: "GPU Memory Bandwidth Is Your Real Bottleneck",
-    category: "Hardware Profiling",
-    excerpt: "Compute is rarely the limit. A practical walkthrough of profiling memory-bound workloads and restructuring around them.",
-    date: "May 5, 2026", read: "9 min read", img: "https://picsum.photos/seed/bandwidth/640/400",
+    title: "Cloud GPU Fine-Tuning Strategy for Production LLM Deployment",
+    category: "AI Engineering · Cloud Infrastructure",
+    tags: ["LoRA", "DeepSpeed", "Cloud GPU"],
+    img: "https://picsum.photos/seed/cloudtuning/640/400",
   },
 ];
 
@@ -45,8 +45,19 @@ export default function Blog() {
                 <Flex direction="column" gap="2">
                   <Text size="1" color="gray" style={{ textTransform: "uppercase", letterSpacing: "0.06em" }}>{p.category}</Text>
                   <Heading as="h3" size="4">{p.title}</Heading>
-                  <Text size="2" color="gray" style={{ display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden" }}>{p.excerpt}</Text>
-                  <Text size="1" color="gray" mt="2" style={{ borderTop: "1px solid #e4e3de", paddingTop: 12 }}>{p.date} · {p.read}</Text>
+                  <Flex gap="2" wrap="wrap" my="2">
+                    {p.tags.map((t) => (
+                      <Badge key={t} color="gray" variant="soft" radius="medium" style={{ whiteSpace: "nowrap" }}>
+                        {t}
+                      </Badge>
+                    ))}
+                  </Flex>
+                  <Flex align="center" justify="between" mt="2" style={{ borderTop: "1px solid #e4e3de", paddingTop: 12 }}>
+                    <Text size="1" color="gray" style={{ textTransform: "uppercase", letterSpacing: "0.06em", fontWeight: 500 }}>
+                      View More
+                    </Text>
+                    <ArrowRightIcon style={{ color: "var(--gray-11)" }} />
+                  </Flex>
                 </Flex>
               </a>
             </Card>

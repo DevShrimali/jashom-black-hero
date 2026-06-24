@@ -117,7 +117,7 @@ const LANGUAGES: LanguageItem[] = [
 
 export default function SupportedLanguages() {
   return (
-    <section className="section bg-linen border-t border-b border-line" id="languages">
+    <section className="section bg-linen border-t border-b border-line" id="supported-languages">
       <div className="container-j">
         {/* Section Header */}
         <div className="flex flex-col gap-4 mb-14 md:mb-16">

@@ -104,7 +104,7 @@ const REASONS = [
 
 export default function WhyJashom() {
   return (
-    <section className="section" id="why">
+    <section className="section" id="why-jashom">
       <div className="container-j">
         <div className="grid lg:grid-cols-12 gap-6 items-end mb-10 md:mb-12">
           <div className="lg:col-span-8 flex flex-col gap-4">

@@ -4,7 +4,7 @@ import React from "react";
 
 export default function AskChatGPT() {
   return (
-    <section className="w-full bg-linen border-b border-line py-8 flex items-center justify-center">
+    <section className="w-full bg-linen border-b border-line py-8 flex items-center justify-center" id="ask-chatgpt">
       <div className="container-j flex justify-center">
         <div className="flex items-center gap-3 px-6 py-4 bg-paper border border-line rounded-[10px] shadow-[4px_4px_0px_0px_var(--color-line)] font-mono text-[0.875rem] md:text-[0.9375rem] text-ink-2 hover:border-ink hover:shadow-[6px_6px_0px_0px_var(--color-line)] transition-all duration-300 max-w-2xl w-full justify-center">
           {/* Radix ChatBubbleIcon */}

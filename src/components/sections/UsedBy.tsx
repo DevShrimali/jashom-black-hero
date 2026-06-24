@@ -69,7 +69,7 @@ export default function UsedBy() {
     const swapLogo = () => {
       // Pick a random slot index (0 to 5)
       const targetSlot = Math.floor(Math.random() * 6);
-      
+
       // If that slot is already transitioning, wait for the next tick
       if (fadingSlots[targetSlot]) return;
 
@@ -77,7 +77,7 @@ export default function UsedBy() {
       const displayedIndices = new Set(slots);
       const availableIndices = Array.from({ length: LOGO_POOL.length }, (_, i) => i)
         .filter(i => !displayedIndices.has(i));
-        
+
       if (availableIndices.length === 0) return;
       const nextLogoIndex = availableIndices[Math.floor(Math.random() * availableIndices.length)];
 
@@ -91,7 +91,7 @@ export default function UsedBy() {
           next[targetSlot] = nextLogoIndex;
           return next;
         });
-        
+
         // Step 3: Fade the new logo back in
         setTimeout(() => {
           setFadingSlots(prev => {
@@ -111,7 +111,7 @@ export default function UsedBy() {
   }, [slots, fadingSlots]);
 
   return (
-    <section className="w-full border-b border-line py-8" style={{ backgroundColor: 'var(--color-linen)' }}>
+    <section className="w-full border-b border-line py-8" style={{ backgroundColor: 'var(--color-linen)' }} id="used-by">
       <div className="container-j">
         {/* Section Title */}
         <div className="text-center mb-10">
@@ -130,9 +130,8 @@ export default function UsedBy() {
                 className="group flex items-center justify-center py-8 px-6 min-h-[110px] md:min-h-[120px] border-r border-b border-line hover:bg-tint/50 transition-colors duration-300 cursor-default"
               >
                 <div
-                  className={`transition-opacity duration-500 ease-in-out ${
-                    fadingSlots[index] ? "opacity-0" : "opacity-100"
-                  }`}
+                  className={`transition-opacity duration-500 ease-in-out ${fadingSlots[index] ? "opacity-0" : "opacity-100"
+                    }`}
                 >
                   <img
                     src={logo.url}

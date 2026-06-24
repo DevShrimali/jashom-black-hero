@@ -46,6 +46,36 @@ const COLOR_PRESETS: ColorPreset[] = [
     border: "#28282c",
   },
   {
+    name: "Pure White Theme",
+    id: "white-theme",
+    isDark: false,
+    bg: "#FFFFFF",
+    card: "#FFFFFF",
+    text: "#111113",
+    accent: "#18181c",
+    border: "#E4E3DE",
+  },
+  {
+    name: "Slate Grey Theme",
+    id: "grey-theme",
+    isDark: false,
+    bg: "#EAEAEA",
+    card: "#F5F5F5",
+    text: "#1A1A1A",
+    accent: "#000000",
+    border: "#D1D1D1",
+  },
+  {
+    name: "Deep Black Theme",
+    id: "black-theme",
+    isDark: true,
+    bg: "#000000",
+    card: "#0D0D0D",
+    text: "#FFFFFF",
+    accent: "#FFFFFF",
+    border: "#262626",
+  },
+  {
     name: "Black & White Combination",
     id: "black-white",
     isDark: false,
@@ -127,6 +157,87 @@ export default function Customizer() {
   const [customAccent, setCustomAccent] = useState("#18181c");
   const [customBorder, setCustomBorder] = useState("#e4e3de");
   const [isDarkMode, setIsDarkMode] = useState(false);
+
+  // Section background override states
+  const [sectionColors, setSectionColors] = useState<Record<string, string>>({
+    hero: "default",
+    "ask-chatgpt": "default",
+    "used-by": "default",
+    "what-we-do": "default",
+    services: "default",
+    "trust-stats": "default",
+    "case-studies": "default",
+    "supported-languages": "default",
+    testimonials: "default",
+    "why-jashom": "default",
+    blog: "default",
+    contact: "default",
+    "final-cta": "default",
+  });
+
+  const applySectionColor = (sectionId: string, color: string) => {
+    const el = document.getElementById(sectionId);
+    if (!el) return;
+
+    if (color === "default") {
+      el.style.removeProperty("--bg-primary");
+      el.style.removeProperty("--bg-secondary");
+      el.style.removeProperty("--text-primary");
+      el.style.removeProperty("--text-secondary");
+      el.style.removeProperty("--text-tertiary");
+      el.style.removeProperty("--border-default");
+      el.style.removeProperty("--accent-cta");
+      el.style.backgroundColor = "";
+      el.style.color = "";
+      el.style.borderColor = "";
+      if (sectionId === "hero" || sectionId === "final-cta" || sectionId === "trust-stats") {
+        el.classList.add("always-dark");
+      }
+    } else if (color === "white") {
+      el.style.setProperty("--bg-primary", "#FFFFFF");
+      el.style.setProperty("--bg-secondary", "#F7F7F7");
+      el.style.setProperty("--text-primary", "#111113");
+      el.style.setProperty("--text-secondary", "#111113b3");
+      el.style.setProperty("--text-tertiary", "#11111380");
+      el.style.setProperty("--border-default", "#E4E3DE");
+      el.style.setProperty("--accent-cta", "#18181c");
+      el.style.backgroundColor = "#FFFFFF";
+      el.style.color = "#111113";
+      el.style.borderColor = "#E4E3DE";
+      el.classList.remove("always-dark");
+    } else if (color === "grey") {
+      el.style.setProperty("--bg-primary", "#EAEAEA");
+      el.style.setProperty("--bg-secondary", "#F5F5F5");
+      el.style.setProperty("--text-primary", "#1A1A1A");
+      el.style.setProperty("--text-secondary", "#1A1A1Ab3");
+      el.style.setProperty("--text-tertiary", "#1A1A1A80");
+      el.style.setProperty("--border-default", "#D1D1D1");
+      el.style.setProperty("--accent-cta", "#000000");
+      el.style.backgroundColor = "#EAEAEA";
+      el.style.color = "#1A1A1A";
+      el.style.borderColor = "#D1D1D1";
+      el.classList.remove("always-dark");
+    } else if (color === "black") {
+      el.style.setProperty("--bg-primary", "#000000");
+      el.style.setProperty("--bg-secondary", "#0D0D0D");
+      el.style.setProperty("--text-primary", "#FFFFFF");
+      el.style.setProperty("--text-secondary", "#FFFFFFb3");
+      el.style.setProperty("--text-tertiary", "#FFFFFF80");
+      el.style.setProperty("--border-default", "#262626");
+      el.style.setProperty("--accent-cta", "#FFFFFF");
+      el.style.backgroundColor = "#000000";
+      el.style.color = "#FFFFFF";
+      el.style.borderColor = "#262626";
+      el.classList.add("always-dark");
+    }
+  };
+
+  const handleSectionColorChange = (sectionId: string, color: string) => {
+    const nextColors = { ...sectionColors, [sectionId]: color };
+    setSectionColors(nextColors);
+    localStorage.setItem("customizer-section-colors", JSON.stringify(nextColors));
+    applySectionColor(sectionId, color);
+  };
 
   // Font states
   const [fontSizeScale, setFontSizeScale] = useState(1.0);
@@ -237,6 +348,22 @@ export default function Customizer() {
 
       applyFontSize(savedScale);
       applyFontPreset(savedFont);
+
+      // Apply initial section background colors
+      const savedSectionsStr = localStorage.getItem("customizer-section-colors");
+      if (savedSectionsStr) {
+        try {
+          const savedSections = JSON.parse(savedSectionsStr);
+          setSectionColors(savedSections);
+          setTimeout(() => {
+            Object.entries(savedSections).forEach(([sectId, colorVal]) => {
+              applySectionColor(sectId, colorVal as string);
+            });
+          }, 100);
+        } catch (e) {
+          console.error(e);
+        }
+      }
     } catch (e) {
       console.error("Customizer load settings error:", e);
     }
@@ -270,6 +397,50 @@ export default function Customizer() {
     localStorage.setItem("customizer-accent", preset.accent);
     localStorage.setItem("customizer-border", preset.border);
     localStorage.setItem("customizer-dark", preset.isDark ? "true" : "false");
+
+    // Automatically set all sections to the selected color preset version
+    if (presetId === "white-theme") {
+      const nextColors = Object.keys(sectionColors).reduce((acc, key) => {
+        acc[key] = "white";
+        return acc;
+      }, {} as Record<string, string>);
+      setSectionColors(nextColors);
+      localStorage.setItem("customizer-section-colors", JSON.stringify(nextColors));
+      Object.keys(nextColors).forEach((sectId) => {
+        applySectionColor(sectId, "white");
+      });
+    } else if (presetId === "grey-theme") {
+      const nextColors = Object.keys(sectionColors).reduce((acc, key) => {
+        acc[key] = "grey";
+        return acc;
+      }, {} as Record<string, string>);
+      setSectionColors(nextColors);
+      localStorage.setItem("customizer-section-colors", JSON.stringify(nextColors));
+      Object.keys(nextColors).forEach((sectId) => {
+        applySectionColor(sectId, "grey");
+      });
+    } else if (presetId === "black-theme") {
+      const nextColors = Object.keys(sectionColors).reduce((acc, key) => {
+        acc[key] = "black";
+        return acc;
+      }, {} as Record<string, string>);
+      setSectionColors(nextColors);
+      localStorage.setItem("customizer-section-colors", JSON.stringify(nextColors));
+      Object.keys(nextColors).forEach((sectId) => {
+        applySectionColor(sectId, "black");
+      });
+    } else {
+      // Revert all sections to default style for standard presets
+      const nextColors = Object.keys(sectionColors).reduce((acc, key) => {
+        acc[key] = "default";
+        return acc;
+      }, {} as Record<string, string>);
+      setSectionColors(nextColors);
+      localStorage.setItem("customizer-section-colors", JSON.stringify(nextColors));
+      Object.keys(nextColors).forEach((sectId) => {
+        applySectionColor(sectId, "default");
+      });
+    }
   };
 
   const handleCustomColorChange = (key: string, value: string) => {
@@ -336,19 +507,18 @@ export default function Customizer() {
         aria-label="Open style customizer"
       >
         <svg viewBox="0 0 24 24" className="w-5 h-5 fill-none stroke-current stroke-[1.8]" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/>
-          <circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/>
-          <circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/>
-          <circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/>
-          <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.92 0 1.63-.77 1.63-1.7 0-.42-.16-.83-.44-1.14-.28-.31-.44-.72-.44-1.15 0-.93.77-1.69 1.7-1.69h2.83C20.1 16.32 22 14.36 22 12c0-5.5-4.5-10-10-10z"/>
+          <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" />
+          <circle cx="17.5" cy="10.5" r=".5" fill="currentColor" />
+          <circle cx="8.5" cy="7.5" r=".5" fill="currentColor" />
+          <circle cx="6.5" cy="12.5" r=".5" fill="currentColor" />
+          <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.92 0 1.63-.77 1.63-1.7 0-.42-.16-.83-.44-1.14-.28-.31-.44-.72-.44-1.15 0-.93.77-1.69 1.7-1.69h2.83C20.1 16.32 22 14.36 22 12c0-5.5-4.5-10-10-10z" />
         </svg>
       </button>
 
       {/* Style Switcher Drawer */}
       <div
-        className={`fixed top-0 right-0 w-[350px] z-50 bg-paper border-l border-line shadow-[0_0_50px_rgba(0,0,0,0.12)] transition-transform duration-300 ease-out select-none ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed top-0 right-0 w-[350px] z-50 bg-paper border-l border-line shadow-[0_0_50px_rgba(0,0,0,0.12)] transition-transform duration-300 ease-out select-none ${isOpen ? "translate-x-0" : "translate-x-full"
+          }`}
         style={{ height: '100vh' }}
       >
         {/* Header (Static) */}
@@ -375,21 +545,19 @@ export default function Customizer() {
         <div className="flex border-b border-line" style={{ flexShrink: 0 }}>
           <button
             onClick={() => setActiveTab("colors")}
-            className={`flex-1 py-3 font-mono text-[0.75rem] uppercase tracking-wider text-center border-b-2 transition-all duration-200 cursor-pointer ${
-              activeTab === "colors"
+            className={`flex-1 py-3 font-mono text-[0.75rem] uppercase tracking-wider text-center border-b-2 transition-all duration-200 cursor-pointer ${activeTab === "colors"
                 ? "border-ink text-ink font-bold"
                 : "border-transparent text-ink-3 hover:text-ink-2"
-            }`}
+              }`}
           >
             Color Palette
           </button>
           <button
             onClick={() => setActiveTab("fonts")}
-            className={`flex-1 py-3 font-mono text-[0.75rem] uppercase tracking-wider text-center border-b-2 transition-all duration-200 cursor-pointer ${
-              activeTab === "fonts"
+            className={`flex-1 py-3 font-mono text-[0.75rem] uppercase tracking-wider text-center border-b-2 transition-all duration-200 cursor-pointer ${activeTab === "fonts"
                 ? "border-ink text-ink font-bold"
                 : "border-transparent text-ink-3 hover:text-ink-2"
-            }`}
+              }`}
           >
             Typography
           </button>
@@ -419,11 +587,10 @@ export default function Customizer() {
                     <button
                       key={preset.id}
                       onClick={() => handleSelectPreset(preset.id)}
-                      className={`w-full flex items-center gap-3.5 p-3.5 border text-left transition-all duration-200 cursor-pointer ${
-                        selectedColorPreset === preset.id
+                      className={`w-full flex items-center gap-3.5 p-3.5 border text-left transition-all duration-200 cursor-pointer ${selectedColorPreset === preset.id
                           ? "border-ink bg-tint shadow-[3px_3px_0px_0px_var(--color-line)]"
                           : "border-line bg-paper hover:bg-tint/40"
-                      }`}
+                        }`}
                     >
                       {/* Swatch swatch */}
                       <div
@@ -539,6 +706,43 @@ export default function Customizer() {
                   </div>
                 </div>
               </div>
+
+              {/* Individual Section Background Overrides */}
+              <div className="space-y-4 border-t border-line/65 pt-5 pb-2">
+                <p className="text-[0.6875rem] font-mono text-ink-3 uppercase tracking-wider font-bold">
+                  Section Background Overrides
+                </p>
+
+                <div className="space-y-4 max-h-[320px] overflow-y-auto pr-1">
+                  {Object.entries(sectionColors).map(([sectionId, currentColor]) => (
+                    <div key={sectionId} className="flex flex-col gap-1.5 border border-line/50 p-2.5 bg-tint/5">
+                      <div className="flex justify-between items-center">
+                        <span className="font-mono text-[0.6875rem] font-bold text-ink uppercase tracking-wide">
+                          {sectionId.replace("-", " ")}
+                        </span>
+                        <span className="font-mono text-[0.58rem] text-ink-3 uppercase bg-tint px-1.5 py-0.5 border border-line/40">
+                          {currentColor}
+                        </span>
+                      </div>
+                      <div className="grid grid-cols-4 gap-1">
+                        {["default", "white", "grey", "black"].map((colorOption) => (
+                          <button
+                            key={colorOption}
+                            onClick={() => handleSectionColorChange(sectionId, colorOption)}
+                            className={`py-1 text-[0.6rem] font-mono uppercase tracking-tight transition-all duration-200 border cursor-pointer ${
+                              currentColor === colorOption
+                                ? "border-ink bg-ink text-paper font-bold"
+                                : "border-line bg-paper text-ink hover:bg-tint"
+                            }`}
+                          >
+                            {colorOption}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </>
           ) : (
             <>
@@ -554,11 +758,10 @@ export default function Customizer() {
                     <button
                       key={scale}
                       onClick={() => applyFontSize(scale)}
-                      className={`py-1.5 border font-mono text-[0.68rem] tracking-tight uppercase cursor-pointer transition-all duration-200 text-center ${
-                        fontSizeScale === scale
+                      className={`py-1.5 border font-mono text-[0.68rem] tracking-tight uppercase cursor-pointer transition-all duration-200 text-center ${fontSizeScale === scale
                           ? "border-ink bg-ink text-paper font-bold"
                           : "border-line bg-paper text-ink hover:bg-tint"
-                      }`}
+                        }`}
                     >
                       {scale === 1.0 ? "1.0x" : `${scale}x`}
                     </button>
@@ -605,11 +808,10 @@ export default function Customizer() {
                     <button
                       key={preset.id}
                       onClick={() => applyFontPreset(preset.id)}
-                      className={`w-full p-3.5 border text-left transition-all duration-200 cursor-pointer flex flex-col gap-1.5 ${
-                        selectedFontPreset === preset.id
+                      className={`w-full p-3.5 border text-left transition-all duration-200 cursor-pointer flex flex-col gap-1.5 ${selectedFontPreset === preset.id
                           ? "border-ink bg-tint shadow-[3px_3px_0px_0px_var(--color-line)]"
                           : "border-line bg-paper hover:bg-tint/40"
-                      }`}
+                        }`}
                     >
                       <div className="flex items-center justify-between">
                         <span className="font-mono text-[0.72rem] font-bold text-ink uppercase tracking-wide">

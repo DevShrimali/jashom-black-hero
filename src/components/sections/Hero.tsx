@@ -36,7 +36,7 @@ export default function Hero() {
   }, [reduced]);
 
   return (
-    <section ref={sectionRef} className="always-dark relative min-h-[65svh] flex flex-col overflow-clip">
+    <section ref={sectionRef} id="hero" className="always-dark relative min-h-[65svh] flex flex-col overflow-clip">
       <div
         className="absolute inset-0 bg-[radial-gradient(120%_80%_at_50%_-10%,var(--radial-glow),transparent_60%)]"
         aria-hidden="true"
@@ -47,56 +47,56 @@ export default function Hero() {
         className="container-j relative flex-1 grid lg:grid-cols-[minmax(0,6fr)_minmax(0,5fr)] gap-12 items-center pt-28 pb-10"
       >
         <div className="flex flex-col justify-center">
-        <motion.p
-          initial={{ opacity: 0, transform: reduced ? "none" : "translateY(16px)" }}
-          animate={{ opacity: 1, transform: "translateY(0px)" }}
-          transition={{ duration: 0.6, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
-          className="inline-flex w-fit items-center gap-2 bg-tint border border-line rounded-full px-4 py-1.5 text-[0.8125rem] text-ink-2 mb-8"
-        >
-          Next-Gen AI Solutions
-        </motion.p>
+          <motion.p
+            initial={{ opacity: 0, transform: reduced ? "none" : "translateY(16px)" }}
+            animate={{ opacity: 1, transform: "translateY(0px)" }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
+            className="inline-flex w-fit items-center gap-2 bg-tint border border-line rounded-full px-4 py-1.5 text-[0.8125rem] text-ink-2 mb-8"
+          >
+            Next-Gen AI Solutions
+          </motion.p>
 
-        <h1 className="text-[clamp(1.6rem,2.5vw,2.1rem)] leading-[1.1] max-w-none">
-          {HEADLINE.map((line, i) => (
-            <span key={line} className="block overflow-clip">
-              <motion.span
-                className="block sm:whitespace-nowrap"
-                initial={{ transform: reduced ? "none" : "translateY(105%)" }}
-                animate={{ transform: "translateY(0%)" }}
-                transition={{ duration: 0.9, delay: 0.2 + i * 0.12, ease: [0.23, 1, 0.32, 1] }}
-              >
-                {line}
-              </motion.span>
-            </span>
-          ))}
-        </h1>
+          <h1 className="text-[clamp(1.6rem,2.5vw,2.1rem)] leading-[1.1] max-w-none">
+            {HEADLINE.map((line, i) => (
+              <span key={line} className="block overflow-clip">
+                <motion.span
+                  className="block sm:whitespace-nowrap"
+                  initial={{ transform: reduced ? "none" : "translateY(105%)" }}
+                  animate={{ transform: "translateY(0%)" }}
+                  transition={{ duration: 0.9, delay: 0.2 + i * 0.12, ease: [0.23, 1, 0.32, 1] }}
+                >
+                  {line}
+                </motion.span>
+              </span>
+            ))}
+          </h1>
 
-        <motion.p
-          initial={{ opacity: 0, transform: reduced ? "none" : "translateY(16px)" }}
-          animate={{ opacity: 1, transform: "translateY(0px)" }}
-          transition={{ duration: 0.7, delay: 0.6, ease: [0.23, 1, 0.32, 1] }}
-          className="mt-7 max-w-[58ch] text-[1.0625rem] text-ink-2"
-        >
-          We assist companies in unleashing the power of the current hardware, whether it is through high-level optimization of graphics cards or scalable parallel computing. Our developers have expertise in NVIDIA GPU optimization, CUDA acceleration, and production-ready AI systems that are used to deliver quantifiable improvements.
-        </motion.p>
+          <motion.p
+            initial={{ opacity: 0, transform: reduced ? "none" : "translateY(16px)" }}
+            animate={{ opacity: 1, transform: "translateY(0px)" }}
+            transition={{ duration: 0.7, delay: 0.6, ease: [0.23, 1, 0.32, 1] }}
+            className="mt-7 max-w-[58ch] text-[1.0625rem] text-ink-2"
+          >
+            We assist companies in unleashing the power of the current hardware, whether it is through high-level optimization of graphics cards or scalable parallel computing. Our developers have expertise in NVIDIA GPU optimization, CUDA acceleration, and production-ready AI systems that are used to deliver quantifiable improvements.
+          </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, transform: reduced ? "none" : "translateY(16px)" }}
-          animate={{ opacity: 1, transform: "translateY(0px)" }}
-          transition={{ duration: 0.7, delay: 0.72, ease: [0.23, 1, 0.32, 1] }}
-          className="mt-10 flex flex-col gap-6"
-        >
-          <div className="flex flex-wrap items-center gap-4">
-            <Magnetic strength={0.18}>
-              <a href="/contact/" className="btn btn-primary">
-                Start Your AI Transformation
+          <motion.div
+            initial={{ opacity: 0, transform: reduced ? "none" : "translateY(16px)" }}
+            animate={{ opacity: 1, transform: "translateY(0px)" }}
+            transition={{ duration: 0.7, delay: 0.72, ease: [0.23, 1, 0.32, 1] }}
+            className="mt-10 flex flex-col gap-6"
+          >
+            <div className="flex flex-wrap items-center gap-4">
+              <Magnetic strength={0.18}>
+                <a href="/contact/" className="btn btn-primary">
+                  Start Your AI Transformation
+                </a>
+              </Magnetic>
+              <a href="https://cal.id/jashom-technologies/30min" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
+                Schedule a Meeting
               </a>
-            </Magnetic>
-            <a href="https://cal.id/jashom-technologies/30min" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
-              Schedule a Meeting
-            </a>
-          </div>
-        </motion.div>
+            </div>
+          </motion.div>
         </div>
 
         {/* Isometric exploded-GPU illustration */}
