@@ -34,6 +34,24 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
       <main>
         <article className="section">
           <div className="container-j max-w-3xl flex flex-col gap-5">
+            {/* Hero image */}
+            <div className="relative aspect-[16/9] w-full overflow-hidden bg-tint mb-4">
+              <img
+                src={post.image}
+                alt={post.title}
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Tags */}
+            <div className="flex flex-wrap gap-1.5 pb-4 border-b border-line">
+              {post.tags.map((t) => (
+                <span key={t} className="font-mono text-[0.7rem] uppercase tracking-wider text-ink-2 bg-tint border border-line/60 px-2 py-0.5 rounded-sm">
+                  {t}
+                </span>
+              ))}
+            </div>
+
             {post.body.map((b, i) => {
               if (b.t === "h") return <h2 key={i} className="text-[1.25rem] md:text-[1.4rem] font-medium text-ink mt-6">{b.text}</h2>;
               if (b.t === "p") return <p key={i} className="text-ink-2 leading-relaxed max-w-[70ch]">{b.text}</p>;

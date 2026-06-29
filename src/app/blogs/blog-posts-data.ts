@@ -8,6 +8,9 @@ export type BlogPost = {
   title: string;
   excerpt: string;
   date: string;
+  image: string;
+  category: string;
+  tags: string[];
   metaTitle: string;
   metaDescription: string;
   body: BlogBlock[];
@@ -19,6 +22,9 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "What Is GPU Optimization? A Complete Guide for AI and HPC Workloads",
     excerpt: "Boost AI and HPC performance with GPU optimization. Reduce processing time, cut costs, and maximize efficiency. Discover proven strategies today.",
     date: "Jun 19, 2026",
+    image: "https://images.unsplash.com/photo-1591453089816-0fbb971b454c?auto=format&fit=crop&w=800&q=80",
+    category: "GPU Engineering · AI Infrastructure",
+    tags: ["CUDA", "GPU", "HPC"],
     metaTitle: "What Is GPU Optimization? A Complete Guide for AI and HPC Workloads | Jashom Blog",
     metaDescription: "Jashom provides advanced GPU optimization, CUDA development, and high-performance computing solutions to accelerate AI, simulation, and enterprise workloads efficiently.",
     body: [
@@ -106,6 +112,9 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "What Is CUDA Programming? A Beginner’s Guide",
     excerpt: "Discover how CUDA programming unlocks NVIDIA GPU power for faster AI, data processing, and computing. Learn why it matters and get started today.",
     date: "Jun 16, 2026",
+    image: "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?auto=format&fit=crop&w=800&q=80",
+    category: "CUDA Development · Parallel Computing",
+    tags: ["CUDA", "NVIDIA", "Parallel"],
     metaTitle: "What Is CUDA Programming? A Beginner’s Guide | Jashom Blog",
     metaDescription: "Jashom provides advanced GPU optimization, CUDA development, and high-performance computing solutions to accelerate AI, simulation, and enterprise workloads efficiently.",
     body: [
@@ -175,6 +184,9 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "CPU vs GPU Computing: Why GPUs Dominate AI Workloads?",
     excerpt: "Learn how GPUs and CPUs power AI differently. Learn which processor fits your AI needs and build faster, smarter systems today.",
     date: "May 25, 2026",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
+    category: "Hardware · AI Infrastructure",
+    tags: ["GPU", "CPU", "AI Training"],
     metaTitle: "CPU vs GPU Computing: Why GPUs Dominate AI Workloads? | Jashom Blog",
     metaDescription: "Learn how GPUs and CPUs power AI differently. Learn which processor fits your AI needs and build faster, smarter systems today.",
     body: [
@@ -228,6 +240,9 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "What Is AI Accelerator? AI Accelerator Card vs GPU",
     excerpt: "Discover the difference between AI accelerators and GPUs to boost AI performance, cut costs, and choose the right hardware faster.",
     date: "May 19, 2026",
+    image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=800&q=80",
+    category: "AI Hardware · Performance",
+    tags: ["AI Hardware", "GPU", "Inference"],
     metaTitle: "What Is AI Accelerator? AI Accelerator Card vs GPU | Jashom Blog",
     metaDescription: "Discover the difference between AI accelerators and GPUs to boost AI performance, cut costs, and choose the right hardware faster.",
     body: [
@@ -365,6 +380,9 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "What Makes NVIDIA GPUs Perfect for AI Workloads?",
     excerpt: "Power your AI faster with NVIDIA GPUs handle massive data, speed up training, and boost performance. Ready to upgrade your AI workflow? Discover how now.",
     date: "Apr 8, 2026",
+    image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=80",
+    category: "NVIDIA · AI Infrastructure",
+    tags: ["NVIDIA", "Deep Learning", "CUDA"],
     metaTitle: "What Makes NVIDIA GPUs Perfect for AI Workloads? | Jashom Blog",
     metaDescription: "Power your AI faster with NVIDIA GPUs handle massive data, speed up training, and boost performance. Ready to upgrade your AI workflow? Discover how now.",
     body: [
@@ -431,6 +449,9 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "GPU vs TPU vs CPU: Which Is Best for AI Training?",
     excerpt: "AI training isn’t just about data it’s about the power behind it. CPU, GPU, or TPU each works differently, but which one actually gives you the best results? Click to find out.",
     date: "Mar 18, 2026",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+    category: "AI Training · Hardware",
+    tags: ["GPU", "TPU", "CPU"],
     metaTitle: "GPU vs TPU vs CPU: Which Is Best for AI Training? | Jashom Blog",
     metaDescription: "AI training isn’t just about data it’s about the power behind it. CPU, GPU, or TPU each works differently, but which one actually gives you the best results? Click to find out.",
     body: [

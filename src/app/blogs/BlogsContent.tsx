@@ -47,15 +47,56 @@ export default function BlogsContent() {
               <SplitHeading className="text-[clamp(1.6rem,2.5vw,2.1rem)]">All articles</SplitHeading>
               <Reveal><p className="text-ink-2 max-w-[58ch]">Practical guidance, engineering insights, and case-study learnings from the Jashom team.</p></Reveal>
             </div>
-            <Stagger className="grid md:grid-cols-2 lg:grid-cols-3 border-t border-line" itemClassName="h-full" step={0.06}>
+            <Stagger className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" itemClassName="h-full" step={0.06}>
               {BLOG_POSTS.map((p) => (
-                <a key={p.slug} href={`/blogs/${p.slug}/`} className="group h-full flex flex-col p-6 md:p-7 border-b border-line hover:bg-tint transition-all duration-300">
-                  <span className="font-mono text-[0.75rem] tracking-wider text-ink-3 uppercase mb-4">Insight</span>
-                  <h2 className="text-[1.125rem] font-medium text-ink mb-3 leading-snug">{p.title}</h2>
-                  <p className="text-[0.9375rem] text-ink-2 flex-1">{p.excerpt}</p>
-                  <div className="mt-6 pt-4 border-t border-line flex items-center justify-between text-[0.8125rem]">
-                    <span className="text-ink-3 font-mono">{p.date}</span>
-                    <span className="link-line text-ink font-medium">Read more →</span>
+                <a
+                  key={p.slug}
+                  href={`/blogs/${p.slug}/`}
+                  className="bg-transparent border border-line hover:bg-paper group flex flex-col h-full transition-all duration-300"
+                >
+                  {/* Image */}
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-tint">
+                    <img
+                      src={p.image}
+                      alt={p.title}
+                      className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                    />
+                  </div>
+
+                  <div className="flex flex-col flex-1 p-6 md:p-7">
+                    {/* Category */}
+                    <p className="font-mono text-[0.75rem] text-ink-3 uppercase tracking-wider mb-2.5">
+                      {p.category}
+                    </p>
+
+                    {/* Title */}
+                    <h2 className="font-sans font-medium text-[1.2rem] leading-snug text-ink mb-3 group-hover:underline decoration-1 underline-offset-4 transition-colors">
+                      {p.title}
+                    </h2>
+
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-1.5 mb-6">
+                      {p.tags.map((t) => (
+                        <span
+                          key={t}
+                          className="font-mono text-[0.7rem] uppercase tracking-wider text-ink-2 bg-tint border border-line/60 px-2 py-0.5 rounded-sm"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Footer */}
+                    <div className="mt-auto pt-4 border-t border-line/40 flex items-center justify-between">
+                      <span className="font-mono text-[0.75rem] text-ink-3 uppercase tracking-wider">
+                        {p.date}
+                      </span>
+                      <span className="inline-block transition-all duration-300 group-hover:translate-x-1.5 text-ink-3 group-hover:text-ink">
+                        <svg width="14" height="14" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
+                        </svg>
+                      </span>
+                    </div>
                   </div>
                 </a>
               ))}
