@@ -21,7 +21,7 @@ const COLUMNS: FooterColumn[] = [
       { label: "GPU Optimization Service", href: "/gpu-optimization-service/" },
       { label: "CUDA Development Service", href: "/cuda-development-service/" },
       { label: "Hire CUDA Developer", href: "/hire-cuda-developer/" },
-      { label: "Hire Rust Developer", href: "/hire-rust-developer/" },
+      { label: "Hire Rust Developer", href: "/hire-rust-developers/" },
     ],
   },
   {

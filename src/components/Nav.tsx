@@ -252,7 +252,7 @@ export default function Nav() {
                   <div className="bg-paper border border-line rounded-none p-2 shadow-[0_16px_40px_rgba(17,17,19,0.08)] flex flex-col gap-1">
                     {[
                       { label: "Hire CUDA Developer", href: "/hire-cuda-developer/" },
-                      { label: "Hire Rust Developer", href: "/hire-rust-developer/" },
+                      { label: "Hire Rust Developer", href: "/hire-rust-developers/" },
                     ].map((item) => (
                       <Link
                         key={item.label}
@@ -397,7 +397,7 @@ export default function Nav() {
               <div className="flex flex-col gap-1 pl-2 border-l border-line mb-6">
                 {[
                   { label: "Hire CUDA Developer", href: "/hire-cuda-developer/" },
-                  { label: "Hire Rust Developer", href: "/hire-rust-developer/" },
+                  { label: "Hire Rust Developer", href: "/hire-rust-developers/" },
                 ].map((item, i) => (
                   <motion.a
                     key={item.label}
