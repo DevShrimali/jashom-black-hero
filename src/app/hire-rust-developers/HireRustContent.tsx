@@ -5,7 +5,7 @@ import { motion, useReducedMotion } from "motion/react";
 import SplitHeading from "@/components/motion/SplitHeading";
 import { Reveal, Stagger } from "@/components/motion/Reveal";
 import Magnetic from "@/components/motion/Magnetic";
-import HeroIllustration from "@/components/HeroIllustration";
+import HireRustHeroSvg from "./HireRustHeroSvg";
 
 const BADGES = [
   { label: "Flexible Hiring", sub: "Scalable engagement models" },
@@ -144,7 +144,7 @@ export default function HireRustContent() {
             </motion.div>
           </div>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.3 }} className="hidden lg:block">
-            <HeroIllustration />
+            <HireRustHeroSvg />
           </motion.div>
         </div>
       </section>

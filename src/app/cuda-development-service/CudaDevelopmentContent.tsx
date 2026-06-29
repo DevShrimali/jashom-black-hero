@@ -7,6 +7,7 @@ import { Reveal, Stagger } from "@/components/motion/Reveal";
 import Counter from "@/components/motion/Counter";
 import Magnetic from "@/components/motion/Magnetic";
 import CudaHeroSvg from "./CudaHeroSvg";
+import CudaOverviewSvg from "./CudaOverviewSvg";
 
 const STATS = [
   { value: 100, prefix: "", suffix: "x", label: "Compute Throughput Increase" },
@@ -125,7 +126,8 @@ export default function CudaDevelopmentContent() {
                   <p className="text-ink-2 max-w-[60ch]">Such a solution will minimize latency, optimize the use of resources, and increase the scalability of machine learning, quantitative analytics, visualization engines, and scientific modeling systems. The correct use of CUDA is not acceleration; it is an architectural change.</p>
                 </Reveal>
               </div>
-              <div className="lg:col-span-5">
+              <div className="lg:col-span-5 flex flex-col gap-8">
+                <CudaOverviewSvg />
                 <Stagger className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10" step={0.08}>
                   {STATS.map((s) => (
                     <div key={s.label} className="flex flex-col">

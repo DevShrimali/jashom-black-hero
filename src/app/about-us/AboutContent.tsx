@@ -5,6 +5,7 @@ import { motion, useReducedMotion } from "motion/react";
 import SplitHeading from "@/components/motion/SplitHeading";
 import { Reveal, Stagger } from "@/components/motion/Reveal";
 import Magnetic from "@/components/motion/Magnetic";
+import AboutHeroSvg from "./AboutHeroSvg";
 
 const STATS = [
   { value: "20+", label: "Industries Served", body: "Bringing graphics computing to healthcare, fintech, research, autonomous systems, and enterprise AI." },
@@ -29,9 +30,10 @@ export default function AboutContent() {
   return (
     <>
       {/* Hero */}
-      <section id="hero" className="always-dark relative min-h-[55svh] flex flex-col overflow-clip">
+      <section id="hero" className="always-dark relative min-h-[60svh] flex flex-col overflow-clip">
         <div className="absolute inset-0 bg-[radial-gradient(120%_80%_at_50%_-10%,var(--radial-glow),transparent_60%)]" aria-hidden="true" />
-        <div className="container-j relative flex-1 flex flex-col justify-center pt-28 pb-10 max-w-3xl">
+        <div className="container-j relative flex-1 grid lg:grid-cols-[minmax(0,6fr)_minmax(0,5fr)] gap-12 items-center pt-28 pb-10">
+          <div className="flex flex-col justify-center">
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.1 }}
             className="font-mono text-[0.8125rem] tracking-[0.2em] text-ink-3 uppercase mb-6">
             About • GPU Optimization • CUDA • HPC
@@ -60,6 +62,10 @@ export default function AboutContent() {
             className="mt-10 flex flex-wrap gap-4">
             <Magnetic strength={0.18}><a href="/contact/" className="btn btn-primary">Talk to our team</a></Magnetic>
             <a href="/portfolio/" className="btn btn-secondary">View case studies</a>
+          </motion.div>
+          </div>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.3 }} className="hidden lg:block">
+            <AboutHeroSvg />
           </motion.div>
         </div>
       </section>

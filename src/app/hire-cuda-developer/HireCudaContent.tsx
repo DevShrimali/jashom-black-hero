@@ -5,7 +5,7 @@ import { motion, useReducedMotion } from "motion/react";
 import SplitHeading from "@/components/motion/SplitHeading";
 import { Reveal, Stagger } from "@/components/motion/Reveal";
 import Magnetic from "@/components/motion/Magnetic";
-import HeroIllustration from "@/components/HeroIllustration";
+import HireCudaHeroSvg from "./HireCudaHeroSvg";
 
 const BADGES = ["15 Days Risk-Free Trial", "24x7 Technical Support", "On-Time Delivery"];
 
@@ -140,7 +140,7 @@ export default function HireCudaContent() {
             </motion.div>
           </div>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.3 }} className="hidden lg:block">
-            <HeroIllustration />
+            <HireCudaHeroSvg />
           </motion.div>
         </div>
       </section>

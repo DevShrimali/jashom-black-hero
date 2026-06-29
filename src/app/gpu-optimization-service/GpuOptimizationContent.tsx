@@ -38,12 +38,78 @@ const INDUSTRIES = [
 ];
 
 const PROCESS = [
-  { title: "Assessment", body: "Assess existing GPU architecture, load, and establish specific optimization objectives." },
-  { title: "Analysis", body: "Gather real-time monitoring information and spot performance issues and performance bottlenecks." },
-  { title: "Kernel Optimization", body: "Refine CUDA kernels and improve parallel execution balance." },
-  { title: "Tuning", body: "Expenses in runtime parameters and memory allocation, better throughput." },
-  { title: "Testing", body: "Authenticate gains with validation checkpoints." },
-  { title: "Deployment", body: "Employ workloads that are optimized, monitored, and improved." },
+  {
+    title: "Assessment",
+    body: "Assess existing GPU architecture, load, and establish specific optimization objectives.",
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="9" y="2" width="6" height="4" rx="1" />
+        <path d="M9 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-3" />
+        <path d="M9 12l2 2 4-4" />
+        <line x1="8" y1="17" x2="16" y2="17" />
+      </svg>
+    ),
+  },
+  {
+    title: "Analysis",
+    body: "Gather real-time monitoring information and spot performance issues and performance bottlenecks.",
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <polyline points="2 12 6 5 10 16 14 9 18 13 22 8" />
+        <line x1="2" y1="20" x2="22" y2="20" />
+      </svg>
+    ),
+  },
+  {
+    title: "Kernel Optimization",
+    body: "Refine CUDA kernels and improve parallel execution balance.",
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="4" y="4" width="16" height="16" rx="1" />
+        <line x1="9" y1="4" x2="9" y2="20" />
+        <line x1="15" y1="4" x2="15" y2="20" />
+        <line x1="4" y1="9" x2="20" y2="9" />
+        <line x1="4" y1="15" x2="20" y2="15" />
+        <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none" />
+      </svg>
+    ),
+  },
+  {
+    title: "Tuning",
+    body: "Expenses in runtime parameters and memory allocation, better throughput.",
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <line x1="4" y1="6" x2="20" y2="6" />
+        <line x1="4" y1="12" x2="20" y2="12" />
+        <line x1="4" y1="18" x2="20" y2="18" />
+        <circle cx="9" cy="6" r="2" fill="var(--color-paper,white)" />
+        <circle cx="15" cy="12" r="2" fill="var(--color-paper,white)" />
+        <circle cx="9" cy="18" r="2" fill="var(--color-paper,white)" />
+      </svg>
+    ),
+  },
+  {
+    title: "Testing",
+    body: "Authenticate gains with validation checkpoints.",
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M12 3l8 4.5v5c0 4.5-3.5 8.5-8 9.5-4.5-1-8-5-8-9.5v-5z" />
+        <polyline points="9 12 11 14 15 10" />
+      </svg>
+    ),
+  },
+  {
+    title: "Deployment",
+    body: "Employ workloads that are optimized, monitored, and improved.",
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M12 2C8 6 7 10 7 13a5 5 0 0 0 10 0c0-3-1-7-5-11z" />
+        <line x1="12" y1="18" x2="12" y2="22" />
+        <line x1="8" y1="22" x2="16" y2="22" />
+        <circle cx="12" cy="13" r="1.5" fill="currentColor" stroke="none" />
+      </svg>
+    ),
+  },
 ];
 
 const BENEFITS = [
@@ -55,7 +121,48 @@ const BENEFITS = [
   { title: "Energy Efficiency", body: "Minimize energy use by optimizing the use of GPUs, which helps on the sustainability agenda and limits the cost of running the operations." },
 ];
 
-const MODELS = ["GPT-4o", "Llama 3", "PaLM 2", "Stability AI", "Google Gemini", "Vicuna", "Mistral", "Claude"];
+const MODELS = [
+  {
+    name: "GPT-4o",
+    logo: "https://www.edigitalagency.com.au/wp-content/uploads/new-ChatGPT-logo-black-png-large-size.png",
+    cls: "h-14 md:h-16",
+  },
+  {
+    name: "Google Gemini",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Google_Gemini_logo.svg/600px-Google_Gemini_logo.svg.png",
+    cls: "h-12 md:h-14",
+  },
+  {
+    name: "Claude",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Claude_ai_logo.svg/600px-Claude_ai_logo.svg.png",
+    cls: "h-14 md:h-16",
+  },
+  {
+    name: "Llama 3",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/a/ab/Meta-Logo.png",
+    cls: "h-12 md:h-14",
+  },
+  {
+    name: "Mistral",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Mistral_AI_logo.svg/600px-Mistral_AI_logo.svg.png",
+    cls: "h-12 md:h-14",
+  },
+  {
+    name: "Hugging Face",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/d/d6/Hf-logo-with-title.svg",
+    cls: "h-12 md:h-14",
+  },
+  {
+    name: "Stability AI",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Stability_AI_Logo.svg/600px-Stability_AI_Logo.svg.png",
+    cls: "h-10 md:h-12",
+  },
+  {
+    name: "Ollama",
+    logo: "https://pnghdpro.com/wp-content/themes/pnghdpro/download/social-media-and-brands/ollama-logo-hd.png",
+    cls: "h-14 md:h-16",
+  },
+];
 
 const WHY = [
   { title: "Advanced Parallel Computing Expertise", body: "Our experts have extensive expertise in CUDA implementation, tuning of the GPU architecture, and high-performance parallel systems. This is done at low-level kernel optimization all the way up to optimizing an entire NVIDIA GPU, and we work to squeeze the highest performance out of every tier of your computing system." },
@@ -75,6 +182,71 @@ const FAQS = [
   { q: "What metrics do you use to measure optimization success?", a: "We assess the use of GPUs, the performance, the ability to use memory, the decrease in latency, the efficiency of the scalability, and the savings in costs using structured profiling and benchmarking techniques." },
   { q: "Do optimized workloads remain stable in production?", a: "Absolutely. All optimizations are tested, regressed, and monitored during deployment to make sure that the performance improvements will be maintained in the field." },
 ];
+
+/** Minimal overview SVG — performance bar chart with GPU grid motif */
+function OverviewSvg() {
+  return (
+    <svg
+      viewBox="0 0 360 180"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-full h-auto"
+      aria-hidden="true"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      {/* background grid */}
+      <g stroke="var(--color-line)" strokeWidth="0.6" opacity="0.5">
+        {[0, 45, 90, 135, 180, 225, 270, 315, 360].map((x) => (
+          <line key={`gx${x}`} x1={x} y1="0" x2={x} y2="180" />
+        ))}
+        {[0, 36, 72, 108, 144, 180].map((y) => (
+          <line key={`gy${y}`} x1="0" y1={y} x2="360" y2={y} />
+        ))}
+      </g>
+
+      {/* baseline */}
+      <line x1="40" y1="148" x2="320" y2="148" stroke="var(--color-line)" strokeWidth="1.5" />
+
+      {/* Bar 1 — 40% height, muted */}
+      <rect x="72" y="92" width="36" height="56" stroke="var(--color-ink-3)" strokeWidth="1.5" />
+
+      {/* Bar 2 — 65% height, muted */}
+      <rect x="142" y="66" width="36" height="82" stroke="var(--color-ink-2)" strokeWidth="1.5" />
+
+      {/* Bar 3 — 100% height, accent fill */}
+      <rect
+        x="212"
+        y="28"
+        width="36"
+        height="120"
+        fill="var(--color-ink)"
+        fillOpacity="0.07"
+        stroke="var(--color-ink)"
+        strokeWidth="2"
+      />
+
+      {/* accent top cap on bar 3 */}
+      <line x1="212" y1="28" x2="248" y2="28" stroke="var(--color-ink)" strokeWidth="3" />
+
+      {/* arrow up — indicating performance */}
+      <path
+        d="M230 148 L230 36 M222 50 L230 36 L238 50"
+        stroke="var(--color-ink)"
+        strokeWidth="1.5"
+        opacity="0.25"
+      />
+
+      {/* labels */}
+      <text x="72" y="165" fill="var(--color-ink-3)" fontSize="9" fontFamily="var(--font-mono)" letterSpacing="1">BEFORE</text>
+      <text x="136" y="165" fill="var(--color-ink-3)" fontSize="9" fontFamily="var(--font-mono)" letterSpacing="1">OPTIMISED</text>
+      <text x="210" y="165" fill="var(--color-ink-3)" fontSize="9" fontFamily="var(--font-mono)" letterSpacing="1">WITH JASHOM</text>
+
+      {/* top label */}
+      <text x="40" y="20" fill="var(--color-ink-3)" fontSize="9" fontFamily="var(--font-mono)" letterSpacing="2" opacity="0.7">GPU PERFORMANCE</text>
+    </svg>
+  );
+}
 
 export default function GpuOptimizationContent() {
   const reduced = useReducedMotion();
@@ -148,14 +320,19 @@ export default function GpuOptimizationContent() {
                   </p>
                 </Reveal>
               </div>
-              <div className="lg:col-span-5">
-                <Stagger className="grid grid-cols-2 gap-x-8 gap-y-10" step={0.08}>
+              <div className="lg:col-span-5 flex flex-col gap-10">
+                {/* Minimal themed SVG illustration */}
+                <Reveal>
+                  <OverviewSvg />
+                </Reveal>
+                {/* KPI stats */}
+                <Stagger className="grid grid-cols-2 gap-x-8 gap-y-8" step={0.08}>
                   {STATS.map((s) => (
                     <div key={s.label} className="flex flex-col">
                       <p className="font-mono text-[clamp(2rem,4vw,3rem)] leading-none text-ink font-bold">
                         <Counter value={s.value} suffix={s.suffix} />
                       </p>
-                      <p className="mt-3 text-[0.875rem] md:text-[0.9375rem] text-ink-2 uppercase tracking-wider font-mono">{s.label}</p>
+                      <p className="mt-2.5 text-[0.8125rem] md:text-[0.875rem] text-ink-3 uppercase tracking-[0.15em] font-mono">{s.label}</p>
                     </div>
                   ))}
                 </Stagger>
@@ -224,9 +401,15 @@ export default function GpuOptimizationContent() {
             </div>
             <Stagger className="grid sm:grid-cols-2 lg:grid-cols-3 border-t border-line" itemClassName="h-full" step={0.05}>
               {PROCESS.map((p, i) => (
-                <div key={p.title} className="group h-full p-5 md:p-6 border-b border-line hover:bg-tint transition-all duration-300">
-                  <span className="font-mono text-[0.875rem] text-ink-3">{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="font-sans font-medium text-[1rem] text-ink mt-3 mb-2">{p.title}</h3>
+                <div key={p.title} className="group h-full p-5 md:p-6 border-b border-line hover:bg-tint transition-all duration-300 flex flex-col">
+                  {/* icon + step number row */}
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-ink-2 transition-colors duration-300 group-hover:text-ink">
+                      {p.icon}
+                    </span>
+                    <span className="font-mono text-[0.8rem] text-ink-3 tabular-nums">{String(i + 1).padStart(2, "0")}</span>
+                  </div>
+                  <h3 className="font-sans font-medium text-[1rem] text-ink mb-2">{p.title}</h3>
                   <p className="text-[0.875rem] text-ink-2">{p.body}</p>
                 </div>
               ))}
@@ -282,11 +465,32 @@ export default function GpuOptimizationContent() {
             <div className="max-w-2xl mb-10">
               <SplitHeading className="text-[clamp(1.6rem,2.5vw,2.1rem)]">AI Models We Have Expertise In</SplitHeading>
             </div>
-            <Stagger className="flex flex-wrap gap-3" step={0.04}>
-              {MODELS.map((m) => (
-                <span key={m} className="border border-line bg-linen px-4 py-2 text-[0.9375rem] text-ink font-mono">{m}</span>
-              ))}
-            </Stagger>
+            {/* 5-per-row logo grid, last row centered */}
+            <div className="max-w-5xl mx-auto">
+              {/* Row 1: first 5 logos */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 border-t border-l border-line bg-linen shadow-[6px_6px_0px_0px_var(--color-line)]">
+                {MODELS.slice(0, 5).map((m) => (
+                  <div key={m.name}
+                    className="group flex flex-col items-center justify-center gap-4 py-10 px-6 min-h-[150px] border-r border-b border-line hover:bg-tint/50 transition-colors duration-300">
+                    <img src={m.logo} alt={m.name}
+                      className={`${m.cls} w-auto max-w-[80%] object-contain transition-all duration-300`} />
+                    <span className="font-mono text-[0.7rem] text-ink-3 uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-200">{m.name}</span>
+                  </div>
+                ))}
+              </div>
+              {/* Row 2: remaining 3 logos, centered */}
+              <div className="flex justify-center border-l border-line bg-linen">
+                {MODELS.slice(5).map((m) => (
+                  <div key={m.name}
+                    style={{ width: "20%" }}
+                    className="group flex flex-col items-center justify-center gap-4 py-10 px-6 min-h-[150px] border-r border-b border-line hover:bg-tint/50 transition-colors duration-300">
+                    <img src={m.logo} alt={m.name}
+                      className={`${m.cls} w-auto max-w-[80%] object-contain transition-all duration-300`} />
+                    <span className="font-mono text-[0.7rem] text-ink-3 uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-200">{m.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 

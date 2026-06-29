@@ -7,34 +7,16 @@ import Magnetic from "@/components/motion/Magnetic";
 
 const SERVICES = [
   {
-    label: "GPU Emulator",
-    desc: "Develop CUDA without GPU hardware",
-    href: "#services",
-    iconName: "cpu" as const,
+    label: "GPU Optimization",
+    desc: "Maximize NVIDIA GPU throughput and compute efficiency",
+    href: "/gpu-optimization-service/",
+    iconName: "gpu" as const,
   },
   {
-    label: "GPU Profiler",
-    desc: "Real-time performance analysis",
-    href: "#services",
-    iconName: "chart" as const,
-  },
-  {
-    label: "AI Assistant",
-    desc: "Custom agents, skills, and GPU-aware optimization",
-    href: "#services",
-    iconName: "bot" as const,
-  },
-  {
-    label: "Code Analysis",
-    desc: "Static & assembly insights",
-    href: "#services",
-    iconName: "file" as const,
-  },
-  {
-    label: "Multi-GPU",
-    desc: "Scale across multiple GPUs",
-    href: "#services",
-    iconName: "network" as const,
+    label: "CUDA Development",
+    desc: "High-performance parallel kernels for NVIDIA architecture",
+    href: "/cuda-development-service/",
+    iconName: "cuda" as const,
   },
 ];
 
@@ -51,49 +33,22 @@ function ServiceIcon({ name }: { name: string }) {
   };
 
   switch (name) {
-    case "cpu":
+    case "gpu":
       return (
         <svg {...common}>
-          <rect x="4" y="4" width="16" height="16" rx="0" />
-          <rect x="9" y="9" width="6" height="6" />
-          <path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 15h3M1 9h3M1 15h3" />
+          <rect x="4" y="4" width="16" height="16" rx="1" />
+          <line x1="9" y1="4" x2="9" y2="20" />
+          <line x1="15" y1="4" x2="15" y2="20" />
+          <line x1="4" y1="9" x2="20" y2="9" />
+          <line x1="4" y1="15" x2="20" y2="15" />
+          <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none" />
         </svg>
       );
-    case "chart":
+    case "cuda":
       return (
         <svg {...common}>
-          <line x1="18" y1="20" x2="18" y2="10" />
-          <line x1="12" y1="20" x2="12" y2="4" />
-          <line x1="6" y1="20" x2="6" y2="14" />
-        </svg>
-      );
-    case "bot":
-      return (
-        <svg {...common}>
-          <rect x="3" y="11" width="18" height="10" rx="0" />
-          <circle cx="12" cy="5" r="2" />
-          <path d="M12 7v4" />
-          <line x1="8" y1="16" x2="8.01" y2="16" strokeWidth="2.5" />
-          <line x1="16" y1="16" x2="16.01" y2="16" strokeWidth="2.5" />
-        </svg>
-      );
-    case "file":
-      return (
-        <svg {...common}>
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-          <polyline points="14 2 14 8 20 8" />
-          <line x1="16" y1="13" x2="8" y2="13" />
-          <line x1="16" y1="17" x2="8" y2="17" />
-          <polyline points="10 9 9 9 8 9" />
-        </svg>
-      );
-    case "network":
-      return (
-        <svg {...common}>
-          <rect x="16" y="16" width="6" height="6" rx="0" />
-          <rect x="2" y="16" width="6" height="6" rx="0" />
-          <rect x="9" y="2" width="6" height="6" rx="0" />
-          <path d="M12 8v4M5 16v-4h14v4" />
+          <polyline points="2 13 6 6 10 17 14 10 18 14 22 9" />
+          <line x1="2" y1="20" x2="22" y2="20" />
         </svg>
       );
     default:
@@ -102,7 +57,7 @@ function ServiceIcon({ name }: { name: string }) {
 }
 
 const LINKS = [
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "/contact/" },
 ];
 
 export default function Nav() {
@@ -193,28 +148,28 @@ export default function Nav() {
                   exit={{ opacity: 0, transform: "translateY(4px) scale(0.99)" }}
                   transition={{ duration: 0.18, ease: [0.23, 1, 0.32, 1] }}
                   style={{ transformOrigin: "top center" }}
-                  className="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-[560px]"
+                  className="absolute left-0 top-full pt-3 w-[300px]"
                 >
-                  <div className="bg-paper border border-line rounded-none p-3 shadow-[0_16px_40px_rgba(17,17,19,0.08)] grid grid-cols-2 gap-2">
+                  <div className="bg-paper border border-line rounded-none p-2 shadow-[0_16px_40px_rgba(17,17,19,0.08)] flex flex-col gap-1">
                     {SERVICES.map((s) => (
-                      <a
+                      <Link
                         key={s.label}
                         href={s.href}
                         onClick={() => setServicesOpen(false)}
-                        className="group flex items-start gap-4 p-3 rounded-none hover:bg-tint transition-all duration-200"
+                        className="group flex items-center gap-3 p-3 rounded-none hover:bg-tint transition-all duration-200"
                       >
-                        <div className="flex-shrink-0 flex items-center justify-center w-11 h-11 border border-line bg-tint text-ink transition-all duration-200 group-hover:bg-paper group-hover:-translate-y-0.5">
+                        <div className="flex-shrink-0 flex items-center justify-center w-9 h-9 border border-line bg-tint text-ink transition-all duration-200 group-hover:bg-paper group-hover:-translate-y-0.5">
                           <ServiceIcon name={s.iconName} />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h4 className="font-mono font-medium text-[0.9375rem] text-ink leading-tight mb-1">
+                          <h4 className="font-mono font-medium text-[0.875rem] text-ink leading-tight mb-0.5">
                             {s.label}
                           </h4>
-                          <p className="text-[0.8125rem] text-ink-2 leading-snug">
+                          <p className="text-[0.75rem] text-ink-2 leading-snug">
                             {s.desc}
                           </p>
                         </div>
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </motion.div>
@@ -330,7 +285,7 @@ export default function Nav() {
           ))}
 
           <Magnetic strength={0.2}>
-            <a href="#contact" className="btn btn-primary !py-3 !px-5">
+            <a href="/contact/" className="btn btn-primary !py-3 !px-5">
               Schedule a Meeting
             </a>
           </Magnetic>
@@ -369,27 +324,31 @@ export default function Nav() {
             <div className="container-j pt-24 pb-10 flex-1 overflow-y-auto">
               <p className="text-xs uppercase tracking-wider text-ink-3 mb-3">Services</p>
               {SERVICES.map((s, i) => (
-                <motion.a
+                <Link
                   key={s.label}
                   href={s.href}
                   onClick={() => setOpen(false)}
-                  initial={{ opacity: 0, transform: reduced ? "none" : "translateY(12px)" }}
-                  animate={{ opacity: 1, transform: "translateY(0px)" }}
-                  transition={{ delay: 0.05 + i * 0.04, duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
-                  className="group flex items-start gap-4 py-3 border-b border-line"
+                  className="group flex items-center gap-4 py-3 border-b border-line"
                 >
-                  <div className="flex-shrink-0 flex items-center justify-center w-10 h-10 border border-line bg-tint text-ink transition-all duration-200 group-hover:bg-paper">
-                    <ServiceIcon name={s.iconName} />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h4 className="font-mono font-medium text-[1.05rem] text-ink leading-tight mb-0.5">
-                      {s.label}
-                    </h4>
-                    <p className="text-[0.8125rem] text-ink-2 leading-snug">
-                      {s.desc}
-                    </p>
-                  </div>
-                </motion.a>
+                  <motion.div
+                    initial={{ opacity: 0, transform: reduced ? "none" : "translateY(12px)" }}
+                    animate={{ opacity: 1, transform: "translateY(0px)" }}
+                    transition={{ delay: 0.05 + i * 0.04, duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
+                    className="flex items-center gap-4 w-full"
+                  >
+                    <div className="flex-shrink-0 flex items-center justify-center w-10 h-10 border border-line bg-tint text-ink transition-all duration-200 group-hover:bg-paper">
+                      <ServiceIcon name={s.iconName} />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-mono font-medium text-[1.05rem] text-ink leading-tight mb-0.5">
+                        {s.label}
+                      </h4>
+                      <p className="text-[0.8125rem] text-ink-2 leading-snug">
+                        {s.desc}
+                      </p>
+                    </div>
+                  </motion.div>
+                </Link>
               ))}
 
               <div className="h-6" />
