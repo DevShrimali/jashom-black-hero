@@ -44,13 +44,13 @@ const LOGO_POOL = [
   {
     id: "gemini",
     name: "Google Gemini",
-    url: "https://logos-world.net/wp-content/uploads/2025/02/Google-Gemini-Logo.png",
+    url: "/brand-logo/gemini.png",
     className: "h-8 md:h-10 w-auto object-contain"
   },
   {
     id: "claude",
     name: "Anthropic Claude",
-    url: "https://i.logos-download.com/114232/31116-05a1502c46130721c61b3a89eb569886.png/Claude_Logo_2023.png?dl",
+    url: "/brand-logo/clude.png",
     className: "h-7 md:h-9 w-auto object-contain"
   },
   {

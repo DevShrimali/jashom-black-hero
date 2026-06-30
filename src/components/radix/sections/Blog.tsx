@@ -7,19 +7,19 @@ const posts = [
     title: "LLM Inference Optimization on Constrained GPU Infrastructure",
     category: "Enterprise AI · LLM Deployment",
     tags: ["CUDA", "TensorRT", "LLM"],
-    img: "https://picsum.photos/seed/enterpriseai/640/400",
+    img: "/blog-img/gpu.optimization.png",
   },
   {
     title: "GPU Workload Orchestration Framework on Rocky Linux 9.7",
     category: "Infrastructure · GPU Operations",
     tags: ["FastAPI", "Docker", "Rocky Linux"],
-    img: "https://picsum.photos/seed/gpuoperations/640/400",
+    img: "/blog-img/cuda.service.hero.png",
   },
   {
     title: "Cloud GPU Fine-Tuning Strategy for Production LLM Deployment",
     category: "AI Engineering · Cloud Infrastructure",
     tags: ["LoRA", "DeepSpeed", "Cloud GPU"],
-    img: "https://picsum.photos/seed/cloudtuning/640/400",
+    img: "/blog-img/blog.png",
   },
 ];
 

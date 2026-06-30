@@ -15,6 +15,7 @@ import {
   HamburgerMenuIcon,
   Cross1Icon,
 } from "@radix-ui/react-icons";
+import MeetingDrawer from "@/components/MeetingDrawer";
 
 const services = [
   { label: "GPU Emulator", desc: "Develop CUDA without GPU hardware", href: "#services" },
@@ -64,6 +65,7 @@ function Menu({ trigger, items }: { trigger: string; items: { label: string; hre
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   return (
     <Box
@@ -93,8 +95,8 @@ export default function Nav() {
           <Button asChild variant="ghost" color="gray" highContrast size="2">
             <a href="#contact">Contact</a>
           </Button>
-          <Button asChild size="2" color="gray" highContrast ml="2">
-            <a href="#contact">Schedule a Meeting</a>
+          <Button size="2" color="gray" highContrast ml="2" onClick={() => setIsDrawerOpen(true)}>
+            Schedule a Meeting
           </Button>
         </Flex>
 
@@ -114,12 +116,13 @@ export default function Nav() {
               </Text>
             ))}
             <Separator size="4" />
-            <Button asChild size="3" color="gray" highContrast>
-              <a href="#contact" onClick={() => setOpen(false)}>Schedule a Meeting</a>
+            <Button size="3" color="gray" highContrast onClick={() => { setOpen(false); setIsDrawerOpen(true); }}>
+              Schedule a Meeting
             </Button>
           </Flex>
         </Box>
       )}
+      <MeetingDrawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />
     </Box>
   );
 }

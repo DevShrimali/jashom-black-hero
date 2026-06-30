@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import SplitHeading from "@/components/motion/SplitHeading";
 import { Reveal, Stagger } from "@/components/motion/Reveal";
@@ -8,6 +7,7 @@ import Counter from "@/components/motion/Counter";
 import Magnetic from "@/components/motion/Magnetic";
 import CudaHeroSvg from "./CudaHeroSvg";
 import CudaOverviewSvg from "./CudaOverviewSvg";
+import { BLOG_POSTS } from "../blogs/blog-posts-data";
 
 const STATS = [
   { value: 100, prefix: "", suffix: "x", label: "Compute Throughput Increase" },
@@ -68,7 +68,10 @@ const FAQS = [
 
 export default function CudaDevelopmentContent() {
   const reduced = useReducedMotion();
-  const [status, setStatus] = useState<"idle" | "sent">("idle");
+
+  const RELATED_BLOGS = BLOG_POSTS.filter((post) =>
+    ["what-is-cuda-programming", "what-is-gpu-optimization", "cpu-vs-gpu-computing"].includes(post.slug)
+  );
 
   return (
     <>
@@ -183,22 +186,69 @@ export default function CudaDevelopmentContent() {
         {/* Process */}
         <section className="section bg-paper border-y border-line" id="process">
           <div className="container-j">
-            <div className="max-w-2xl mb-10 md:mb-12 flex flex-col gap-4">
-              <span className="font-mono text-[1rem] tracking-[0.25em] text-ink-3 uppercase font-medium">Our Process</span>
-              <SplitHeading className="text-[clamp(1.6rem,2.5vw,2.1rem)]">Structured CUDA Implementation Process</SplitHeading>
-              <Reveal><p className="text-ink font-medium text-[1.0625rem]">A Six-Phase GPU Engineering Model</p></Reveal>
-              <Reveal delay={0.06}><p className="text-ink-2 max-w-[58ch]">Our design guarantees high availability, acceleration, and system integrity as well as scalability.</p></Reveal>
-            </div>
-            <Stagger className="grid sm:grid-cols-2 lg:grid-cols-3 border-t border-line" itemClassName="h-full" step={0.05}>
-              {PROCESS.map((p, i) => (
-                <div key={p.title} className="group h-full p-5 md:p-6 border-b border-line hover:bg-tint transition-all duration-300">
-                  <span className="font-mono text-[0.875rem] text-ink-3">{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="font-sans font-medium text-[1rem] text-ink mt-3 mb-2">{p.title}</h3>
-                  <p className="text-[0.875rem] text-ink-2">{p.body}</p>
+            <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
+              {/* Left Column - Header info */}
+              <div className="lg:col-span-5 flex flex-col gap-4 lg:sticky lg:top-28 h-fit">
+                <span className="font-mono text-[1rem] tracking-[0.25em] text-ink-3 uppercase font-medium">Our Process</span>
+                <SplitHeading className="text-[clamp(1.6rem,2.5vw,2.1rem)]">Structured CUDA Implementation</SplitHeading>
+                <Reveal><p className="text-ink font-medium text-[1.0625rem]">A Six-Phase GPU Engineering Model</p></Reveal>
+                <Reveal delay={0.06}>
+                  <p className="text-ink-2 max-w-[45ch]">Our design guarantees high availability, acceleration, and system integrity as well as scalability.</p>
+                </Reveal>
+                <Reveal delay={0.12} className="mt-6 hidden lg:block">
+                  <Magnetic strength={0.18}>
+                    <a href="/contact/" className="btn btn-primary">Start Your Development Journey</a>
+                  </Magnetic>
+                </Reveal>
+              </div>
+
+              {/* Right Column - Step List */}
+              <div className="lg:col-span-7 flex flex-col">
+                <div className="border-t border-line">
+                  {PROCESS.map((p, i) => {
+                    const stepIcons = [
+                      // Computational Profiling
+                      <svg key="1" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18" /><path d="m18 17-5-5-4 4-5-5" /></svg>,
+                      // Parallel Systems Blueprint
+                      <svg key="2" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect width="7" height="9" x="3" y="3" rx="1" /><rect width="7" height="5" x="14" y="3" rx="1" /><rect width="7" height="9" x="14" y="12" rx="1" /><rect width="7" height="5" x="3" y="16" rx="1" /></svg>,
+                      // CUDA Core Development
+                      <svg key="3" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect width="16" height="16" x="4" y="4" rx="2" /><rect width="6" height="6" x="9" y="9" rx="1" /><path d="M9 1v3" /><path d="M15 1v3" /><path d="M9 20v3" /><path d="M15 20v3" /><path d="M20 9h3" /><path d="M20 15h3" /><path d="M1 9h3" /><path d="M1 15h3" /></svg>,
+                      // Bottleneck Elimination & Benchmarking
+                      <svg key="4" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 2v2" /><path d="M12 20v2" /><path d="M4.93 4.93l1.41 1.41" /><path d="M17.66 17.66l1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" /><path d="M6.34 17.66l-1.41 1.41" /><path d="M19.07 4.93l-1.41 1.41" /><path d="M12 12L16 8" /></svg>,
+                      // Application Integration
+                      <svg key="5" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22v-5" /><path d="M9 17H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-4" /><path d="M12 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" /></svg>,
+                      // Production Optimization
+                      <svg key="6" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m3 16 4 4 4-4" /><path d="M7 20V4" /><path d="m21 8-4-4-4 4" /><path d="M17 4v16" /></svg>
+                    ];
+                    return (
+                      <div key={p.title} className="group flex gap-6 p-6 border-b border-line hover:bg-tint transition-all duration-300">
+                        {/* Step details Left Column */}
+                        <div className="flex flex-col items-center">
+                          <span className="font-mono text-[1.25rem] text-ink font-semibold tabular-nums leading-none">
+                            {String(i + 1).padStart(2, "0")}
+                          </span>
+                          <div className="w-px flex-1 bg-line/60 my-3 group-last:hidden" />
+                          <div className="w-8 h-8 rounded-full border border-line flex items-center justify-center bg-paper text-ink-2 group-hover:text-ink group-hover:border-ink transition-colors duration-300">
+                            {stepIcons[i]}
+                          </div>
+                        </div>
+
+                        {/* Step details Right Column */}
+                        <div className="flex-1 pt-0.5">
+                          <h3 className="font-sans font-medium text-[1.0625rem] text-ink mb-2 group-hover:text-ink transition-colors duration-200">{p.title}</h3>
+                          <p className="text-[0.875rem] text-ink-2 max-w-[55ch] leading-relaxed">{p.body}</p>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
-              ))}
-            </Stagger>
-            <Reveal className="mt-10"><Magnetic strength={0.18}><a href="/contact/" className="btn btn-primary">Start Your Development Journey</a></Magnetic></Reveal>
+                <div className="mt-8 block lg:hidden px-6">
+                  <Magnetic strength={0.18}>
+                    <a href="/contact/" className="btn btn-primary w-full text-center">Start Your Development Journey</a>
+                  </Magnetic>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -206,33 +256,74 @@ export default function CudaDevelopmentContent() {
         <section className="section" id="benefits">
           <div className="container-j">
             <div className="max-w-2xl mb-10 md:mb-12">
-              <SplitHeading className="text-[clamp(1.6rem,2.5vw,2.1rem)]">Strategic Benefits of CUDA Development</SplitHeading>
+              <span className="font-mono text-[1rem] tracking-[0.25em] text-ink-3 uppercase font-medium">Benefits</span>
+              <SplitHeading className="text-[clamp(1.6rem,2.5vw,2.1rem)] mt-2">Strategic Benefits of CUDA</SplitHeading>
             </div>
-            <Stagger className="grid sm:grid-cols-2 lg:grid-cols-3 border-t border-line" itemClassName="h-full" step={0.05}>
-              {BENEFITS.map((b) => (
-                <div key={b.title} className="group h-full p-5 md:p-6 border-b border-line hover:bg-tint transition-all duration-300">
-                  <h3 className="font-sans font-medium text-[1rem] text-ink mb-2">{b.title}</h3>
-                  <p className="text-[0.875rem] text-ink-2">{b.body}</p>
+
+            <div className="flex flex-col border-t border-line">
+              {BENEFITS.map((b, i) => (
+                <div 
+                  key={b.title} 
+                  className="group grid md:grid-cols-12 gap-4 md:gap-8 py-8 px-4 border-b border-line hover:bg-tint/40 transition-colors duration-300 items-start"
+                >
+                  {/* Left Column: Number & Title */}
+                  <div className="md:col-span-4 flex gap-4 items-start">
+                    <span className="font-mono text-xs text-ink-3 tabular-nums pt-1">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="font-sans font-medium text-[1.125rem] text-ink leading-snug">
+                      {b.title}
+                    </h3>
+                  </div>
+
+                  {/* Right Column: Description */}
+                  <div className="md:col-span-8 flex justify-between items-start gap-4">
+                    <p className="text-[0.9375rem] text-ink-2 leading-relaxed max-w-[62ch]">
+                      {b.body}
+                    </p>
+                    <div className="hidden sm:block text-ink-3 group-hover:text-ink transform translate-x-[-10px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300 pt-1">
+                      <svg width="18" height="18" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
               ))}
-            </Stagger>
+            </div>
           </div>
         </section>
 
         {/* Why trust */}
         <section className="section bg-paper border-y border-line" id="why">
           <div className="container-j">
-            <div className="max-w-2xl mb-10 md:mb-12">
-              <SplitHeading className="text-[clamp(1.6rem,2.5vw,2.1rem)]">Why Organizations Trust Our CUDA Team</SplitHeading>
+            <div className="max-w-2xl mb-12">
+              <span className="font-mono text-[1rem] tracking-[0.25em] text-ink-3 uppercase font-medium">Validation</span>
+              <SplitHeading className="text-[clamp(1.6rem,2.5vw,2.1rem)] mt-2">Why Organizations Trust Our CUDA Team</SplitHeading>
             </div>
-            <Stagger className="grid md:grid-cols-3 border-t border-line" itemClassName="h-full" step={0.06}>
-              {WHY.map((w) => (
-                <div key={w.title} className="group h-full p-5 md:p-6 border-b border-line hover:bg-tint transition-all duration-300">
-                  <h3 className="font-sans font-medium text-[1rem] text-ink mb-2">{w.title}</h3>
-                  <p className="text-[0.875rem] text-ink-2">{w.body}</p>
-                </div>
-              ))}
-            </Stagger>
+            
+            <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+              {WHY.map((w, i) => {
+                const whyIcons = [
+                  // Parallel computing expertise
+                  <svg key="1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" /><path d="M12 2v20M2 12h20M12 12l5.5-5.5M12 12L6.5 6.5M12 12l5.5 5.5M12 12l-5.5 5.5" /></svg>,
+                  // Quantifiable performance
+                  <svg key="2" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="20" x2="18" y2="10" /><line x1="12" y1="20" x2="12" y2="4" /><line x1="6" y1="20" x2="6" y2="14" /></svg>,
+                  // Workload-specific
+                  <svg key="3" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /></svg>
+                ];
+                return (
+                  <Reveal key={w.title} delay={i * 0.08} className="h-full">
+                    <div className="group h-full p-6 md:p-8 bg-linen border border-line shadow-[4px_4px_0px_0px_var(--color-line)] hover:shadow-[8px_8px_0px_0px_var(--color-line)] transition-all duration-300 flex flex-col items-start translate-y-0 hover:-translate-y-1">
+                      <div className="w-12 h-12 rounded-full border border-line flex items-center justify-center bg-white text-ink-2 group-hover:text-ink group-hover:border-ink group-hover:bg-tint transition-all duration-300 mb-6">
+                        {whyIcons[i]}
+                      </div>
+                      <h3 className="font-sans font-medium text-[1.125rem] text-ink mb-3 group-hover:text-ink transition-colors duration-200">{w.title}</h3>
+                      <p className="text-[0.875rem] text-ink-2 leading-relaxed">{w.body}</p>
+                    </div>
+                  </Reveal>
+                );
+              })}
+            </div>
           </div>
         </section>
 
@@ -284,42 +375,90 @@ export default function CudaDevelopmentContent() {
           </div>
         </section>
 
-        {/* Contact */}
-        <section className="section" id="contact">
+        {/* Related Blogs */}
+        <section className="section border-t border-line" id="related-blogs">
           <div className="container-j">
-            <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
-              <div className="lg:col-span-5 flex flex-col gap-4">
-                <span className="font-mono text-[1rem] tracking-[0.25em] text-ink-3 uppercase font-medium">Get In Touch</span>
-                <SplitHeading className="text-[clamp(1.6rem,2.5vw,2.1rem)]">Get Started with CUDA Development</SplitHeading>
-                <Reveal><p className="text-ink-2 max-w-[48ch]">Fill out the form and our team will get back to you within 24 hours.</p></Reveal>
-                <Reveal delay={0.1}>
-                  <div className="mt-2 text-[0.9375rem] text-ink-2 flex flex-col gap-5">
-                    <div><p className="text-ink font-medium mb-1">Address</p><p>SATYAM 1, 414, AMBA BUSINESS PARK, B/H TRI MANDIR, ADALAJ 382421, Dist Gandhinagar Gujarat</p></div>
-                    <div><p className="text-ink font-medium mb-1">Email</p><a href="mailto:info@jashom.com" className="link-line w-fit text-ink">info@jashom.com</a><p className="text-ink-3 text-[0.8125rem] mt-1">We respond within 24 hours</p></div>
-                    <div><p className="text-ink font-medium mb-1">Phone</p><a href="tel:+919023906363" className="link-line w-fit text-ink">+91 90239 06363</a><p className="text-ink-3 text-[0.8125rem] mt-1">Available Mon-Fri, 9AM-6PM IST</p></div>
-                  </div>
-                </Reveal>
+            <div className="flex flex-wrap items-center justify-between gap-6 mb-12">
+              <div className="flex flex-col gap-2">
+                <span className="font-mono text-[1rem] tracking-[0.25em] text-ink-3 uppercase font-medium">Resources</span>
+                <SplitHeading className="text-[clamp(1.6rem,2.5vw,2.1rem)]">
+                  Related Insights
+                </SplitHeading>
               </div>
-              <div className="lg:col-span-7">
-                {status === "sent" ? (
-                  <div className="h-full flex flex-col items-start justify-center bg-linen border border-line rounded-none p-10">
-                    <p className="font-mono text-3xl mb-3">Message received.</p>
-                    <p className="text-ink-2">Thank you — we&rsquo;ll get back to you within 24 hours.</p>
-                  </div>
-                ) : (
-                  <Reveal delay={0.08}>
-                    <form onSubmit={(e) => { e.preventDefault(); setStatus("sent"); }} className="grid sm:grid-cols-2 gap-5">
-                      <div className="flex flex-col gap-1.5"><label htmlFor="name" className="text-sm text-ink-2">Full Name *</label><input id="name" name="name" required autoComplete="name" className="field-j" placeholder="Your name" /></div>
-                      <div className="flex flex-col gap-1.5"><label htmlFor="email" className="text-sm text-ink-2">Email Address *</label><input id="email" name="email" type="email" required autoComplete="email" className="field-j" placeholder="you@company.com" /></div>
-                      <div className="flex flex-col gap-1.5"><label htmlFor="company" className="text-sm text-ink-2">Company Name</label><input id="company" name="company" autoComplete="organization" className="field-j" placeholder="Company name" /></div>
-                      <div className="flex flex-col gap-1.5"><label htmlFor="phone" className="text-sm text-ink-2">Phone Number</label><input id="phone" name="phone" type="tel" autoComplete="tel" className="field-j" placeholder="+91" /></div>
-                      <div className="flex flex-col gap-1.5 sm:col-span-2"><label htmlFor="message" className="text-sm text-ink-2">Project Details *</label><textarea id="message" name="message" rows={5} required className="field-j resize-y" placeholder="Tell us about your workload and performance targets." /></div>
-                      <div className="sm:col-span-2 flex justify-end"><button type="submit" className="btn btn-primary">Send Message</button></div>
-                    </form>
-                  </Reveal>
-                )}
-              </div>
+              <Reveal>
+                <a
+                  href="/blogs/"
+                  className="border border-ink px-5 py-2.5 font-mono text-[0.75rem] uppercase tracking-wider hover:bg-ink hover:text-warmwhite transition-colors duration-300 font-medium"
+                >
+                  View All Insights
+                </a>
+              </Reveal>
             </div>
+
+            <Stagger className="grid md:grid-cols-3 gap-6" itemClassName="h-full" step={0.07}>
+              {RELATED_BLOGS.map((p) => (
+                <a
+                  key={p.slug}
+                  href={`/blogs/${p.slug}/`}
+                  className="bg-transparent border border-line hover:bg-paper group flex flex-col p-6 md:p-7 h-full transition-all duration-300"
+                >
+                  {/* Blog Post Image */}
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-tint mb-6">
+                    <img
+                      src={p.image}
+                      alt={p.title}
+                      className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                    />
+                  </div>
+
+                  {/* Tag / Category */}
+                  <p className="font-mono text-[0.75rem] text-ink-3 uppercase tracking-wider mb-2.5">
+                    {p.category}
+                  </p>
+
+                  {/* Title */}
+                  <h3 className="font-sans font-medium text-[1.2rem] leading-snug text-ink mb-3 group-hover:underline decoration-1 underline-offset-4 transition-colors">
+                    {p.title}
+                  </h3>
+
+                  {/* Badges */}
+                  <div className="flex flex-wrap gap-1.5 mb-6">
+                    {p.tags.map((t) => (
+                      <span
+                        key={t}
+                        className="font-mono text-[0.7rem] uppercase tracking-wider text-ink-2 bg-tint border border-line/60 px-2 py-0.5 rounded-sm"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Footer Metadata */}
+                  <div className="mt-auto pt-4 border-t border-line/40 flex items-center justify-between">
+                    <span className="font-mono text-[0.75rem] text-ink-3 uppercase tracking-wider font-medium">
+                      Read Article
+                    </span>
+                    <span className="inline-block transition-all duration-300 group-hover:translate-x-1.5 text-ink-3 group-hover:text-ink">
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 15 15"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-3.5 h-3.5"
+                      >
+                        <path
+                          d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                          fill="currentColor"
+                          fillRule="evenodd"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </a>
+              ))}
+            </Stagger>
           </div>
         </section>
       </main>

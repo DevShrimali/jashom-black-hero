@@ -129,12 +129,12 @@ const MODELS = [
   },
   {
     name: "Google Gemini",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Google_Gemini_logo.svg/600px-Google_Gemini_logo.svg.png",
+    logo: "/brand-logo/gemini.png",
     cls: "h-12 md:h-14",
   },
   {
     name: "Claude",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Claude_ai_logo.svg/600px-Claude_ai_logo.svg.png",
+    logo: "/brand-logo/clude.png",
     cls: "h-14 md:h-16",
   },
   {
@@ -144,7 +144,7 @@ const MODELS = [
   },
   {
     name: "Mistral",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Mistral_AI_logo.svg/600px-Mistral_AI_logo.svg.png",
+    logo: "/brand-logo/mistral.png",
     cls: "h-12 md:h-14",
   },
   {
@@ -154,7 +154,7 @@ const MODELS = [
   },
   {
     name: "Stability AI",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Stability_AI_Logo.svg/600px-Stability_AI_Logo.svg.png",
+    logo: "/brand-logo/stability-ai.png",
     cls: "h-10 md:h-12",
   },
   {
@@ -474,7 +474,7 @@ export default function GpuOptimizationContent() {
                     className="group flex flex-col items-center justify-center gap-4 py-10 px-6 min-h-[150px] border-r border-b border-line hover:bg-tint/50 transition-colors duration-300">
                     <img src={m.logo} alt={m.name}
                       className={`${m.cls} w-auto max-w-[80%] object-contain transition-all duration-300`} />
-                    <span className="font-mono text-[0.7rem] text-ink-3 uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-200">{m.name}</span>
+                    <span className="font-mono text-[0.7rem] text-ink-3 uppercase tracking-wider transition-colors duration-200 group-hover:text-ink">{m.name}</span>
                   </div>
                 ))}
               </div>
@@ -486,7 +486,7 @@ export default function GpuOptimizationContent() {
                     className="group flex flex-col items-center justify-center gap-4 py-10 px-6 min-h-[150px] border-r border-b border-line hover:bg-tint/50 transition-colors duration-300">
                     <img src={m.logo} alt={m.name}
                       className={`${m.cls} w-auto max-w-[80%] object-contain transition-all duration-300`} />
-                    <span className="font-mono text-[0.7rem] text-ink-3 uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-200">{m.name}</span>
+                    <span className="font-mono text-[0.7rem] text-ink-3 uppercase tracking-wider transition-colors duration-200 group-hover:text-ink">{m.name}</span>
                   </div>
                 ))}
               </div>
@@ -572,24 +572,6 @@ export default function GpuOptimizationContent() {
                 <SplitHeading className="text-[clamp(1.6rem,2.5vw,2.1rem)]">Get Started with GPU Optimization</SplitHeading>
                 <Reveal>
                   <p className="text-ink-2 max-w-[48ch]">Fill out the form and our team will get back to you within 24 hours.</p>
-                </Reveal>
-                <Reveal delay={0.1}>
-                  <div className="mt-2 text-[0.9375rem] text-ink-2 flex flex-col gap-5">
-                    <div>
-                      <p className="text-ink font-medium mb-1">Address</p>
-                      <p>SATYAM 1, 414, AMBA BUSINESS PARK, B/H TRI MANDIR, ADALAJ 382421, Dist Gandhinagar Gujarat</p>
-                    </div>
-                    <div>
-                      <p className="text-ink font-medium mb-1">Email</p>
-                      <a href="mailto:info@jashom.com" className="link-line w-fit text-ink">info@jashom.com</a>
-                      <p className="text-ink-3 text-[0.8125rem] mt-1">We respond within 24 hours</p>
-                    </div>
-                    <div>
-                      <p className="text-ink font-medium mb-1">Phone</p>
-                      <a href="tel:+919023906363" className="link-line w-fit text-ink">+91 90239 06363</a>
-                      <p className="text-ink-3 text-[0.8125rem] mt-1">Mon-Fri, 9AM-6PM IST</p>
-                    </div>
-                  </div>
                 </Reveal>
               </div>
 

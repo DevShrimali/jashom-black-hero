@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import Magnetic from "@/components/motion/Magnetic";
+import MeetingDrawer from "@/components/MeetingDrawer";
 
 const SERVICES = [
   {
@@ -67,6 +68,7 @@ export default function Nav() {
   const [hireOpen, setHireOpen] = useState(false);
   const [companyOpen, setCompanyOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const reduced = useReducedMotion();
 
   // Track dark mode by watching the .dark class on <html>
@@ -285,9 +287,12 @@ export default function Nav() {
           ))}
 
           <Magnetic strength={0.2}>
-            <a href="/contact/" className="btn btn-primary !py-3 !px-5">
+            <button
+              onClick={() => setIsDrawerOpen(true)}
+              className="btn btn-primary !py-3 !px-5 text-center cursor-pointer"
+            >
               Schedule a Meeting
-            </a>
+            </button>
           </Magnetic>
         </div>
 
@@ -409,17 +414,20 @@ export default function Nav() {
                   {l.label}
                 </motion.a>
               ))}
-              <a
-                href="#contact"
-                onClick={() => setOpen(false)}
-                className="btn btn-primary w-full mt-8"
+              <button
+                onClick={() => {
+                  setOpen(false);
+                  setIsDrawerOpen(true);
+                }}
+                className="btn btn-primary w-full mt-8 text-center cursor-pointer"
               >
                 Schedule a Meeting
-              </a>
+              </button>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+      <MeetingDrawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />
     </header>
   );
 }

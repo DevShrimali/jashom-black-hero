@@ -3,7 +3,7 @@ import { Container, Box } from "@radix-ui/themes";
 
 const logos = [
   { name: "NVIDIA", url: "https://www.pngarts.com/files/10/Nvidia-Logo-PNG-Image-Transparent.png", h: 56, scale: 1.4 },
-  { name: "Anthropic Claude", url: "https://i.logos-download.com/114232/31116-05a1502c46130721c61b3a89eb569886.png/Claude_Logo_2023.png?dl", h: 34 },
+  { name: "Anthropic Claude", url: "/brand-logo/clude.png", h: 34 },
   { name: "Ollama", url: "https://pnghdpro.com/wp-content/themes/pnghdpro/download/social-media-and-brands/ollama-logo-hd.png", h: 56, scale: 1.7 },
   { name: "Amazon Web Services", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/960px-Amazon_Web_Services_Logo.svg.png", h: 44 },
   { name: "Hugging Face", url: "https://upload.wikimedia.org/wikipedia/commons/d/d6/Hf-logo-with-title.svg", h: 38 },
