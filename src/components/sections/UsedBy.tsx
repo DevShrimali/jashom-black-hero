@@ -32,7 +32,7 @@ const LOGO_POOL = [
   {
     id: "huggingface",
     name: "Hugging Face",
-    url: "https://upload.wikimedia.org/wikipedia/commons/d/d6/Hf-logo-with-title.svg",
+    url: "/brand-logo/Hugging-face.png",
     className: "h-8 md:h-10 w-auto object-contain"
   },
   {
@@ -56,8 +56,8 @@ const LOGO_POOL = [
   {
     id: "ollama",
     name: "Ollama",
-    url: "https://pnghdpro.com/wp-content/themes/pnghdpro/download/social-media-and-brands/ollama-logo-hd.png",
-    className: "h-14 md:h-16 w-auto object-contain scale-[1.75] origin-center"
+    url: "/brand-logo/ollama-logo.png",
+    className: "h-8 md:h-10 w-auto object-contain"
   }
 ];
 

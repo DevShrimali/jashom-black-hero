@@ -4,9 +4,9 @@ import { Container, Box } from "@radix-ui/themes";
 const logos = [
   { name: "NVIDIA", url: "https://www.pngarts.com/files/10/Nvidia-Logo-PNG-Image-Transparent.png", h: 56, scale: 1.4 },
   { name: "Anthropic Claude", url: "/brand-logo/clude.png", h: 34 },
-  { name: "Ollama", url: "https://pnghdpro.com/wp-content/themes/pnghdpro/download/social-media-and-brands/ollama-logo-hd.png", h: 56, scale: 1.7 },
+  { name: "Ollama", url: "/brand-logo/ollama-logo.png", h: 36 },
   { name: "Amazon Web Services", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/960px-Amazon_Web_Services_Logo.svg.png", h: 44 },
-  { name: "Hugging Face", url: "https://upload.wikimedia.org/wikipedia/commons/d/d6/Hf-logo-with-title.svg", h: 38 },
+  { name: "Hugging Face", url: "/brand-logo/Hugging-face.png", h: 38 },
   { name: "ChatGPT", url: "https://www.edigitalagency.com.au/wp-content/uploads/new-ChatGPT-logo-black-png-large-size.png", h: 38 },
 ];
 

@@ -94,9 +94,102 @@ function Cards({ items, cols = "sm:grid-cols-2 lg:grid-cols-3" }: { items: { tit
   );
 }
 
+const ExpertiseVisual = ({ index }: { index: number }) => {
+  switch (index) {
+    case 0:
+      return (
+        <svg viewBox="0 0 240 120" className="w-full h-full text-ink" fill="none" stroke="currentColor" strokeWidth="1.2">
+          <text x="10" y="20" fontSize="8" fontFamily="var(--font-mono)" fill="currentColor" stroke="none">WARP EXECUTION ARCHITECTURE</text>
+          {[0, 1, 2, 3].map((r) => (
+            <g key={r}>
+              {[0, 1, 2, 3, 4, 5, 6, 7].map((c) => (
+                <rect key={c} x={25 + c * 24} y={35 + r * 18} width="16" height="12" rx="1" className={`${r === 0 ? "fill-ink/5 animate-pulse" : ""} transition-all duration-300`} />
+              ))}
+            </g>
+          ))}
+          <line x1="25" y1="30" x2="215" y2="30" strokeDasharray="3 3" />
+        </svg>
+      );
+    case 1:
+      return (
+        <svg viewBox="0 0 240 120" className="w-full h-full text-ink" fill="none" stroke="currentColor" strokeWidth="1.2">
+          <text x="10" y="20" fontSize="8" fontFamily="var(--font-mono)" fill="currentColor" stroke="none">STREAM ALLOCATION PROCESSOR</text>
+          <rect x="25" y="35" width="80" height="60" rx="2" strokeDasharray="2 2" />
+          <text x="35" y="47" fontSize="8" fontFamily="var(--font-mono)" fill="currentColor" stroke="none">HOST ENGINE</text>
+          <rect x="135" y="35" width="80" height="60" rx="2" />
+          <text x="145" y="47" fontSize="8" fontFamily="var(--font-mono)" fill="currentColor" stroke="none">GPU CORES</text>
+          <path d="M105 55 L135 55" strokeWidth="1.5" className="animate-pulse" />
+          <path d="M105 75 L135 75" strokeWidth="1.5" className="animate-pulse" />
+        </svg>
+      );
+    case 2:
+      return (
+        <svg viewBox="0 0 240 120" className="w-full h-full text-ink" fill="none" stroke="currentColor" strokeWidth="1.2">
+          <text x="10" y="20" fontSize="8" fontFamily="var(--font-mono)" fill="currentColor" stroke="none">PROFILING BOTTLENECK ANALYSIS</text>
+          <path d="M25 25 L25 95 L215 95" />
+          <path d="M25 80 Q 75 20, 125 70 T 215 40" strokeWidth="1.5" />
+          <circle cx="125" cy="70" r="4" className="fill-ink animate-ping" />
+          <text x="135" y="73" fontSize="8" fontFamily="var(--font-mono)" fill="currentColor" stroke="none">LATENCY SPIKE DETECTED</text>
+        </svg>
+      );
+    case 3:
+      return (
+        <svg viewBox="0 0 240 120" className="w-full h-full text-ink" fill="none" stroke="currentColor" strokeWidth="1.2">
+          <text x="10" y="20" fontSize="8" fontFamily="var(--font-mono)" fill="currentColor" stroke="none">NEURAL WORKLOAD INFERENCE</text>
+          {[35, 60, 85].map((y1) => (
+            <g key={y1}>
+              {[35, 60, 85].map((y2) => (
+                <line key={y2} x1="45" y1={y1} x2="115" y2={y2} opacity="0.3" />
+              ))}
+            </g>
+          ))}
+          {[35, 60, 85].map((y1) => (
+            <g key={y1}>
+              {[35, 60, 85].map((y2) => (
+                <line key={y2} x1="115" y1={y1} x2="185" y2={y2} opacity="0.3" />
+              ))}
+            </g>
+          ))}
+          {[45, 115, 185].map((x) => (
+            <g key={x}>
+              {[35, 60, 85].map((y) => (
+                <circle key={y} cx={x} cy={y} r="5" className="fill-linen stroke-line" />
+              ))}
+            </g>
+          ))}
+        </svg>
+      );
+    case 4:
+      return (
+        <svg viewBox="0 0 240 120" className="w-full h-full text-ink" fill="none" stroke="currentColor" strokeWidth="1.2">
+          <text x="10" y="20" fontSize="8" fontFamily="var(--font-mono)" fill="currentColor" stroke="none">SHARED REGISTER MEMSPACE</text>
+          <rect x="25" y="35" width="180" height="20" rx="1" />
+          <text x="35" y="47" fontSize="8" fontFamily="var(--font-mono)" fill="currentColor" stroke="none">GLOBAL D-RAM (HIGH LATENCY)</text>
+          <rect x="25" y="70" width="180" height="30" rx="1" className="fill-ink/5" />
+          <text x="35" y="87" fontSize="8" fontFamily="var(--font-mono)" fill="currentColor" stroke="none">SHARED L1 CACHE (LOW LATENCY)</text>
+        </svg>
+      );
+    default:
+      return (
+        <svg viewBox="0 0 240 120" className="w-full h-full text-ink" fill="none" stroke="currentColor" strokeWidth="1.2">
+          <text x="10" y="20" fontSize="8" fontFamily="var(--font-mono)" fill="currentColor" stroke="none">MULTI-GPU SYSTEM LINK</text>
+          <rect x="25" y="40" width="45" height="45" rx="2" />
+          <rect x="95" y="40" width="45" height="45" rx="2" />
+          <rect x="165" y="40" width="45" height="45" rx="2" />
+          <path d="M70 62 L95 62" strokeWidth="1.5" strokeDasharray="3 3" className="animate-pulse" />
+          <path d="M140 62 L165 62" strokeWidth="1.5" strokeDasharray="3 3" className="animate-pulse" />
+          <text x="32" y="66" fontSize="8" fontFamily="var(--font-mono)" fill="currentColor" stroke="none">GPU 0</text>
+          <text x="102" y="66" fontSize="8" fontFamily="var(--font-mono)" fill="currentColor" stroke="none">GPU 1</text>
+          <text x="172" y="66" fontSize="8" fontFamily="var(--font-mono)" fill="currentColor" stroke="none">GPU 2</text>
+        </svg>
+      );
+  }
+};
+
 export default function HireCudaContent() {
   const reduced = useReducedMotion();
   const [status, setStatus] = useState<"idle" | "sent">("idle");
+  const [activeExpertise, setActiveExpertise] = useState(0);
 
   return (
     <>
@@ -149,10 +242,51 @@ export default function HireCudaContent() {
         {/* Intro */}
         <section className="section" id="intro">
           <div className="container-j">
-            <div className="max-w-3xl flex flex-col gap-5">
-              <SplitHeading className="text-[clamp(1.6rem,2.5vw,2.1rem)]">Enhance GPU Performance with Dedicated CUDA Engineers</SplitHeading>
-              <Reveal><p className="text-ink-2 max-w-[68ch]">Our CUDA development team assists companies in taking CPU-based systems to high-performance asymmetric solutions on GPUs. Scheduling the algorithms to perform the parallel execution and refining the thread-level activities, we provide significant improvements in the speed and resource usage. Our engineers become a natural part of your design, all the way to optimization of deployment, and concentrate on providing stable, scalable, and production-ready CUDA implementations.</p></Reveal>
-              <Reveal delay={0.1}><Magnetic strength={0.18}><a href="/contact/" className="btn btn-primary">TALK TO OUR EXPERT</a></Magnetic></Reveal>
+            <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+              <div className="lg:col-span-7 flex flex-col gap-5">
+                <SplitHeading className="text-[clamp(1.6rem,2.5vw,2.1rem)]">Enhance GPU Performance with Dedicated CUDA Engineers</SplitHeading>
+                <Reveal>
+                  <p className="text-ink-2 max-w-[68ch]">
+                    Our CUDA development team assists companies in taking CPU-based systems to high-performance asymmetric solutions on GPUs. Scheduling the algorithms to perform the parallel execution and refining the thread-level activities, we provide significant improvements in the speed and resource usage. Our engineers become a natural part of your design, all the way to optimization of deployment, and concentrate on providing stable, scalable, and production-ready CUDA implementations.
+                  </p>
+                </Reveal>
+                <Reveal delay={0.1}>
+                  <Magnetic strength={0.18}>
+                    <a href="/contact/" className="btn btn-primary">TALK TO OUR EXPERT</a>
+                  </Magnetic>
+                </Reveal>
+              </div>
+              <div className="lg:col-span-5">
+                <Reveal delay={0.15}>
+                  <div className="w-full border border-line bg-paper shadow-[6px_6px_0px_0px_var(--color-line)] p-4 font-mono text-[0.8rem] text-ink leading-relaxed">
+                    <div className="flex items-center justify-between border-b border-line pb-2 mb-3 text-ink-3 text-[0.7rem]">
+                      <span>SESSION: ACTIVE</span>
+                      <span>cuda-profile-tool v1.2</span>
+                    </div>
+                    <div className="space-y-1.5">
+                      <p className="text-ink-3">$ nvprof --metrics achieved_occupancy ./cuda_app</p>
+                      <p className="text-ink-3">==12403== Profiling result:</p>
+                      <div className="grid grid-cols-4 border-b border-line/30 pb-1 text-ink-3 text-[0.75rem]">
+                        <span>Metric</span>
+                        <span>Min</span>
+                        <span>Max</span>
+                        <span>Avg</span>
+                      </div>
+                      <div className="grid grid-cols-4 text-ink-2">
+                        <span>occupancy</span>
+                        <span>0.24</span>
+                        <span>0.95</span>
+                        <span className="text-ink font-bold">0.89</span>
+                      </div>
+                      <p className="text-[0.7rem] text-ink-3 mt-2">----------------------------------------</p>
+                      <p className="text-ink font-semibold mt-1">[JASHOM ACCELERATION STATS]</p>
+                      <p className="text-ink-2">Memory Bandwidth: <span className="text-ink font-mono font-bold">84.2 GB/s → 412.8 GB/s</span></p>
+                      <p className="text-ink-2">Kernels Divergence: <span className="text-ink font-mono font-bold">Reduced by 85%</span></p>
+                      <p className="text-ink font-bold animate-pulse text-[0.85rem] mt-2">SPEEDUP FACTOR: 4.88x</p>
+                    </div>
+                  </div>
+                </Reveal>
+              </div>
             </div>
           </div>
         </section>
@@ -163,7 +297,44 @@ export default function HireCudaContent() {
             <div className="max-w-2xl mb-10 md:mb-12">
               <SplitHeading className="text-[clamp(1.6rem,2.5vw,2.1rem)]">Technical Expertise of Our CUDA Developers</SplitHeading>
             </div>
-            <Cards items={EXPERTISE} />
+            <div className="grid lg:grid-cols-12 gap-8 items-start border-t border-line pt-10">
+              {/* Left column: vertical tabs list */}
+              <div className="lg:col-span-5 flex flex-col border-l border-line">
+                {EXPERTISE.map((exp, idx) => (
+                  <button
+                    key={exp.title}
+                    onClick={() => setActiveExpertise(idx)}
+                    onMouseEnter={() => setActiveExpertise(idx)}
+                    className={`flex items-start text-left gap-4 py-4 px-6 border-b border-line hover:bg-tint transition-all duration-300 ${
+                      activeExpertise === idx ? "bg-linen border-l-2 border-l-ink -ml-[2px]" : "bg-transparent border-l-0"
+                    }`}
+                  >
+                    <span className="font-mono text-[0.8rem] text-ink-3 mt-0.5">{String(idx + 1).padStart(2, "0")}</span>
+                    <span className="font-sans font-medium text-[0.95rem] text-ink">{exp.title}</span>
+                  </button>
+                ))}
+              </div>
+
+              {/* Right column: dynamic preview card */}
+              <div className="lg:col-span-7 border border-line bg-linen shadow-[6px_6px_0px_0px_var(--color-line)] p-6 md:p-8 flex flex-col justify-between min-h-[380px]">
+                <div className="flex-1 flex flex-col justify-between">
+                  <div>
+                    <span className="font-mono text-[0.75rem] text-ink-3 uppercase tracking-wider block mb-2">
+                      [ SKILL_{String(activeExpertise + 1).padStart(2, "0")} / CORE ]
+                    </span>
+                    <h3 className="font-sans font-medium text-[1.25rem] text-ink mb-4">
+                      {EXPERTISE[activeExpertise].title}
+                    </h3>
+                    <p className="text-[0.9rem] text-ink-2 leading-relaxed">
+                      {EXPERTISE[activeExpertise].body}
+                    </p>
+                  </div>
+                  <div className="mt-8 border border-line/50 bg-paper p-4 h-40 flex items-center justify-center relative overflow-hidden">
+                    <ExpertiseVisual index={activeExpertise} />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -174,14 +345,55 @@ export default function HireCudaContent() {
               <SplitHeading className="text-[clamp(1.6rem,2.5vw,2.1rem)]">How to Hire Our CUDA Developers?</SplitHeading>
               <Reveal><p className="text-ink-2 max-w-[58ch]">The process of hiring CUDA skills to work on your project is simple and clear.</p></Reveal>
             </div>
-            <Stagger className="grid sm:grid-cols-2 lg:grid-cols-4 border-t border-line" itemClassName="h-full" step={0.05}>
-              {HIRE_STEPS.map((p, i) => (
-                <div key={p.title} className="group h-full p-5 md:p-6 border-b border-line hover:bg-tint transition-all duration-300">
-                  <span className="font-mono text-[0.875rem] text-ink-3">{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="font-sans font-medium text-[1rem] text-ink mt-3 mb-2">{p.title}</h3>
-                  <p className="text-[0.875rem] text-ink-2">{p.body}</p>
-                </div>
-              ))}
+            <Stagger className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" itemClassName="h-full" step={0.05}>
+              {HIRE_STEPS.map((p, i) => {
+                const icons = [
+                  (
+                    <svg key="1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-ink-3 group-hover:text-ink transition-colors duration-300">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                      <polyline points="14 2 14 8 20 8" />
+                      <line x1="16" y1="13" x2="8" y2="13" />
+                      <line x1="16" y1="17" x2="8" y2="17" />
+                      <polyline points="10 9 9 9 8 9" />
+                    </svg>
+                  ),
+                  (
+                    <svg key="2" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-ink-3 group-hover:text-ink transition-colors duration-300">
+                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                      <circle cx="9" cy="7" r="4" />
+                      <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                    </svg>
+                  ),
+                  (
+                    <svg key="3" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-ink-3 group-hover:text-ink transition-colors duration-300">
+                      <rect x="3" y="3" width="7" height="9" />
+                      <rect x="14" y="3" width="7" height="5" />
+                      <rect x="14" y="12" width="7" height="9" />
+                      <rect x="3" y="16" width="7" height="5" />
+                    </svg>
+                  ),
+                  (
+                    <svg key="4" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-ink-3 group-hover:text-ink transition-colors duration-300">
+                      <polyline points="16 18 22 12 16 6" />
+                      <polyline points="8 6 2 12 8 18" />
+                      <line x1="12" y1="4" x2="12" y2="20" />
+                    </svg>
+                  )
+                ];
+                return (
+                  <div key={p.title} className="group h-full p-6 bg-linen border border-line shadow-none hover:shadow-[6px_6px_0px_0px_var(--color-line)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between min-h-[220px]">
+                    <div>
+                      <div className="flex items-center justify-between mb-6">
+                        <span className="font-mono text-[0.875rem] text-ink-3">STEP {String(i + 1).padStart(2, "0")}</span>
+                        {icons[i]}
+                      </div>
+                      <h3 className="font-sans font-medium text-[1rem] text-ink mb-2">{p.title}</h3>
+                      <p className="text-[0.875rem] text-ink-2 leading-relaxed">{p.body}</p>
+                    </div>
+                  </div>
+                );
+              })}
             </Stagger>
           </div>
         </section>
@@ -193,18 +405,111 @@ export default function HireCudaContent() {
               <SplitHeading className="text-[clamp(1.6rem,2.5vw,2.1rem)]">Why Hire CUDA Developers from Us?</SplitHeading>
               <Reveal><p className="text-ink-2 max-w-[58ch]">Our entire process revolves around the peace of mind for our clients, explore what you get when you choose us.</p></Reveal>
             </div>
-            <Cards items={WHY_HIRE} />
+            <Stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-line shadow-[6px_6px_0px_0px_var(--color-line)] bg-linen" itemClassName="h-full" step={0.05}>
+              {WHY_HIRE.map((h, i) => {
+                const icons = [
+                  // High-Quality Engineering
+                  <svg key="0" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-ink-3 group-hover:text-ink transition-colors duration-300">
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <path d="M9 12l2 2 4-4" />
+                  </svg>,
+                  // Data Security
+                  <svg key="1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-ink-3 group-hover:text-ink transition-colors duration-300">
+                    <rect x="3" y="11" width="18" height="11" rx="2" />
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                  </svg>,
+                  // Proven GPU Experience
+                  <svg key="2" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-ink-3 group-hover:text-ink transition-colors duration-300">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                  </svg>,
+                  // Cost-Optimized
+                  <svg key="3" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-ink-3 group-hover:text-ink transition-colors duration-300">
+                    <line x1="12" y1="1" x2="12" y2="23" />
+                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                  </svg>,
+                  // Senior-Level
+                  <svg key="4" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-ink-3 group-hover:text-ink transition-colors duration-300">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                  </svg>,
+                  // Rapid Onboarding
+                  <svg key="5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-ink-3 group-hover:text-ink transition-colors duration-300">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                ];
+                return (
+                  <div key={h.title} className="group p-6 md:p-8 border-r border-b border-line bg-linen transition-all duration-300 flex flex-col justify-between h-full">
+                    <div>
+                      <div className="flex items-center justify-between mb-6">
+                        <span className="font-mono text-[0.75rem] text-ink-3">[ HIRE_{String(i + 1).padStart(2, "0")} ]</span>
+                        {icons[i]}
+                      </div>
+                      <h3 className="font-sans font-medium text-[1.1rem] text-ink mb-2">{h.title}</h3>
+                      <p className="text-[0.875rem] text-ink-2 leading-relaxed">{h.body}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </Stagger>
           </div>
         </section>
 
         {/* Hiring models */}
-        <section className="section" id="hiring-models">
+        <section className="section bg-linen border-t border-line" id="hiring-models">
           <div className="container-j">
             <div className="max-w-2xl mb-10 md:mb-12 flex flex-col gap-4">
               <SplitHeading className="text-[clamp(1.6rem,2.5vw,2.1rem)]">Flexible Hiring Models</SplitHeading>
               <Reveal><p className="text-ink-2 max-w-[58ch]">To achieve your performance goals and the scope of developing CUDA, use the appropriate engagement model.</p></Reveal>
             </div>
-            <Cards items={HIRING_MODELS} cols="sm:grid-cols-2 lg:grid-cols-4" />
+            
+            <Stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" itemClassName="h-full" step={0.06}>
+              {HIRING_MODELS.map((model, idx) => {
+                const isFeatured = idx === 0; // Full-Time is featured
+                const inclusions = [
+                  // Full-Time
+                  ["160 hours / month", "Direct Slack / Teams access", "Daily standups & updates", "15-day risk-free trial"],
+                  // Part-Time
+                  ["80 hours / month", "Flexible execution", "Weekly sprint reporting", "Direct developer contact"],
+                  // Time & Material
+                  ["Pay-as-you-go hourly", "Dynamic project scope", "Bi-weekly invoices", "Ideal for debugging & audits"],
+                  // Custom
+                  ["Custom resource scaling", "Multi-developer squads", "Enterprise SLA parameters", "Dedicated technical lead"]
+                ][idx];
+
+                return (
+                  <div
+                    key={model.title}
+                    className={`group relative h-full p-6 md:p-8 border transition-all duration-300 flex flex-col justify-between min-h-[380px] shadow-[4px_4px_0px_0px_var(--color-line)] ${
+                      isFeatured
+                        ? "bg-paper border-ink"
+                        : "bg-paper border-line hover:border-ink hover:translate-y-[-2px]"
+                    }`}
+                  >
+                    {isFeatured && (
+                      <div className="absolute top-0 right-6 -translate-y-1/2 bg-ink text-paper text-[0.65rem] font-mono tracking-widest px-2.5 py-1 border border-line uppercase">
+                        [ RECOMMENDED ]
+                      </div>
+                    )}
+                    <div>
+                      <div className="flex items-center justify-between border-b border-line/50 pb-4 mb-4">
+                        <h3 className="font-sans font-semibold text-[1.25rem] text-ink">{model.title}</h3>
+                        <span className="font-mono text-[0.8rem] text-ink-3">MOD_{String(idx + 1).padStart(2, "0")}</span>
+                      </div>
+                      <p className="text-[0.875rem] text-ink-2 leading-relaxed mb-6">{model.body}</p>
+                      
+                      <ul className="space-y-2.5 text-[0.8125rem] text-ink-2 font-mono">
+                        {inclusions.map((inc) => (
+                          <li key={inc} className="flex items-center gap-2">
+                            <span className="text-ink font-bold">✓</span>
+                            <span>{inc}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                );
+              })}
+            </Stagger>
           </div>
         </section>
 
@@ -225,7 +530,101 @@ export default function HireCudaContent() {
               <SplitHeading className="text-[clamp(1.6rem,2.5vw,2.1rem)]">Why Choose Us for CUDA Development?</SplitHeading>
               <Reveal><p className="text-ink-2 max-w-[58ch]">Partner with a CUDA-focused engineering team that blends deep GPU expertise with practical business execution. We assist companies in changing the compute-intensive systems into scalable and performance-oriented architectures.</p></Reveal>
             </div>
-            <Cards items={WHY_CHOOSE} />
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* Card 0: High-Impact GPU Acceleration (Col-span 2 on md+) */}
+              <div className="group border border-line bg-linen shadow-[4px_4px_0px_0px_var(--color-line)] p-6 md:p-8 md:col-span-2 flex flex-col justify-between hover:bg-paper transition-all duration-300 min-h-[260px]">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="font-mono text-[0.75rem] text-ink-3">[ VAL_01 / PERFORMANCE ]</span>
+                    <span className="font-mono text-[0.8rem] text-ink font-semibold animate-pulse">4.88x SPEEDUP</span>
+                  </div>
+                  <h3 className="font-sans font-semibold text-[1.25rem] text-ink mb-3">{WHY_CHOOSE[0].title}</h3>
+                  <p className="text-[0.875rem] text-ink-2 leading-relaxed max-w-[65ch]">{WHY_CHOOSE[0].body}</p>
+                </div>
+                <div className="mt-6 border border-line/30 bg-paper p-4 font-mono text-[0.75rem] space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-ink-3">LEGACY CPU-BASED PIPELINE:</span>
+                    <span className="text-ink-2">12.4s execution</span>
+                  </div>
+                  <div className="w-full bg-linen h-2 relative overflow-hidden border border-line">
+                    <div className="bg-ink-3 h-full w-[80%]"></div>
+                  </div>
+                  <div className="flex items-center justify-between mt-2">
+                    <span className="text-ink font-bold">OPTIMIZED CUDA COMPUTE:</span>
+                    <span className="text-ink font-bold">1.82s execution</span>
+                  </div>
+                  <div className="w-full bg-linen h-2 relative overflow-hidden border border-line">
+                    <div className="bg-ink h-full w-[15%]"></div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 1: Enterprise-Ready AI Systems */}
+              <div className="group border border-line bg-linen shadow-[4px_4px_0px_0px_var(--color-line)] p-6 md:p-8 flex flex-col justify-between hover:bg-paper transition-all duration-300 min-h-[260px]">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="font-mono text-[0.75rem] text-ink-3">[ VAL_02 / ARCHITECTURE ]</span>
+                  </div>
+                  <h3 className="font-sans font-semibold text-[1.25rem] text-ink mb-3">{WHY_CHOOSE[1].title}</h3>
+                  <p className="text-[0.875rem] text-ink-2 leading-relaxed">{WHY_CHOOSE[1].body}</p>
+                </div>
+              </div>
+
+              {/* Card 2: Secure Development Framework */}
+              <div className="group border border-line bg-linen shadow-[4px_4px_0px_0px_var(--color-line)] p-6 md:p-8 flex flex-col justify-between hover:bg-paper transition-all duration-300 min-h-[260px]">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="font-mono text-[0.75rem] text-ink-3">[ VAL_03 / COMPLIANCE ]</span>
+                  </div>
+                  <h3 className="font-sans font-semibold text-[1.25rem] text-ink mb-3">{WHY_CHOOSE[2].title}</h3>
+                  <p className="text-[0.875rem] text-ink-2 leading-relaxed">{WHY_CHOOSE[2].body}</p>
+                </div>
+              </div>
+
+              {/* Card 3: Accelerated Deployment Cycles */}
+              <div className="group border border-line bg-linen shadow-[4px_4px_0px_0px_var(--color-line)] p-6 md:p-8 flex flex-col justify-between hover:bg-paper transition-all duration-300 min-h-[260px]">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="font-mono text-[0.75rem] text-ink-3">[ VAL_04 / PROTOTYPE ]</span>
+                  </div>
+                  <h3 className="font-sans font-semibold text-[1.25rem] text-ink mb-3">{WHY_CHOOSE[3].title}</h3>
+                  <p className="text-[0.875rem] text-ink-2 leading-relaxed">{WHY_CHOOSE[3].body}</p>
+                </div>
+              </div>
+
+              {/* Card 4: Dedicated Technical Assistance */}
+              <div className="group border border-line bg-linen shadow-[4px_4px_0px_0px_var(--color-line)] p-6 md:p-8 flex flex-col justify-between hover:bg-paper transition-all duration-300 min-h-[260px]">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="font-mono text-[0.75rem] text-ink-3">[ VAL_05 / SUPPORT ]</span>
+                  </div>
+                  <h3 className="font-sans font-semibold text-[1.25rem] text-ink mb-3">{WHY_CHOOSE[4].title}</h3>
+                  <p className="text-[0.875rem] text-ink-2 leading-relaxed">{WHY_CHOOSE[4].body}</p>
+                </div>
+              </div>
+
+              {/* Card 5: Performance-Oriented Cost Strategy (Col-span 2 on md+) */}
+              <div className="group border border-line bg-linen shadow-[4px_4px_0px_0px_var(--color-line)] p-6 md:p-8 md:col-span-2 flex flex-col justify-between hover:bg-paper transition-all duration-300 min-h-[260px]">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="font-mono text-[0.75rem] text-ink-3">[ VAL_06 / STRATEGY ]</span>
+                    <span className="font-mono text-[0.8rem] text-ink font-semibold animate-pulse">65% CLOUD SAVINGS</span>
+                  </div>
+                  <h3 className="font-sans font-semibold text-[1.25rem] text-ink mb-3">{WHY_CHOOSE[5].title}</h3>
+                  <p className="text-[0.875rem] text-ink-2 leading-relaxed max-w-[65ch]">{WHY_CHOOSE[5].body}</p>
+                </div>
+                <div className="mt-6 border border-line/30 bg-paper p-4 font-mono text-[0.75rem] space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-ink-3">COMPUTE COST ON NVIDIA H100 PODS:</span>
+                  </div>
+                  <div className="flex items-center gap-4 text-[0.8rem]">
+                    <span className="text-ink-2 line-through">$42,500 / mo</span>
+                    <span className="text-ink font-bold">→ $14,875 / mo optimized</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 

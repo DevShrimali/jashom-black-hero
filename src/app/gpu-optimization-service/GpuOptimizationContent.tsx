@@ -7,6 +7,7 @@ import { Reveal, Stagger } from "@/components/motion/Reveal";
 import Counter from "@/components/motion/Counter";
 import Magnetic from "@/components/motion/Magnetic";
 import GpuHeroSvg from "./GpuHeroSvg";
+import { BLOG_POSTS } from "../blogs/blog-posts-data";
 
 /* ---- Source content (jashom.com/gpu-optimization-service) ---- */
 
@@ -42,7 +43,7 @@ const PROCESS = [
     title: "Assessment",
     body: "Assess existing GPU architecture, load, and establish specific optimization objectives.",
     icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <rect x="9" y="2" width="6" height="4" rx="1" />
         <path d="M9 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-3" />
         <path d="M9 12l2 2 4-4" />
@@ -54,7 +55,7 @@ const PROCESS = [
     title: "Analysis",
     body: "Gather real-time monitoring information and spot performance issues and performance bottlenecks.",
     icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <polyline points="2 12 6 5 10 16 14 9 18 13 22 8" />
         <line x1="2" y1="20" x2="22" y2="20" />
       </svg>
@@ -64,7 +65,7 @@ const PROCESS = [
     title: "Kernel Optimization",
     body: "Refine CUDA kernels and improve parallel execution balance.",
     icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <rect x="4" y="4" width="16" height="16" rx="1" />
         <line x1="9" y1="4" x2="9" y2="20" />
         <line x1="15" y1="4" x2="15" y2="20" />
@@ -78,13 +79,13 @@ const PROCESS = [
     title: "Tuning",
     body: "Expenses in runtime parameters and memory allocation, better throughput.",
     icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <line x1="4" y1="6" x2="20" y2="6" />
         <line x1="4" y1="12" x2="20" y2="12" />
         <line x1="4" y1="18" x2="20" y2="18" />
-        <circle cx="9" cy="6" r="2" fill="var(--color-paper,white)" />
-        <circle cx="15" cy="12" r="2" fill="var(--color-paper,white)" />
-        <circle cx="9" cy="18" r="2" fill="var(--color-paper,white)" />
+        <circle cx="9" cy="6" r="2" fill="currentColor" />
+        <circle cx="15" cy="12" r="2" fill="currentColor" />
+        <circle cx="9" cy="18" r="2" fill="currentColor" />
       </svg>
     ),
   },
@@ -92,7 +93,7 @@ const PROCESS = [
     title: "Testing",
     body: "Authenticate gains with validation checkpoints.",
     icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M12 3l8 4.5v5c0 4.5-3.5 8.5-8 9.5-4.5-1-8-5-8-9.5v-5z" />
         <polyline points="9 12 11 14 15 10" />
       </svg>
@@ -102,7 +103,7 @@ const PROCESS = [
     title: "Deployment",
     body: "Employ workloads that are optimized, monitored, and improved.",
     icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M12 2C8 6 7 10 7 13a5 5 0 0 0 10 0c0-3-1-7-5-11z" />
         <line x1="12" y1="18" x2="12" y2="22" />
         <line x1="8" y1="22" x2="16" y2="22" />
@@ -125,42 +126,42 @@ const MODELS = [
   {
     name: "GPT-4o",
     logo: "https://www.edigitalagency.com.au/wp-content/uploads/new-ChatGPT-logo-black-png-large-size.png",
-    cls: "h-14 md:h-16",
+    cls: "h-8 md:h-9",
   },
   {
     name: "Google Gemini",
     logo: "/brand-logo/gemini.png",
-    cls: "h-12 md:h-14",
+    cls: "h-7 md:h-8",
   },
   {
     name: "Claude",
     logo: "/brand-logo/clude.png",
-    cls: "h-14 md:h-16",
+    cls: "h-8 md:h-9",
   },
   {
     name: "Llama 3",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/a/ab/Meta-Logo.png",
-    cls: "h-12 md:h-14",
+    logo: "/brand-logo/Meta-Logo.png",
+    cls: "h-7 md:h-8",
   },
   {
     name: "Mistral",
     logo: "/brand-logo/mistral.png",
-    cls: "h-12 md:h-14",
+    cls: "h-7 md:h-8",
   },
   {
     name: "Hugging Face",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/d/d6/Hf-logo-with-title.svg",
-    cls: "h-12 md:h-14",
+    logo: "/brand-logo/Hugging-face.png",
+    cls: "h-8 md:h-9",
   },
   {
     name: "Stability AI",
     logo: "/brand-logo/stability-ai.png",
-    cls: "h-10 md:h-12",
+    cls: "h-6 md:h-7",
   },
   {
     name: "Ollama",
-    logo: "https://pnghdpro.com/wp-content/themes/pnghdpro/download/social-media-and-brands/ollama-logo-hd.png",
-    cls: "h-14 md:h-16",
+    logo: "/brand-logo/ollama-logo.png",
+    cls: "h-7 md:h-8",
   },
 ];
 
@@ -251,6 +252,10 @@ function OverviewSvg() {
 export default function GpuOptimizationContent() {
   const reduced = useReducedMotion();
   const [status, setStatus] = useState<"idle" | "sent">("idle");
+
+  const RELATED_BLOGS = BLOG_POSTS.filter((post) =>
+    ["what-is-gpu-optimization", "cpu-vs-gpu-computing", "nvidia-gpus-perfect-for-ai-workloads"].includes(post.slug)
+  );
 
   return (
     <>
@@ -352,14 +357,81 @@ export default function GpuOptimizationContent() {
                 </p>
               </Reveal>
             </div>
-            <Stagger className="grid sm:grid-cols-2 lg:grid-cols-3 border-t border-line" itemClassName="h-full" step={0.06}>
-              {CAPABILITIES.map((c) => (
-                <div key={c.title} className="group h-full p-5 md:p-6 border-b border-line hover:bg-tint transition-all duration-300">
-                  <h3 className="font-sans font-medium text-[1rem] text-ink mb-2">{c.title}</h3>
-                  <p className="text-[0.875rem] text-ink-2">{c.body}</p>
+            
+            <Stagger className="grid sm:grid-cols-2 lg:grid-cols-3 border-t border-l border-line bg-linen shadow-[6px_6px_0px_0px_var(--color-line)]" itemClassName="h-full" step={0.06}>
+              {/* Card 1: CUDA */}
+              <div className="group flex flex-col p-6 md:p-8 border-r border-b border-line bg-linen transition-all duration-300 h-full">
+                <div className="flex items-center justify-between mb-6 font-mono text-[0.75rem] text-ink-3">
+                  <span>[ OPT_01 ]</span>
+                  <span>CUDA INTERNALS</span>
                 </div>
-              ))}
+                <div className="h-24 flex items-center justify-center border border-line bg-paper p-3 mb-6 relative overflow-hidden group-hover:shadow-inner transition-shadow duration-300">
+                  <svg viewBox="0 0 200 80" className="w-full h-20 text-ink opacity-50 group-hover:opacity-100 transition-opacity duration-300" fill="none" stroke="currentColor" strokeWidth="1.2">
+                    <rect x="10" y="10" width="180" height="60" rx="2" strokeDasharray="3 3" />
+                    <text x="20" y="23" fontSize="8" fontFamily="var(--font-mono)" fill="currentColor" stroke="none">GRID BLOCK [32x8]</text>
+                    {[0, 1, 2, 3, 4, 5].map((i) => (
+                      <rect key={i} x={20 + i * 27} y={32} width="22" height="25" rx="1" className="group-hover:fill-ink/5 transition-all duration-300" />
+                    ))}
+                    <circle cx="26" cy="39" r="1.5" className="fill-ink animate-pulse" />
+                    <circle cx="36" cy="39" r="1.5" className="fill-ink animate-pulse" />
+                    <circle cx="26" cy="49" r="1.5" className="fill-ink animate-pulse" />
+                    <circle cx="36" cy="49" r="1.5" className="fill-ink animate-pulse" />
+                    <circle cx="53" cy="39" r="1.5" className="fill-ink animate-pulse [animation-delay:0.2s]" />
+                    <circle cx="63" cy="39" r="1.5" className="fill-ink animate-pulse [animation-delay:0.2s]" />
+                    <circle cx="53" cy="49" r="1.5" className="fill-ink animate-pulse [animation-delay:0.2s]" />
+                    <circle cx="63" cy="49" r="1.5" className="fill-ink animate-pulse [animation-delay:0.2s]" />
+                    <circle cx="80" cy="39" r="1.5" className="fill-ink animate-pulse [animation-delay:0.4s]" />
+                    <circle cx="90" cy="39" r="1.5" className="fill-ink animate-pulse [animation-delay:0.4s]" />
+                    <circle cx="80" cy="49" r="1.5" className="fill-ink animate-pulse [animation-delay:0.4s]" />
+                    <circle cx="90" cy="49" r="1.5" className="fill-ink animate-pulse [animation-delay:0.4s]" />
+                  </svg>
+                </div>
+                <h3 className="font-sans font-medium text-[1.1rem] text-ink mb-3">{CAPABILITIES[0].title}</h3>
+                <p className="text-[0.875rem] text-ink-2 leading-relaxed flex-1">{CAPABILITIES[0].body}</p>
+              </div>
+
+              {/* Card 2: AI/ML */}
+              <div className="group flex flex-col p-6 md:p-8 border-r border-b border-line bg-linen transition-all duration-300 h-full">
+                <div className="flex items-center justify-between mb-6 font-mono text-[0.75rem] text-ink-3">
+                  <span>[ OPT_02 ]</span>
+                  <span>PIPELINE ACCEL</span>
+                </div>
+                <div className="h-24 flex items-center justify-center border border-line bg-paper p-3 mb-6 relative overflow-hidden group-hover:shadow-inner transition-shadow duration-300">
+                  <svg viewBox="0 0 200 80" className="w-full h-20 text-ink opacity-50 group-hover:opacity-100 transition-opacity duration-300" fill="none" stroke="currentColor" strokeWidth="1.2">
+                    <path d="M10 40 L190 40" strokeDasharray="3 3" />
+                    <text x="15" y="23" fontSize="8" fontFamily="var(--font-mono)" fill="currentColor" stroke="none">BATCH PIPELINE</text>
+                    <circle cx="40" cy="40" r="8" className="fill-linen stroke-line" />
+                    <circle cx="100" cy="40" r="8" className="fill-linen stroke-line" />
+                    <circle cx="160" cy="40" r="8" className="fill-linen stroke-line" />
+                    <path d="M48 40 L92 40" strokeWidth="1" />
+                    <path d="M108 40 L152 40" strokeWidth="1" />
+                    <rect x="60" y="36" width="8" height="8" className="group-hover:translate-x-12 transition-transform duration-1000 ease-in-out fill-ink" />
+                    <rect x="120" y="36" width="8" height="8" className="group-hover:translate-x-12 transition-transform duration-1000 ease-in-out fill-ink" />
+                  </svg>
+                </div>
+                <h3 className="font-sans font-medium text-[1.1rem] text-ink mb-3">{CAPABILITIES[1].title}</h3>
+                <p className="text-[0.875rem] text-ink-2 leading-relaxed flex-1">{CAPABILITIES[1].body}</p>
+              </div>
+
+              {/* Card 3: Profiling */}
+              <div className="group flex flex-col p-6 md:p-8 border-r border-b border-line bg-linen transition-all duration-300 h-full">
+                <div className="flex items-center justify-between mb-6 font-mono text-[0.75rem] text-ink-3">
+                  <span>[ OPT_03 ]</span>
+                  <span>METRICS & TELEMETRY</span>
+                </div>
+                <div className="h-24 flex items-center justify-center border border-line bg-paper p-3 mb-6 relative overflow-hidden group-hover:shadow-inner transition-shadow duration-300">
+                  <svg viewBox="0 0 200 80" className="w-full h-20 text-ink opacity-50 group-hover:opacity-100 transition-opacity duration-300" fill="none" stroke="currentColor" strokeWidth="1.2">
+                    <text x="15" y="23" fontSize="8" fontFamily="var(--font-mono)" fill="currentColor" stroke="none">LATENCY: -72%</text>
+                    <path d="M20 15 L20 65 L180 65" />
+                    <path d="M20 50 L50 20 L80 45 L110 30 L140 60 L170 58" stroke="var(--color-ink-3)" strokeDasharray="2 2" />
+                    <path d="M20 50 L50 48 L80 52 L110 51 L140 53 L170 52" stroke="currentColor" strokeWidth="1.8" />
+                  </svg>
+                </div>
+                <h3 className="font-sans font-medium text-[1.1rem] text-ink mb-3">{CAPABILITIES[2].title}</h3>
+                <p className="text-[0.875rem] text-ink-2 leading-relaxed flex-1">{CAPABILITIES[2].body}</p>
+              </div>
             </Stagger>
+
             <Reveal className="mt-10">
               <Magnetic strength={0.18}>
                 <a href="/contact/" className="btn btn-primary">Get in Touch With Us</a>
@@ -379,10 +451,84 @@ export default function GpuOptimizationContent() {
                 </p>
               </Reveal>
             </div>
-            <Stagger className="grid sm:grid-cols-2 lg:grid-cols-4 border-t border-line" itemClassName="h-full" step={0.06}>
-              {INDUSTRIES.map((name) => (
-                <div key={name} className="h-full p-5 md:p-6 border-b border-line hover:bg-tint transition-all duration-300">
-                  <h3 className="font-sans font-medium text-[1rem] text-ink">{name}</h3>
+            
+            <Stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-l border-line bg-linen shadow-[6px_6px_0px_0px_var(--color-line)]" itemClassName="h-full" step={0.06}>
+              {[
+                {
+                  name: "AI & Machine Learning",
+                  desc: "Accelerating tensor core operations, mixed-precision training, and high-throughput LLM/diffusion inference execution pipelines.",
+                  svg: (
+                    <svg viewBox="0 0 100 60" className="w-full h-12 text-ink opacity-60 group-hover:opacity-100 transition-opacity duration-300" fill="none" stroke="currentColor" strokeWidth="1">
+                      <circle cx="15" cy="15" r="4" className="fill-linen" />
+                      <circle cx="15" cy="30" r="4" className="fill-linen" />
+                      <circle cx="15" cy="45" r="4" className="fill-linen" />
+                      <circle cx="50" cy="20" r="4" className="fill-linen" />
+                      <circle cx="50" cy="40" r="4" className="fill-linen" />
+                      <circle cx="85" cy="30" r="4" className="fill-linen" />
+                      <line x1="19" y1="15" x2="46" y2="20" />
+                      <line x1="19" y1="15" x2="46" y2="40" />
+                      <line x1="19" y1="30" x2="46" y2="20" />
+                      <line x1="19" y1="30" x2="46" y2="40" />
+                      <line x1="19" y1="45" x2="46" y2="20" />
+                      <line x1="19" y1="45" x2="46" y2="40" />
+                      <line x1="54" y1="20" x2="81" y2="30" />
+                      <line x1="54" y1="40" x2="81" y2="30" />
+                      <circle cx="50" cy="20" r="1.5" className="fill-ink animate-pulse" />
+                      <circle cx="85" cy="30" r="1.5" className="fill-ink animate-pulse [animation-delay:0.3s]" />
+                    </svg>
+                  )
+                },
+                {
+                  name: "Scientific Computing",
+                  desc: "Optimizing double-precision (FP64) linear algebra solvers, stencil computations, and multi-GPU message passing (NCCL) for large physical simulations.",
+                  svg: (
+                    <svg viewBox="0 0 100 60" className="w-full h-12 text-ink opacity-60 group-hover:opacity-100 transition-opacity duration-300" fill="none" stroke="currentColor" strokeWidth="1">
+                      <path d="M10 30 Q 25 10, 40 30 T 70 30 T 90 30" strokeDasharray="2 2" />
+                      <path d="M10 30 Q 25 45, 40 30 T 70 30 T 90 30" />
+                      <circle cx="25" cy="20" r="2" className="fill-ink animate-pulse" />
+                      <circle cx="55" cy="40" r="2" className="fill-ink animate-pulse [animation-delay:0.2s]" />
+                      <line x1="25" y1="20" x2="55" y2="40" strokeWidth="0.5" />
+                    </svg>
+                  )
+                },
+                {
+                  name: "Data Analytics",
+                  desc: "Streamlining parallel reduction operations, fast radix sort, and CUDA-accelerated databases for petabyte-scale real-time memory queries.",
+                  svg: (
+                    <svg viewBox="0 0 100 60" className="w-full h-12 text-ink opacity-60 group-hover:opacity-100 transition-opacity duration-300" fill="none" stroke="currentColor" strokeWidth="1">
+                      <rect x="10" y="10" width="22" height="15" rx="1" />
+                      <rect x="38" y="10" width="22" height="15" rx="1" />
+                      <rect x="66" y="10" width="22" height="15" rx="1" />
+                      <path d="M21 30 L50 48 M49 30 L50 48 M77 30 L50 48" strokeDasharray="2 2" />
+                      <rect x="38" y="40" width="22" height="12" rx="1" className="fill-linen" />
+                    </svg>
+                  )
+                },
+                {
+                  name: "Rendering & Graphics",
+                  desc: "Minimizing branch divergence in custom ray-tracing kernels, BVH traversal optimizations, and real-time viewport denoising algorithms.",
+                  svg: (
+                    <svg viewBox="0 0 100 60" className="w-full h-12 text-ink opacity-60 group-hover:opacity-100 transition-opacity duration-300" fill="none" stroke="currentColor" strokeWidth="1">
+                      <line x1="10" y1="30" x2="80" y2="10" strokeDasharray="2 2" />
+                      <line x1="10" y1="30" x2="80" y2="50" strokeDasharray="2 2" />
+                      <rect x="30" y="22" width="12" height="16" rx="1" className="fill-linen" />
+                      <rect x="70" y="12" width="20" height="36" rx="1" />
+                    </svg>
+                  )
+                }
+              ].map((ind, i) => (
+                <div key={ind.name} className="group flex flex-col justify-between p-6 md:p-8 border-r border-b border-line bg-linen transition-all duration-300 h-full">
+                  <div>
+                    <div className="flex items-center justify-between mb-6 font-mono text-[0.75rem] text-ink-3">
+                      <span>[ IND_0{i + 1} ]</span>
+                      <span className="uppercase tracking-wider">Vertical Segment</span>
+                    </div>
+                    <div className="h-20 flex items-center justify-center border border-line bg-paper p-3 mb-6 relative overflow-hidden group-hover:shadow-inner transition-shadow duration-300">
+                      {ind.svg}
+                    </div>
+                    <h3 className="font-sans font-medium text-[1.1rem] text-ink mb-3">{ind.name}</h3>
+                    <p className="text-[0.875rem] text-ink-2 leading-relaxed">{ind.desc}</p>
+                  </div>
                 </div>
               ))}
             </Stagger>
@@ -392,33 +538,53 @@ export default function GpuOptimizationContent() {
         {/* Process */}
         <section className="section bg-paper border-y border-line" id="process">
           <div className="container-j">
-            <div className="max-w-2xl mb-10 md:mb-12 flex flex-col gap-4">
-              <span className="font-mono text-[1rem] tracking-[0.25em] text-ink-3 uppercase font-medium">Our Process</span>
-              <SplitHeading className="text-[clamp(1.6rem,2.5vw,2.1rem)]">GPU Optimization Journey</SplitHeading>
-              <Reveal>
-                <p className="text-ink-2 max-w-[58ch]">A dedicated six-step model to attain regular improvement in the performance of GPUs.</p>
-              </Reveal>
-            </div>
-            <Stagger className="grid sm:grid-cols-2 lg:grid-cols-3 border-t border-line" itemClassName="h-full" step={0.05}>
-              {PROCESS.map((p, i) => (
-                <div key={p.title} className="group h-full p-5 md:p-6 border-b border-line hover:bg-tint transition-all duration-300 flex flex-col">
-                  {/* icon + step number row */}
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-ink-2 transition-colors duration-300 group-hover:text-ink">
-                      {p.icon}
-                    </span>
-                    <span className="font-mono text-[0.8rem] text-ink-3 tabular-nums">{String(i + 1).padStart(2, "0")}</span>
-                  </div>
-                  <h3 className="font-sans font-medium text-[1rem] text-ink mb-2">{p.title}</h3>
-                  <p className="text-[0.875rem] text-ink-2">{p.body}</p>
+            <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
+              {/* Left Column - Header info */}
+              <div className="lg:col-span-5 flex flex-col gap-4 lg:sticky lg:top-28 h-fit">
+                <span className="font-mono text-[1rem] tracking-[0.25em] text-ink-3 uppercase font-medium">Our Process</span>
+                <SplitHeading className="text-[clamp(1.6rem,2.5vw,2.1rem)]">GPU Optimization Journey</SplitHeading>
+                <Reveal><p className="text-ink font-medium text-[1.0625rem]">A Structured Workload Optimization Model</p></Reveal>
+                <Reveal delay={0.06}>
+                  <p className="text-ink-2 max-w-[45ch]">A dedicated six-step model to attain regular, measurable improvement in the performance of your GPU infrastructure.</p>
+                </Reveal>
+                <Reveal delay={0.12} className="mt-6 hidden lg:block">
+                  <Magnetic strength={0.18}>
+                    <a href="/contact/" className="btn btn-primary">Start Your Optimization Journey</a>
+                  </Magnetic>
+                </Reveal>
+              </div>
+
+              {/* Right Column - Step List */}
+              <div className="lg:col-span-7 flex flex-col">
+                <div className="border-t border-line">
+                  {PROCESS.map((p, i) => (
+                    <div key={p.title} className="group flex gap-6 p-6 border-b border-line hover:bg-tint transition-all duration-300">
+                      {/* Step details Left Column */}
+                      <div className="flex flex-col items-center">
+                        <span className="font-mono text-[1.25rem] text-ink font-semibold tabular-nums leading-none">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <div className="w-px flex-1 bg-line/60 my-3 group-last:hidden" />
+                        <div className="w-8 h-8 rounded-full border border-line flex items-center justify-center bg-paper text-ink-2 group-hover:text-ink group-hover:border-ink transition-colors duration-300">
+                          {p.icon}
+                        </div>
+                      </div>
+
+                      {/* Step details Right Column */}
+                      <div className="flex-1 pt-0.5">
+                        <h3 className="font-sans font-medium text-[1.0625rem] text-ink mb-2 group-hover:text-ink transition-colors duration-200">{p.title}</h3>
+                        <p className="text-[0.875rem] text-ink-2 max-w-[55ch] leading-relaxed">{p.body}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </Stagger>
-            <Reveal className="mt-10">
-              <Magnetic strength={0.18}>
-                <a href="/contact/" className="btn btn-primary">Start Your Optimization Journey</a>
-              </Magnetic>
-            </Reveal>
+                <div className="mt-8 block lg:hidden px-6">
+                  <Magnetic strength={0.18}>
+                    <a href="/contact/" className="btn btn-primary w-full text-center">Start Your Optimization Journey</a>
+                  </Magnetic>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -446,46 +612,61 @@ export default function GpuOptimizationContent() {
         <section className="section" id="benefits">
           <div className="container-j">
             <div className="max-w-2xl mb-10 md:mb-12">
-              <SplitHeading className="text-[clamp(1.6rem,2.5vw,2.1rem)]">Business Benefits of GPU Optimization</SplitHeading>
+              <span className="font-mono text-[1rem] tracking-[0.25em] text-ink-3 uppercase font-medium">Benefits</span>
+              <SplitHeading className="text-[clamp(1.6rem,2.5vw,2.1rem)] mt-2">Business Benefits of GPU Optimization</SplitHeading>
             </div>
-            <Stagger className="grid sm:grid-cols-2 lg:grid-cols-3 border-t border-line" itemClassName="h-full" step={0.05}>
-              {BENEFITS.map((b) => (
-                <div key={b.title} className="group h-full p-5 md:p-6 border-b border-line hover:bg-tint transition-all duration-300">
-                  <h3 className="font-sans font-medium text-[1rem] text-ink mb-2">{b.title}</h3>
-                  <p className="text-[0.875rem] text-ink-2">{b.body}</p>
+
+            <div className="flex flex-col border-t border-line">
+              {BENEFITS.map((b, i) => (
+                <div 
+                  key={b.title} 
+                  className="group grid md:grid-cols-12 gap-4 md:gap-8 py-8 px-4 border-b border-line hover:bg-tint/40 transition-colors duration-300 items-start"
+                >
+                  {/* Left Column: Number & Title */}
+                  <div className="md:col-span-4 flex gap-4 items-start">
+                    <span className="font-mono text-xs text-ink-3 tabular-nums pt-1">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="font-sans font-medium text-[1.125rem] text-ink leading-snug">
+                      {b.title}
+                    </h3>
+                  </div>
+
+                  {/* Right Column: Description */}
+                  <div className="md:col-span-8 flex justify-between items-start gap-4">
+                    <p className="text-[0.9375rem] text-ink-2 leading-relaxed max-w-[62ch]">
+                      {b.body}
+                    </p>
+                    <div className="hidden sm:block text-ink-3 group-hover:text-ink transform translate-x-[-10px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300 pt-1">
+                      <svg width="18" height="18" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
               ))}
-            </Stagger>
+            </div>
           </div>
         </section>
 
         {/* AI models */}
         <section className="section bg-paper border-y border-line" id="models">
           <div className="container-j">
-            <div className="max-w-2xl mb-10">
-              <SplitHeading className="text-[clamp(1.6rem,2.5vw,2.1rem)]">AI Models We Have Expertise In</SplitHeading>
+            <div className="max-w-2xl mb-10 md:mb-12">
+              <span className="font-mono text-[1rem] tracking-[0.25em] text-ink-3 uppercase font-medium">Expertise</span>
+              <SplitHeading className="text-[clamp(1.6rem,2.5vw,2.1rem)] mt-2">AI Models We Have Expertise In</SplitHeading>
             </div>
-            {/* 5-per-row logo grid, last row centered */}
+            
+            {/* Unified 8-logo grid with perfect responsive columns */}
             <div className="max-w-5xl mx-auto">
-              {/* Row 1: first 5 logos */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 border-t border-l border-line bg-linen shadow-[6px_6px_0px_0px_var(--color-line)]">
-                {MODELS.slice(0, 5).map((m) => (
+              <div className="grid grid-cols-2 sm:grid-cols-4 border-t border-l border-line bg-linen shadow-[6px_6px_0px_0px_var(--color-line)]">
+                {MODELS.map((m) => (
                   <div key={m.name}
-                    className="group flex flex-col items-center justify-center gap-4 py-10 px-6 min-h-[150px] border-r border-b border-line hover:bg-tint/50 transition-colors duration-300">
-                    <img src={m.logo} alt={m.name}
-                      className={`${m.cls} w-auto max-w-[80%] object-contain transition-all duration-300`} />
-                    <span className="font-mono text-[0.7rem] text-ink-3 uppercase tracking-wider transition-colors duration-200 group-hover:text-ink">{m.name}</span>
-                  </div>
-                ))}
-              </div>
-              {/* Row 2: remaining 3 logos, centered */}
-              <div className="flex justify-center border-l border-line bg-linen">
-                {MODELS.slice(5).map((m) => (
-                  <div key={m.name}
-                    style={{ width: "20%" }}
-                    className="group flex flex-col items-center justify-center gap-4 py-10 px-6 min-h-[150px] border-r border-b border-line hover:bg-tint/50 transition-colors duration-300">
-                    <img src={m.logo} alt={m.name}
-                      className={`${m.cls} w-auto max-w-[80%] object-contain transition-all duration-300`} />
+                    className="group flex flex-col items-center justify-center gap-4 py-8 px-6 min-h-[140px] border-r border-b border-line hover:bg-tint/50 transition-colors duration-300">
+                    <div className="h-16 flex items-center justify-center">
+                      <img src={m.logo} alt={m.name}
+                        className={`${m.cls} w-auto max-w-[80%] object-contain filter grayscale contrast-[0.8] opacity-60 group-hover:grayscale-0 group-hover:contrast-100 group-hover:opacity-100 transition-all duration-300`} />
+                    </div>
                     <span className="font-mono text-[0.7rem] text-ink-3 uppercase tracking-wider transition-colors duration-200 group-hover:text-ink">{m.name}</span>
                   </div>
                 ))}
@@ -495,24 +676,41 @@ export default function GpuOptimizationContent() {
         </section>
 
         {/* Why choose us */}
-        <section className="section" id="why">
+        <section className="section bg-paper border-y border-line" id="why">
           <div className="container-j">
-            <div className="max-w-2xl mb-10 md:mb-12">
-              <SplitHeading className="text-[clamp(1.6rem,2.5vw,2.1rem)]">Why Choose Us for GPU Optimization?</SplitHeading>
+            <div className="max-w-2xl mb-12">
+              <span className="font-mono text-[1rem] tracking-[0.25em] text-ink-3 uppercase font-medium">Validation</span>
+              <SplitHeading className="text-[clamp(1.6rem,2.5vw,2.1rem)] mt-2">Why Choose Us for GPU Optimization?</SplitHeading>
             </div>
-            <Stagger className="grid md:grid-cols-3 border-t border-line" itemClassName="h-full" step={0.06}>
-              {WHY.map((w) => (
-                <div key={w.title} className="group h-full p-5 md:p-6 border-b border-line hover:bg-tint transition-all duration-300">
-                  <h3 className="font-sans font-medium text-[1rem] text-ink mb-2">{w.title}</h3>
-                  <p className="text-[0.875rem] text-ink-2">{w.body}</p>
-                </div>
-              ))}
-            </Stagger>
+            
+            <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+              {WHY.map((w, i) => {
+                const whyIcons = [
+                  // Advanced Parallel Computing Expertise
+                  <svg key="1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" /><path d="M12 2v20M2 12h20M12 12l5.5-5.5M12 12L6.5 6.5M12 12l5.5 5.5M12 12l-5.5 5.5" /></svg>,
+                  // Results Backed by Data
+                  <svg key="2" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="20" x2="18" y2="10" /><line x1="12" y1="20" x2="12" y2="4" /><line x1="6" y1="20" x2="6" y2="14" /></svg>,
+                  // Optimization Built Around Your Workload
+                  <svg key="3" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /></svg>
+                ];
+                return (
+                  <Reveal key={w.title} delay={i * 0.08} className="h-full">
+                    <div className="group h-full p-6 md:p-8 bg-linen border border-line shadow-[4px_4px_0px_0px_var(--color-line)] hover:shadow-[8px_8px_0px_0px_var(--color-line)] transition-all duration-300 flex flex-col items-start translate-y-0 hover:-translate-y-1">
+                      <div className="w-12 h-12 rounded-full border border-line flex items-center justify-center bg-white text-ink-2 group-hover:text-ink group-hover:border-ink group-hover:bg-tint transition-all duration-300 mb-6">
+                        {whyIcons[i]}
+                      </div>
+                      <h3 className="font-sans font-medium text-[1.125rem] text-ink mb-3 group-hover:text-ink transition-colors duration-200">{w.title}</h3>
+                      <p className="text-[0.875rem] text-ink-2 leading-relaxed">{w.body}</p>
+                    </div>
+                  </Reveal>
+                );
+              })}
+            </div>
           </div>
         </section>
 
         {/* Testimonials */}
-        <section className="section bg-paper border-y border-line" id="testimonials">
+        <section className="section" id="testimonials">
           <div className="container-j">
             <div className="grid lg:grid-cols-12 gap-6 items-end mb-10 md:mb-12">
               <div className="lg:col-span-8 flex flex-col gap-4">
@@ -560,6 +758,93 @@ export default function GpuOptimizationContent() {
                 </details>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Related Blogs */}
+        <section className="section border-t border-line" id="related-blogs">
+          <div className="container-j">
+            <div className="flex flex-wrap items-center justify-between gap-6 mb-12">
+              <div className="flex flex-col gap-2">
+                <span className="font-mono text-[1rem] tracking-[0.25em] text-ink-3 uppercase font-medium">Resources</span>
+                <SplitHeading className="text-[clamp(1.6rem,2.5vw,2.1rem)]">
+                  Related Insights
+                </SplitHeading>
+              </div>
+              <Reveal>
+                <a
+                  href="/blogs/"
+                  className="border border-ink px-5 py-2.5 font-mono text-[0.75rem] uppercase tracking-wider hover:bg-ink hover:text-warmwhite transition-colors duration-300 font-medium"
+                >
+                  View All Insights
+                </a>
+              </Reveal>
+            </div>
+
+            <Stagger className="grid md:grid-cols-3 gap-6" itemClassName="h-full" step={0.07}>
+              {RELATED_BLOGS.map((p) => (
+                <a
+                  key={p.slug}
+                  href={`/blogs/${p.slug}/`}
+                  className="bg-transparent border border-line hover:bg-paper group flex flex-col p-6 md:p-7 h-full transition-all duration-300"
+                >
+                  {/* Blog Post Image */}
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-tint mb-6">
+                    <img
+                      src={p.image}
+                      alt={p.title}
+                      className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                    />
+                  </div>
+
+                  {/* Tag / Category */}
+                  <p className="font-mono text-[0.75rem] text-ink-3 uppercase tracking-wider mb-2.5">
+                    {p.category}
+                  </p>
+
+                  {/* Title */}
+                  <h3 className="font-sans font-medium text-[1.2rem] leading-snug text-ink mb-3 group-hover:underline decoration-1 underline-offset-4 transition-colors">
+                    {p.title}
+                  </h3>
+
+                  {/* Badges */}
+                  <div className="flex flex-wrap gap-1.5 mb-6">
+                    {p.tags.map((t) => (
+                      <span
+                        key={t}
+                        className="font-mono text-[0.7rem] uppercase tracking-wider text-ink-2 bg-tint border border-line/60 px-2 py-0.5 rounded-sm"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Footer Metadata */}
+                  <div className="mt-auto pt-4 border-t border-line/40 flex items-center justify-between">
+                    <span className="font-mono text-[0.75rem] text-ink-3 uppercase tracking-wider font-medium">
+                      Read Article
+                    </span>
+                    <span className="inline-block transition-all duration-300 group-hover:translate-x-1.5 text-ink-3 group-hover:text-ink">
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 15 15"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-3.5 h-3.5"
+                      >
+                        <path
+                          d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                          fill="currentColor"
+                          fillRule="evenodd"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </a>
+              ))}
+            </Stagger>
           </div>
         </section>
 

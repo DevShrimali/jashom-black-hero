@@ -79,7 +79,7 @@ export default function MeetingDrawer({ isOpen, onClose }: MeetingDrawerProps) {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: "120%", opacity: 0.8 }}
             transition={{ type: "spring", damping: 30, stiffness: 280 }}
-            className="fixed right-4 md:right-6 top-4 md:top-6 bottom-4 md:bottom-6 z-[101] w-[calc(100%-2rem)] sm:w-[500px] md:w-[45%] max-w-[560px] bg-white border border-line shadow-[0_20px_50px_rgba(17,17,19,0.15)] rounded-2xl flex flex-col overflow-hidden"
+            className="fixed right-0 top-0 bottom-0 z-[101] w-full sm:w-[480px] bg-white border-l border-line shadow-[-10px_0_40px_rgba(17,17,19,0.08)] flex flex-col overflow-hidden"
             style={{
               background: "#ffffff",
               color: "#111113",
@@ -130,9 +130,9 @@ export default function MeetingDrawer({ isOpen, onClose }: MeetingDrawerProps) {
             </div>
 
             {/* Drawer Body */}
-            <div className="flex-1 overflow-y-auto p-6 flex flex-col justify-center">
+            <div className="flex-1 overflow-y-auto p-6 flex flex-col justify-start">
               {status === "sent" ? (
-                <div className="flex flex-col items-center justify-center text-center p-6 border border-line bg-linen rounded-xl">
+                <div className="flex flex-col items-center justify-center text-center p-6 border border-line bg-linen my-auto">
                   <div className="w-12 h-12 border border-line rounded-full flex items-center justify-center mb-4 bg-tint text-ink">
                     <svg
                       width="20"
@@ -163,111 +163,110 @@ export default function MeetingDrawer({ isOpen, onClose }: MeetingDrawerProps) {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={onSubmit} className="flex flex-col gap-4">
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div className="flex flex-col gap-1">
-                      <label htmlFor="drawer-name" className="text-xs font-medium text-ink-2">
-                        Name *
-                      </label>
-                      <input
-                        id="drawer-name"
-                        name="name"
-                        required
-                        autoComplete="name"
-                        className="field-j !py-2 text-sm"
-                        placeholder="Your name"
-                      />
-                    </div>
-                    <div className="flex flex-col gap-1">
-                      <label htmlFor="drawer-email" className="text-xs font-medium text-ink-2">
-                        Email *
-                      </label>
-                      <input
-                        id="drawer-email"
-                        name="email"
-                        type="email"
-                        required
-                        autoComplete="email"
-                        className="field-j !py-2 text-sm"
-                        placeholder="you@company.com"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div className="flex flex-col gap-1">
-                      <label htmlFor="drawer-company" className="text-xs font-medium text-ink-2">
-                        Company
-                      </label>
-                      <input
-                        id="drawer-company"
-                        name="company"
-                        autoComplete="organization"
-                        className="field-j !py-2 text-sm"
-                        placeholder="Company name"
-                      />
-                    </div>
-                    <div className="flex flex-col gap-1">
-                      <label htmlFor="drawer-phone" className="text-xs font-medium text-ink-2">
-                        Phone
-                      </label>
-                      <input
-                        id="drawer-phone"
-                        name="phone"
-                        type="tel"
-                        autoComplete="tel"
-                        className="field-j !py-2 text-sm"
-                        placeholder="+91"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col gap-1">
-                    <label htmlFor="drawer-service" className="text-xs font-medium text-ink-2">
-                      Service interest *
-                    </label>
-                    <select
-                      id="drawer-service"
-                      name="service"
+                <form onSubmit={onSubmit} className="flex flex-col gap-3">
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    <input
+                      id="drawer-name"
+                      name="name"
                       required
-                      defaultValue=""
-                      className="field-j !py-2 text-sm"
-                    >
-                      <option value="" disabled>
-                        Select a service
-                      </option>
-                      {SERVICES.map((s) => (
-                        <option key={s} value={s}>
-                          {s}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div className="flex flex-col gap-1">
-                    <label htmlFor="drawer-message" className="text-xs font-medium text-ink-2">
-                      Project description *
-                    </label>
-                    <textarea
-                      id="drawer-message"
-                      name="message"
-                      rows={3}
+                      autoComplete="name"
+                      className="field-j !py-2.5 text-sm"
+                      placeholder="Name *"
+                    />
+                    <input
+                      id="drawer-email"
+                      name="email"
+                      type="email"
                       required
-                      className="field-j !py-2 text-sm resize-y"
-                      placeholder="What are you running, and how fast does it need to be?"
+                      autoComplete="email"
+                      className="field-j !py-2.5 text-sm"
+                      placeholder="Email *"
                     />
                   </div>
 
-                  <div className="pt-3 border-t border-line/60 flex flex-col gap-3">
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    <input
+                      id="drawer-company"
+                      name="company"
+                      autoComplete="organization"
+                      className="field-j !py-2.5 text-sm"
+                      placeholder="Company"
+                    />
+                    <input
+                      id="drawer-phone"
+                      name="phone"
+                      type="tel"
+                      autoComplete="tel"
+                      className="field-j !py-2.5 text-sm"
+                      placeholder="Phone"
+                    />
+                  </div>
+
+                  <select
+                    id="drawer-service"
+                    name="service"
+                    required
+                    defaultValue=""
+                    className="field-j !py-2.5 text-sm"
+                  >
+                    <option value="" disabled>
+                      Select service interest *
+                    </option>
+                    {SERVICES.map((s) => (
+                      <option key={s} value={s}>
+                        {s}
+                      </option>
+                    ))}
+                  </select>
+
+                  <textarea
+                    id="drawer-message"
+                    name="message"
+                    rows={2}
+                    required
+                    className="field-j !py-2.5 text-sm resize-none"
+                    placeholder="Project description * (workload type, performance targets, etc.)"
+                  />
+
+                  <div className="pt-2.5 border-t border-line/60 flex flex-col gap-2.5">
                     <p className="text-[0.7rem] text-ink-3">
                       * Required fields. Your details are used only to respond to this inquiry.
                     </p>
                     <button 
                       type="submit" 
-                      className="w-full py-3 text-[0.8rem] uppercase tracking-wider font-mono font-medium bg-[#111113] hover:bg-black text-white hover:text-white border border-[#111113] transition-colors duration-200 cursor-pointer"
+                      className="btn w-full cursor-pointer !bg-[#111113] hover:!bg-black !text-white !border-[#111113] shadow-[inset_0_-3px_0_0_rgba(255,255,255,0.15),inset_-3px_0_0_0_rgba(255,255,255,0.15),0_2px_4px_rgba(17,17,19,0.1)] active:shadow-[inset_0_-1px_0_0_rgba(255,255,255,0.15),inset_-1px_0_0_0_rgba(255,255,255,0.15),0_1px_2px_rgba(17,17,19,0.1)] transition-all duration-200"
                     >
                       Send Message
                     </button>
+                  </div>
+
+                  {/* Trust / Context Panel */}
+                  <div className="mt-4 pt-4 border-t border-line/60 grid grid-cols-2 gap-3">
+                    <div className="flex gap-2.5">
+                      <div className="w-7 h-7 rounded-none border border-line bg-linen flex items-center justify-center text-ink shrink-0">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <rect x="3" y="11" width="18" height="11" rx="0" />
+                          <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 className="font-sans font-medium text-[0.75rem] text-ink leading-tight">IP Protection</h4>
+                        <p className="text-[0.65rem] text-ink-3 mt-0.5 leading-snug">Instant NDA compliance.</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex gap-2.5">
+                      <div className="w-7 h-7 rounded-none border border-line bg-linen flex items-center justify-center text-ink shrink-0">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <circle cx="12" cy="12" r="10" />
+                          <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 className="font-sans font-medium text-[0.75rem] text-ink leading-tight">Expert Response</h4>
+                        <p className="text-[0.65rem] text-ink-3 mt-0.5 leading-snug">Direct contact in 24h.</p>
+                      </div>
+                    </div>
                   </div>
                 </form>
               )}
